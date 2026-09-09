@@ -63,6 +63,12 @@
 
     .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;
       padding:0 clamp(24px,6vw,72px);max-width:1100px}
+    .hero .portrait{width:clamp(92px,10vw,128px);height:clamp(92px,10vw,128px);border-radius:28px;object-fit:cover;
+      display:block;margin-bottom:36px;border:1px solid rgba(200,180,138,.45);
+      box-shadow:0 0 0 7px rgba(200,180,138,.08),0 20px 44px rgba(0,0,0,.55);
+      transition:transform .4s cubic-bezier(.22,1,.36,1),border-color .4s;animation:portrait-in .9s cubic-bezier(.22,1,.36,1) both}
+    .hero .portrait:hover{transform:scale(1.05) rotate(-2deg);border-color:var(--accent)}
+    @keyframes portrait-in{from{opacity:0;transform:translateY(18px) scale(.94)}to{opacity:1;transform:none}}
     .hero h1{font-size:clamp(2.6rem,7.5vw,5rem);font-weight:800;letter-spacing:-.035em;line-height:1.08}
     .hero .accent{color:var(--accent)}
     .rotator{display:inline-grid;white-space:nowrap}
@@ -161,6 +167,7 @@
   </nav>
 
   <header class="hero" id="top">
+    <img class="portrait" src="Assets/Profile-picture.png" alt="Portrait of Muhammad Hassaan" loading="eager">
     <h1>I'm Muhammad Hassaan.<br>I love to <span class="rotator"><span class="rot on">build</span><span class="rot">mentor</span><span class="rot">impact&nbsp;people</span></span><span class="accent">.</span></h1>
     <p class="sub"><b>Founder ×3</b> · MBA candidate at Masters' Union · Building <b>Raah.AI</b> · New Delhi, IN</p>
     <div class="scroll-cue">Scroll to explore ↓</div>
