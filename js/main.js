@@ -8,6 +8,44 @@
   var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var d = document;
 
+  /* ---------- intro launch animation (once per session) ---------- */
+  var intro = d.getElementById('intro');
+  if (intro) {
+    var SKIP = 'mh-intro-done';
+    var seen = false;
+    try { seen = sessionStorage.getItem(SKIP) === '1'; } catch (e) {}
+
+    var finishIntro = function () {
+      intro.classList.add('done');
+      try { sessionStorage.setItem(SKIP, '1'); } catch (e) {}
+      setTimeout(function () { if (intro.parentNode) intro.parentNode.removeChild(intro); }, 900);
+    };
+
+    if (seen || reduced) {
+      intro.classList.add('skip');
+      finishIntro();
+    } else {
+      var nameEl = d.getElementById('introName');
+      var tag = intro.querySelector('.intro-tag');
+      var name = (nameEl.textContent || '').trim();
+      nameEl.textContent = '';
+      var letters = name.split('').map(function (ch, i) {
+        var s = d.createElement('span');
+        s.className = 'L';
+        s.innerHTML = ch === ' ' ? '&nbsp;' : ch;
+        s.style.animationDelay = (0.45 + i * 0.055) + 's';
+        nameEl.appendChild(s);
+        return s;
+      });
+      var lastDelay = 0.45 + (letters.length - 1) * 0.055;
+      var tagDelay = lastDelay + 0.55;
+      tag.style.setProperty('--tag-delay', tagDelay + 's');
+      tag.classList.add('show');
+      var total = (tagDelay + 1.15) * 1000;
+      setTimeout(finishIntro, total);
+    }
+  }
+
   /* ---------- theme toggle (remembers visitor choice) ---------- */
   var KEY = 'mh-theme';
   var root = d.documentElement;
