@@ -1,14 +1,16 @@
 /* ============================================================
-   Muhammad Hassaan — v4 behaviors
-   theme toggle → nav scroll state → mobile sheet → progress →
-   reveal on scroll → count-up stats → FAQ exclusivity → anchors
+   Muhammad Hassaan — master rebuild behaviors
+   intro launch · nav scrolled state · active link highlighting ·
+   scroll reveals · count-up stats · project expansion ·
+   portrait parallax · mobile sheet · smooth anchors
    ============================================================ */
 (function () {
   'use strict';
-  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var d = document;
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.className = 'js-on';
 
-  /* ---------- intro launch animation (once per session) ---------- */
+  /* ---------- intro launch (once per session) ---------- */
   var intro = d.getElementById('intro');
   if (intro) {
     var SKIP = 'mh-intro-done';
@@ -29,38 +31,21 @@
       var tag = intro.querySelector('.intro-tag');
       var name = (nameEl.textContent || '').trim();
       nameEl.textContent = '';
-      var letters = name.split('').map(function (ch, i) {
+      name.split('').forEach(function (ch, i) {
+        if (ch === ' ') return;
         var s = d.createElement('span');
-        s.className = 'L';
-        s.innerHTML = ch === ' ' ? '&nbsp;' : ch;
-        s.style.animationDelay = (0.45 + i * 0.055) + 's';
+        s.className = 'L' + (ch === '·' ? ' mid' : '');
+        s.innerHTML = ch;
+        s.style.animationDelay = (0.35 + i * 0.05) + 's';
         nameEl.appendChild(s);
-        return s;
       });
-      var lastDelay = 0.45 + (letters.length - 1) * 0.055;
-      var tagDelay = lastDelay + 0.55;
-      tag.style.setProperty('--tag-delay', tagDelay + 's');
+      var lastDelay = 0.35 + (name.length - 1) * 0.05;
+      var tagDelay = lastDelay + 0.5;
       tag.classList.add('show');
-      var total = (tagDelay + 1.15) * 1000;
-      setTimeout(finishIntro, total);
+      tag.style.animationDelay = tagDelay + 's';
+      setTimeout(finishIntro, (tagDelay + 1.3) * 1000);
     }
   }
-
-  /* ---------- theme toggle (remembers visitor choice) ---------- */
-  var KEY = 'mh-theme';
-  var root = d.documentElement;
-  var saved = null;
-  try { saved = localStorage.getItem(KEY); } catch (e) {}
-  if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
-  else root.setAttribute('data-theme', 'light'); // milky white by default
-
-  d.querySelectorAll('.theme-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      try { localStorage.setItem(KEY, next); } catch (e) {}
-    });
-  });
 
   /* ---------- nav scrolled state + progress bar ---------- */
   var nav = d.querySelector('.nav');
@@ -76,24 +61,25 @@
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---------- mobile sheet ---------- */
-  var burger = d.querySelector('.burger');
-  var sheet = d.getElementById('sheet');
-  if (burger && sheet) {
-    burger.addEventListener('click', function () {
-      var open = sheet.classList.toggle('open');
-      burger.classList.toggle('open', open);
-      burger.setAttribute('aria-expanded', String(open));
-      d.documentElement.style.overflow = open ? 'hidden' : '';
+  /* ---------- active link highlighting ---------- */
+  var links = Array.prototype.slice.call(d.querySelectorAll('.nav-links a[href^="#"]'));
+  var sections = links
+    .map(function (a) { return d.querySelector(a.getAttribute('href')); })
+    .filter(Boolean);
+
+  var onScrollActive = function () {
+    var y = scrollY + 140;
+    var current = sections.length ? sections[0] : null;
+    sections.forEach(function (s) {
+      if (s.offsetTop <= y) current = s;
     });
-    sheet.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        sheet.classList.remove('open');
-        burger.classList.remove('open');
-        burger.setAttribute('aria-expanded', 'false');
-        d.documentElement.style.overflow = '';
-      });
+    links.forEach(function (a) {
+      a.classList.toggle('active', !!current && a.getAttribute('href') === '#' + current.id);
     });
+  };
+  if (sections.length) {
+    addEventListener('scroll', onScrollActive, { passive: true });
+    onScrollActive();
   }
 
   /* ---------- reveal on scroll ---------- */
@@ -130,23 +116,74 @@
   }, { threshold: 0.4 });
   d.querySelectorAll('[data-count]').forEach(function (el) { cio.observe(el); });
 
-  /* ---------- FAQ: close others when one opens ---------- */
-  var faqs = d.querySelectorAll('.faq details');
-  faqs.forEach(function (det) {
-    det.addEventListener('toggle', function () {
-      if (det.open) faqs.forEach(function (o) { if (o !== det) o.open = false; });
+  /* ---------- project expansion ---------- */
+  d.querySelectorAll('.project .p-top').forEach(function (top) {
+    top.setAttribute('role', 'button');
+    top.setAttribute('tabindex', '0');
+    top.setAttribute('aria-expanded', 'false');
+    var project = top.closest('.project');
+    var toggle = top.querySelector('.p-toggle');
+    var setOpen = function (open) {
+      project.classList.toggle('expanded', open);
+      top.setAttribute('aria-expanded', String(open));
+      if (toggle) toggle.textContent = open ? '…less' : '…more';
+    };
+    top.addEventListener('click', function () { setOpen(!project.classList.contains('expanded')); });
+    top.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setOpen(!project.classList.contains('expanded')); }
     });
   });
 
-  /* ---------- expandable project cards: one open at a time ---------- */
-  var pds = d.querySelectorAll('.pdetail');
-  pds.forEach(function (det) {
-    det.addEventListener('toggle', function () {
-      if (det.open) pds.forEach(function (o) { if (o !== det) o.open = false; });
-    });
-  });
+  /* ---------- portrait parallax (desktop only, fine pointer) ---------- */
+  var portraitWrap = d.getElementById('portraitWrap');
+  var desktopMQ = matchMedia('(min-width: 901px)');
+  if (portraitWrap && !reduced && matchMedia('(pointer:fine)').matches) {
+    var tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
+    var clearTransform = function () {
+      portraitWrap.style.transform = '';
+      tx = ty = cx = cy = 0;
+    };
+    var tick = function () {
+      if (!desktopMQ.matches) { clearTransform(); raf = null; return; }
+      cx += (tx - cx) * 0.06;
+      cy += (ty - cy) * 0.06;
+      portraitWrap.style.transform = 'translateY(-46%) translate(' + cx.toFixed(2) + 'px,' + cy.toFixed(2) + 'px)';
+      if (Math.abs(tx - cx) > 0.1 || Math.abs(ty - cy) > 0.1) {
+        raf = requestAnimationFrame(tick);
+      } else {
+        raf = null;
+      }
+    };
+    addEventListener('mousemove', function (e) {
+      if (!desktopMQ.matches) return;
+      tx = (e.clientX / innerWidth - 0.5) * 14;
+      ty = (e.clientY / innerHeight - 0.5) * 10;
+      if (!raf) raf = requestAnimationFrame(tick);
+    }, { passive: true });
+    desktopMQ.addEventListener ? desktopMQ.addEventListener('change', clearTransform) : desktopMQ.addListener(clearTransform);
+  }
 
-  /* ---------- smooth anchors (offset for floating pill) ---------- */
+  /* ---------- mobile sheet ---------- */
+  var burger = d.querySelector('.burger');
+  var sheet = d.getElementById('sheet');
+  if (burger && sheet) {
+    burger.addEventListener('click', function () {
+      var open = sheet.classList.toggle('open');
+      burger.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', String(open));
+      d.documentElement.style.overflow = open ? 'hidden' : '';
+    });
+    sheet.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        sheet.classList.remove('open');
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+        d.documentElement.style.overflow = '';
+      });
+    });
+  }
+
+  /* ---------- smooth anchors (offset for fixed nav) ---------- */
   d.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var id = a.getAttribute('href');
@@ -154,7 +191,7 @@
       var target = d.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      var top = target.getBoundingClientRect().top + scrollY - 86;
+      var top = target.getBoundingClientRect().top + scrollY - 74;
       scrollTo({ top: top, behavior: reduced ? 'auto' : 'smooth' });
     });
   });
