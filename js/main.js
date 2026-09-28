@@ -1,8 +1,8 @@
 /* ============================================================
-   Muhammad Hassaan — master rebuild behaviors
-   intro launch · nav scrolled state · active link highlighting ·
-   scroll reveals · count-up stats · project expansion ·
-   portrait parallax · mobile sheet · smooth anchors
+   Muhammad Hassaan — behaviors
+   intro launch · word-by-word reveals · nav scrolled state ·
+   active link highlighting · scroll reveals · count-up stats ·
+   project expansion · portrait parallax (desktop) · mobile sheet
    ============================================================ */
 (function () {
   'use strict';
@@ -90,6 +90,46 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   d.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
 
+  /* ---------- word-by-word headline reveal ---------- */
+  d.querySelectorAll('[data-words]').forEach(function (el) {
+    var nodes = Array.prototype.slice.call(el.childNodes);
+    el.textContent = '';
+    nodes.forEach(function (node) {
+      if (node.nodeType === 3) { // text node → split into word spans
+        node.textContent.split(/(\s+)/).forEach(function (part) {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { el.appendChild(d.createTextNode(' ')); return; }
+          var line = d.createElement('span');
+          line.className = 'w-line';
+          var w = d.createElement('span');
+          w.className = 'w-in';
+          w.textContent = part;
+          line.appendChild(w);
+          el.appendChild(line);
+        });
+      } else if (node.nodeType === 1) { // keep elements (e.g. .hl) intact
+        var wrapEl = d.createElement('span');
+        wrapEl.className = 'w-line';
+        var inner = d.createElement('span');
+        inner.className = 'w-in';
+        inner.appendChild(node);
+        wrapEl.appendChild(inner);
+        el.appendChild(wrapEl);
+      }
+    });
+    var words = el.querySelectorAll('.w-in');
+    words.forEach(function (w, i) { w.style.transitionDelay = (i * 0.045) + 's'; });
+    var wio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          words.forEach(function (w) { w.classList.add('on'); });
+          wio.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    wio.observe(el);
+  });
+
   /* ---------- count-up stats ---------- */
   var easeOut = function (t) { return 1 - Math.pow(1 - t, 3); };
   var fmt = function (el, v) {
@@ -147,7 +187,7 @@
       if (!desktopMQ.matches) { clearTransform(); raf = null; return; }
       cx += (tx - cx) * 0.06;
       cy += (ty - cy) * 0.06;
-      portraitWrap.style.transform = 'translateY(-46%) translate(' + cx.toFixed(2) + 'px,' + cy.toFixed(2) + 'px)';
+      portraitWrap.style.transform = 'translateY(-6%) translate(' + cx.toFixed(2) + 'px,' + cy.toFixed(2) + 'px)';
       if (Math.abs(tx - cx) > 0.1 || Math.abs(ty - cy) > 0.1) {
         raf = requestAnimationFrame(tick);
       } else {
@@ -191,7 +231,7 @@
       var target = d.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      var top = target.getBoundingClientRect().top + scrollY - 74;
+      var top = target.getBoundingClientRect().top + scrollY - 72;
       scrollTo({ top: top, behavior: reduced ? 'auto' : 'smooth' });
     });
   });
