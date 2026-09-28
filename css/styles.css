@@ -290,7 +290,9 @@ section[id]{scroll-margin-top:80px}
 .p-head h3{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.9rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1;margin-right:auto}
 .p-pos{font-size:clamp(1.05rem,2vw,1.35rem);font-weight:600;letter-spacing:-.015em;max-width:640px;margin-bottom:10px}
 .p-desc{color:var(--muted);font-size:.95rem;max-width:600px}
-.p-toggle{display:inline-block;margin-top:16px;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.p-top{cursor:pointer;-webkit-user-select:none;user-select:none}
+.p-toggle{display:inline-block;margin-top:16px;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);transition:color .2s}
+.p-top:hover .p-toggle{color:var(--ink)}
 
 /* experiments */
 .experiments{margin-top:clamp(48px,7vw,80px)}

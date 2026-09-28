@@ -55,7 +55,7 @@
     if (nav) nav.classList.toggle('scrolled', y > 10);
     if (bar) {
       var max = d.documentElement.scrollHeight - innerHeight;
-      bar.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+      bar.style.width = (max > 0 ? Math.min(100, Math.max(0, (y / max) * 100)) : 0) + '%';
     }
   };
   addEventListener('scroll', onScroll, { passive: true });
@@ -65,13 +65,17 @@
   var links = Array.prototype.slice.call(d.querySelectorAll('.nav-links a[href^="#"]'));
   var sections = links
     .map(function (a) { return d.querySelector(a.getAttribute('href')); })
-    .filter(Boolean);
+    .filter(Boolean)
+    .sort(function (a, b) { // document order, NOT nav order (nav lists Build before Experience)
+      return a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+    });
 
   var onScrollActive = function () {
     var y = scrollY + 140;
     var current = sections.length ? sections[0] : null;
     sections.forEach(function (s) {
-      if (s.offsetTop <= y) current = s;
+      var top = s.getBoundingClientRect().top + scrollY; // robust with any offsetParent
+      if (top <= y) current = s;
     });
     links.forEach(function (a) {
       a.classList.toggle('active', !!current && a.getAttribute('href') === '#' + current.id);
