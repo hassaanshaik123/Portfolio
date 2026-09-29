@@ -210,15 +210,15 @@
   /* ---------- marquees: keep strips seamlessly filled at any width ---------- */
   d.querySelectorAll('.marquee-track').forEach(function (track) {
     var marquee = track.parentElement;
-    var SPEED = 40; // px per second
+    var SPEED = parseFloat(track.getAttribute('data-speed')) || 40; // px per second
     var build = function () {
-      var first = track.querySelector('span');
-      if (!first) return;
+      var unit = track.querySelector('.mq-set') || track.querySelector('span');
+      if (!unit) return;
       while (track.children.length > 1) track.removeChild(track.lastChild);
-      var w = first.getBoundingClientRect().width || 1;
+      var w = unit.getBoundingClientRect().width || 1;
       var v = marquee.clientWidth || innerWidth;
-      var n = Math.max(2, 2 * Math.ceil(v / w) + 2); // total spans (even): half must always cover the viewport
-      while (track.children.length < n) track.appendChild(first.cloneNode(true));
+      var n = Math.max(2, 2 * Math.ceil(v / w) + 2); // total units (even): half must always cover the viewport
+      while (track.children.length < n) track.appendChild(unit.cloneNode(true));
       var half = (n / 2) * w; // keyframe shifts exactly this far before looping
       track.style.animationDuration = Math.max(18, half / SPEED).toFixed(1) + 's';
     };
