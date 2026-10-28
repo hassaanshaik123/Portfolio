@@ -1,265 +1,199 @@
-/* ============================================================
-   Muhammad Hassaan — behaviors
-   intro launch · word-by-word reveals · nav scrolled state ·
-   active link highlighting · scroll reveals · count-up stats ·
-   project expansion · portrait parallax (desktop) · mobile sheet
-   ============================================================ */
+/* ==========================================================================
+   Main Interactions — Muhammad Hassaan Portfolio
+   ========================================================================== */
+
 (function () {
-  'use strict';
-  var d = document;
-  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.documentElement.className = 'js-on';
+  "use strict";
 
-  /* ---------- intro launch (once per session) ---------- */
-  var intro = d.getElementById('intro');
-  if (intro) {
-    var SKIP = 'mh-intro-done';
-    var seen = false;
-    try { seen = sessionStorage.getItem(SKIP) === '1'; } catch (e) {}
-
-    var finishIntro = function () {
-      intro.classList.add('done');
-      try { sessionStorage.setItem(SKIP, '1'); } catch (e) {}
-      setTimeout(function () { if (intro.parentNode) intro.parentNode.removeChild(intro); }, 900);
-    };
-
-    if (seen || reduced) {
-      intro.classList.add('skip');
-      finishIntro();
-    } else {
-      var nameEl = d.getElementById('introName');
-      var tag = intro.querySelector('.intro-tag');
-      var name = (nameEl.textContent || '').trim();
-      nameEl.textContent = '';
-      name.split('').forEach(function (ch, i) {
-        if (ch === ' ') return;
-        var s = d.createElement('span');
-        s.className = 'L' + (ch === '·' ? ' mid' : '');
-        s.innerHTML = ch;
-        s.style.animationDelay = (0.35 + i * 0.05) + 's';
-        nameEl.appendChild(s);
-      });
-      var lastDelay = 0.35 + (name.length - 1) * 0.05;
-      var tagDelay = lastDelay + 0.5;
-      tag.classList.add('show');
-      tag.style.animationDelay = tagDelay + 's';
-      setTimeout(finishIntro, (tagDelay + 1.3) * 1000);
-    }
-  }
-
-  /* ---------- nav scrolled state + progress bar ---------- */
-  var nav = d.querySelector('.nav');
-  var bar = d.getElementById('progress');
-  var onScroll = function () {
-    var y = scrollY;
-    if (nav) nav.classList.toggle('scrolled', y > 10);
-    if (bar) {
-      var max = d.documentElement.scrollHeight - innerHeight;
-      bar.style.width = (max > 0 ? Math.min(100, Math.max(0, (y / max) * 100)) : 0) + '%';
-    }
-  };
-  addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  /* ---------- active link highlighting ---------- */
-  var links = Array.prototype.slice.call(d.querySelectorAll('.nav-links a[href^="#"]'));
-  var sections = links
-    .map(function (a) { return d.querySelector(a.getAttribute('href')); })
-    .filter(Boolean)
-    .sort(function (a, b) { // document order, NOT nav order (nav lists Build before Experience)
-      return a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
-    });
-
-  var onScrollActive = function () {
-    var y = scrollY + 140;
-    var current = sections.length ? sections[0] : null;
-    sections.forEach(function (s) {
-      var top = s.getBoundingClientRect().top + scrollY; // robust with any offsetParent
-      if (top <= y) current = s;
-    });
-    links.forEach(function (a) {
-      a.classList.toggle('active', !!current && a.getAttribute('href') === '#' + current.id);
-    });
-  };
-  if (sections.length) {
-    addEventListener('scroll', onScrollActive, { passive: true });
-    onScrollActive();
-  }
-
-  /* ---------- reveal on scroll ---------- */
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (en) {
-      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  d.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
-
-  /* ---------- word-by-word headline reveal ---------- */
-  d.querySelectorAll('[data-words]').forEach(function (el) {
-    var nodes = Array.prototype.slice.call(el.childNodes);
-    el.textContent = '';
-    nodes.forEach(function (node) {
-      if (node.nodeType === 3) { // text node → split into word spans
-        node.textContent.split(/(\s+)/).forEach(function (part) {
-          if (!part) return;
-          if (/^\s+$/.test(part)) { el.appendChild(d.createTextNode(' ')); return; }
-          var line = d.createElement('span');
-          line.className = 'w-line';
-          var w = d.createElement('span');
-          w.className = 'w-in';
-          w.textContent = part;
-          line.appendChild(w);
-          el.appendChild(line);
-        });
-      } else if (node.nodeType === 1) { // keep elements (e.g. .hl) intact
-        var wrapEl = d.createElement('span');
-        wrapEl.className = 'w-line';
-        var inner = d.createElement('span');
-        inner.className = 'w-in';
-        inner.appendChild(node);
-        wrapEl.appendChild(inner);
-        el.appendChild(wrapEl);
-      }
-    });
-    var words = el.querySelectorAll('.w-in');
-    words.forEach(function (w, i) { w.style.transitionDelay = (i * 0.045) + 's'; });
-    var wio = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          words.forEach(function (w) { w.classList.add('on'); });
-          wio.disconnect();
+  // 1. Project Case Study Data (Strictly factual per user prompt — zero invented stats/claims)
+  const PROJECT_DATA = {
+    pepperfry: {
+      category: "Customer Experience · Business Analysis · Growth Strategy",
+      title: "Pepperfry — Customer Experience Improvement",
+      summary:
+        "A customer experience and business growth analysis focused on addressing post-purchase friction in Pepperfry's customer journey.",
+      blocks: [
+        {
+          heading: "Context",
+          body: "We identified a problem in Pepperfry's post-purchase services. This was an area the company appeared to be neglecting, despite many customer complaints falling within that stage of the customer journey."
+        },
+        {
+          heading: "Our Work",
+          body: "We highlighted the post-purchase service gap and proposed three structured recommendations that could improve the customer experience and help boost sales."
+        },
+        {
+          heading: "Focus Areas",
+          body: "Customer Experience · Post-Purchase Journey Analysis · Business Growth Strategy"
+        },
+        {
+          heading: "Expected Impact (Potential Outcome)",
+          body: "Designed to reduce post-purchase friction, strengthen customer trust after checkout, and unlock potential repeat and referral sales growth through improved service reliability."
         }
-      });
-    }, { threshold: 0.3 });
-    wio.observe(el);
-  });
-
-  /* ---------- count-up stats ---------- */
-  var easeOut = function (t) { return 1 - Math.pow(1 - t, 3); };
-  var fmt = function (el, v) {
-    var prefix = el.getAttribute('data-prefix') || '';
-    var suffix = el.getAttribute('data-suffix') || '';
-    el.innerHTML = prefix + v + (suffix ? '<b>' + suffix + '</b>' : '');
+      ]
+    },
+    clario: {
+      category: "Product Discovery · User Research · EdTech · AI & Text-to-Speech",
+      title: "Clario AI — Articles to Regional Audio Notes",
+      summary:
+        "A product discovery and concept development project designed to make dense written material easier to consume through regional-language audio.",
+      blocks: [
+        {
+          heading: "Context",
+          body: "Clario AI is a text-to-speech product concept designed to convert long articles into audio notes in regional languages and explain the content in simple language."
+        },
+        {
+          heading: "Target Users",
+          list: ["MBA students", "UPSC aspirants"]
+        },
+        {
+          heading: "Problem Identified",
+          body: "The product was conceived around the difficulty these users face in consuming lengthy, dense written information across tight study schedules."
+        },
+        {
+          heading: "Our Approach",
+          body: "We identified the core comprehension and time-constraint bottleneck and developed a product concept that makes information easier to consume through simplified, regional-language audio notes."
+        }
+      ]
+    }
   };
-  var animateCount = function (el) {
-    var target = parseFloat(el.getAttribute('data-count') || '0');
-    if (reduced) { fmt(el, target); return; }
-    var dur = 1500, t0 = null;
-    var step = function (ts) {
-      if (!t0) t0 = ts;
-      var p = Math.min((ts - t0) / dur, 1);
-      fmt(el, Math.round(easeOut(p) * target));
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  };
-  var cio = new IntersectionObserver(function (entries) {
-    entries.forEach(function (en) {
-      if (en.isIntersecting) { animateCount(en.target); cio.unobserve(en.target); }
-    });
-  }, { threshold: 0.4 });
-  d.querySelectorAll('[data-count]').forEach(function (el) { cio.observe(el); });
 
-  /* ---------- project expansion ---------- */
-  d.querySelectorAll('.project .p-top').forEach(function (top) {
-    top.setAttribute('role', 'button');
-    top.setAttribute('tabindex', '0');
-    top.setAttribute('aria-expanded', 'false');
-    var project = top.closest('.project');
-    var toggle = top.querySelector('.p-toggle');
-    var setOpen = function (open) {
-      project.classList.toggle('expanded', open);
-      top.setAttribute('aria-expanded', String(open));
-      if (toggle) toggle.textContent = open ? '…less' : '…more';
-    };
-    top.addEventListener('click', function () { setOpen(!project.classList.contains('expanded')); });
-    top.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setOpen(!project.classList.contains('expanded')); }
-    });
-  });
+  // 2. Project Detail Modal Controller
+  const modalBackdrop = document.getElementById("projectModalBackdrop");
+  const modalCategory = document.getElementById("modalCategory");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalSummary = document.getElementById("modalSummary");
+  const modalGrid = document.getElementById("modalGrid");
+  const modalCloseBtn = document.getElementById("modalCloseBtn");
+  let lastFocusedElement = null;
 
-  /* ---------- portrait parallax (desktop only, fine pointer) ---------- */
-  var portraitWrap = d.getElementById('portraitWrap');
-  var desktopMQ = matchMedia('(min-width: 901px)');
-  if (portraitWrap && !reduced && matchMedia('(pointer:fine)').matches) {
-    var tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
-    var clearTransform = function () {
-      portraitWrap.style.transform = '';
-      tx = ty = cx = cy = 0;
-    };
-    var tick = function () {
-      if (!desktopMQ.matches) { clearTransform(); raf = null; return; }
-      cx += (tx - cx) * 0.06;
-      cy += (ty - cy) * 0.06;
-      portraitWrap.style.transform = 'translateY(-6%) translate(' + cx.toFixed(2) + 'px,' + cy.toFixed(2) + 'px)';
-      if (Math.abs(tx - cx) > 0.1 || Math.abs(ty - cy) > 0.1) {
-        raf = requestAnimationFrame(tick);
+  function openProjectModal(projectId) {
+    const data = PROJECT_DATA[projectId];
+    if (!data || !modalBackdrop) return;
+
+    lastFocusedElement = document.activeElement;
+    modalCategory.textContent = data.category;
+    modalTitle.textContent = data.title;
+    modalSummary.textContent = data.summary;
+
+    modalGrid.innerHTML = "";
+    data.blocks.forEach(function (block) {
+      const div = document.createElement("div");
+      div.className = "project-modal-block";
+
+      const h4 = document.createElement("h4");
+      h4.textContent = block.heading;
+      div.appendChild(h4);
+
+      if (block.list) {
+        const ul = document.createElement("ul");
+        block.list.forEach(function (item) {
+          const li = document.createElement("li");
+          li.textContent = item;
+          ul.appendChild(li);
+        });
+        div.appendChild(ul);
       } else {
-        raf = null;
+        const p = document.createElement("p");
+        p.textContent = block.body;
+        div.appendChild(p);
       }
-    };
-    addEventListener('mousemove', function (e) {
-      if (!desktopMQ.matches) return;
-      tx = (e.clientX / innerWidth - 0.5) * 14;
-      ty = (e.clientY / innerHeight - 0.5) * 10;
-      if (!raf) raf = requestAnimationFrame(tick);
-    }, { passive: true });
-    desktopMQ.addEventListener ? desktopMQ.addEventListener('change', clearTransform) : desktopMQ.addListener(clearTransform);
+
+      modalGrid.appendChild(div);
+    });
+
+    modalBackdrop.classList.add("is-open");
+    modalBackdrop.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    modalCloseBtn.focus();
   }
 
-  /* ---------- marquees: keep strips seamlessly filled at any width ---------- */
-  d.querySelectorAll('.marquee-track').forEach(function (track) {
-    var marquee = track.parentElement;
-    var SPEED = parseFloat(track.getAttribute('data-speed')) || 40; // px per second
-    var build = function () {
-      var unit = track.querySelector('.mq-set') || track.querySelector('span');
-      if (!unit) return;
-      while (track.children.length > 1) track.removeChild(track.lastChild);
-      var w = unit.getBoundingClientRect().width || 1;
-      var v = marquee.clientWidth || innerWidth;
-      var n = Math.max(2, 2 * Math.ceil(v / w) + 2); // total units (even): half must always cover the viewport
-      while (track.children.length < n) track.appendChild(unit.cloneNode(true));
-      var half = (n / 2) * w; // keyframe shifts exactly this far before looping
-      track.style.animationDuration = Math.max(18, half / SPEED).toFixed(1) + 's';
-    };
-    if (!reduced) {
-      build();
-      var mt = null;
-      addEventListener('resize', function () { clearTimeout(mt); mt = setTimeout(build, 150); });
-      if (d.fonts && d.fonts.ready) d.fonts.ready.then(build);
+  function closeProjectModal() {
+    if (!modalBackdrop || !modalBackdrop.classList.contains("is-open")) return;
+    modalBackdrop.classList.remove("is-open");
+    modalBackdrop.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if (lastFocusedElement) {
+      lastFocusedElement.focus();
+    }
+  }
+
+  document.querySelectorAll("[data-project-id]").forEach(function (card) {
+    card.addEventListener("click", function () {
+      openProjectModal(card.getAttribute("data-project-id"));
+    });
+
+    card.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openProjectModal(card.getAttribute("data-project-id"));
+      }
+    });
+  });
+
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener("click", closeProjectModal);
+  }
+
+  if (modalBackdrop) {
+    modalBackdrop.addEventListener("click", function (e) {
+      if (e.target === modalBackdrop) {
+        closeProjectModal();
+      }
+    });
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      closeProjectModal();
     }
   });
 
-  /* ---------- mobile sheet ---------- */
-  var burger = d.querySelector('.burger');
-  var sheet = d.getElementById('sheet');
-  if (burger && sheet) {
-    burger.addEventListener('click', function () {
-      var open = sheet.classList.toggle('open');
-      burger.classList.toggle('open', open);
-      burger.setAttribute('aria-expanded', String(open));
-      d.documentElement.style.overflow = open ? 'hidden' : '';
-    });
-    sheet.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        sheet.classList.remove('open');
-        burger.classList.remove('open');
-        burger.setAttribute('aria-expanded', 'false');
-        d.documentElement.style.overflow = '';
+  // 3. Photos Gallery Placeholder Slideshow Controls
+  const photoDots = document.querySelectorAll("[data-photo-slide-btn]");
+  const photoSlides = document.querySelectorAll("[data-photo-slide]");
+
+  photoDots.forEach(function (dot) {
+    dot.addEventListener("click", function () {
+      const targetIndex = dot.getAttribute("data-photo-slide-btn");
+      photoDots.forEach(function (d) {
+        d.classList.toggle("is-active", d === dot);
+        d.setAttribute("aria-selected", d === dot ? "true" : "false");
+      });
+      photoSlides.forEach(function (slide) {
+        slide.classList.toggle(
+          "is-active",
+          slide.getAttribute("data-photo-slide") === targetIndex
+        );
       });
     });
-  }
-
-  /* ---------- smooth anchors (offset for fixed nav) ---------- */
-  d.querySelectorAll('a[href^="#"]').forEach(function (a) {
-    a.addEventListener('click', function (e) {
-      var id = a.getAttribute('href');
-      if (id.length < 2) return;
-      var target = d.querySelector(id);
-      if (!target) return;
-      e.preventDefault();
-      var top = target.getBoundingClientRect().top + scrollY - 72;
-      scrollTo({ top: top, behavior: reduced ? 'auto' : 'smooth' });
-    });
   });
+
+  // 4. Active Section Highlighting in Floating Navigation
+  const navLinks = document.querySelectorAll(".nav-link[href^='#']");
+  const observedSections = ["work", "about", "experience", "contact"]
+    .map(function (id) {
+      return document.getElementById(id);
+    })
+    .filter(Boolean);
+
+  if ("IntersectionObserver" in window && observedSections.length > 0) {
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            const activeId = entry.target.id;
+            navLinks.forEach(function (link) {
+              const href = link.getAttribute("href");
+              link.classList.toggle("is-active", href === "#" + activeId);
+            });
+          }
+        });
+      },
+      { rootMargin: "-30% 0px -55% 0px", threshold: 0 }
+    );
+
+    observedSections.forEach(function (sec) {
+      observer.observe(sec);
+    });
+  }
 })();
