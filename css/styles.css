@@ -251,9 +251,20 @@ button {
   position: fixed;
   top: 40px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -140px);
+  opacity: 0;
+  pointer-events: none;
   z-index: 100;
   width: auto;
+  transition:
+    transform 0.55s var(--ease-spring),
+    opacity 0.4s ease;
+}
+
+.nav-wrapper.is-visible {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .nav-pill {

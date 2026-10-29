@@ -70,8 +70,23 @@
   };
 
   /* --------------------------------------------------------------------------
-     2. Smooth Scroll Navigation & Active Link Highlight
+     2. Smooth Scroll Navigation, Slide-Down After Hero & Active Link Highlight
      -------------------------------------------------------------------------- */
+  const navWrapper = document.querySelector(".nav-wrapper");
+  const heroSection = document.getElementById("hero");
+
+  function updateNavVisibility() {
+    if (!navWrapper || !heroSection) return;
+    const heroRect = heroSection.getBoundingClientRect();
+    // Slide down the navigation bar once the user reaches the end of the hero section
+    const pastHero = heroRect.bottom <= 180;
+    navWrapper.classList.toggle("is-visible", pastHero);
+  }
+
+  window.addEventListener("scroll", updateNavVisibility, { passive: true });
+  window.addEventListener("resize", updateNavVisibility, { passive: true });
+  updateNavVisibility();
+
   const navLinks = document.querySelectorAll('.nav-link[href^="#"], .nav-logo[href^="#"]');
 
   navLinks.forEach((link) => {
