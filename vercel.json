@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/((?!assets|brands|css|hero|js|media|mountains|.*\\..*).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

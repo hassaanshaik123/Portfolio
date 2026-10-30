@@ -23,7 +23,7 @@ def replace_between(text, start_marker, end_marker, replacement):
 # ============================================================================
 # SPLICE 1: LOADER (Ah)
 # ============================================================================
-SPLICE_1 = r"""wh=[.22,1,.36,1],Th=[.76,0,.24,1],Eh=[`h`,`a`,`s`,`s`,`a`,`a`,`n`],Dh=2.5,Oh=[{d:`M20 280H980`,delay:.05},{d:`M60 172H940`,delay:.16},{d:`M100 350H760`,delay:.28},{d:`M110 70V380`,delay:.2},{d:`M452 100V372`,delay:.32},{d:`M788 110V400`,delay:.44},{d:`M110 372L580 84`,delay:.38}],kh=[{x:22,y:272,text:`baseline`,delay:.5},{x:62,y:164,text:`x-height`,delay:.6},{x:102,y:342,text:`descender`,delay:.7}];function Ah(){let e=um(),[t,n]=(0,v.useState)(`wait`),r=(0,v.useRef)(null),i=(0,v.useRef)(null),[a,o]=(0,v.useState)({dotX:886,shift:0}),s=nm(0),c=am(s,e=>`${String(Math.round(e)).padStart(3,`0`)}%`);return(0,v.useEffect)(()=>(`scrollRestoration`in history&&(history.scrollRestoration=`manual`),window.scrollTo(0,0),document.documentElement.classList.add(`is-loading`),r.current=setInterval(()=>Vm()?.stop(),50),()=>{r.current&&clearInterval(r.current)}),[]),(0,v.useEffect)(()=>{let e=!1,t=()=>!e&&n(e=>e===`wait`?`draw`:e),r=setTimeout(t,700);return document.fonts?.ready.then(()=>{clearTimeout(r),t()}),()=>{e=!0,clearTimeout(r)}},[]),(0,v.useLayoutEffect)(()=>{if(t!==`draw`||!i.current)return;let e=i.current.getBBox(),n=e.x+e.width+22;o({dotX:n,shift:500-(e.x+n+30)/2})},[t]),(0,v.useEffect)(()=>{if(t!==`draw`)return;let r=Fm(s,100,{duration:e?.3:2.3,ease:[.4,0,.2,1]}),i=setTimeout(()=>{Ch.whoosh(),n(`done`)},e?500:Dh*1e3);return()=>{r.stop(),clearTimeout(i)}},[t,s,e]),(0,G.jsx)(cf,{onExitComplete:()=>{r.current&&clearInterval(r.current),r.current=null,document.documentElement.classList.remove(`is-loading`);let e=Vm();if(document.querySelector(`.case-overlay[open]`)){e?.stop();return}e?.start(),e?.scrollTo(0,{immediate:!0})},children:t!==`done`&&(0,G.jsxs)(K.div,{className:`loader`,role:`status`,"aria-label":`Loading Muhammad Hassaan's portfolio`,initial:{y:0},exit:e?{opacity:0,transition:{duration:.3}}:{y:`-100%`,transition:{duration:.9,ease:Th}},children:[(0,G.jsx)(`div`,{className:`loader-texture`,style:{backgroundImage:`url(${zm})`},"aria-hidden":!0}),(0,G.jsxs)(`div`,{className:`loader-corner loader-corner--tl`,children:[(0,G.jsx)(`span`,{children:`muhammad hassaan`}),(0,G.jsx)(`span`,{children:`listening closely, solving problems`})]}),(0,G.jsxs)(`div`,{className:`loader-corner loader-corner--tr`,children:[(0,G.jsx)(`span`,{children:`visitor no. 01`}),(0,G.jsx)(`span`,{children:`glad you dropped by`})]}),t===`draw`&&(0,G.jsx)(K.svg,{className:`loader-mark`,viewBox:`0 0 1000 420`,fill:`none`,"aria-hidden":!0,exit:{opacity:0,y:-40,transition:{duration:.5,ease:wh}},children:(0,G.jsxs)(`g`,{transform:`translate(${a.shift} 0)`,children:[(0,G.jsx)(`text`,{ref:i,x:`110`,y:`280`,className:`loader-word`,opacity:`0`,children:`hassaan`}),(0,G.jsxs)(`g`,{className:`loader-guides`,children:[Oh.map(e=>(0,G.jsx)(K.path,{d:e.d,initial:{pathLength:0,opacity:0},animate:{pathLength:1,opacity:[0,1,1,.4]},transition:{pathLength:{duration:.9,delay:e.delay,ease:wh},opacity:{duration:2.1,delay:e.delay,times:[0,.1,.65,1]}}},e.d)),(0,G.jsx)(K.circle,{cx:a.dotX,cy:`252`,r:`30`,initial:{pathLength:0},animate:{pathLength:1},transition:{duration:.8,delay:.55,ease:wh}})]}),kh.map(e=>(0,G.jsx)(K.text,{x:e.x,y:e.y,className:`loader-spec`,initial:{opacity:0},animate:{opacity:[0,1,1,.5]},transition:{duration:1.8,delay:e.delay,times:[0,.15,.7,1]},children:e.text},e.text)),(0,G.jsx)(K.text,{x:`110`,y:`280`,className:`loader-word loader-word--outline`,initial:{strokeDashoffset:1400,opacity:1},animate:{strokeDashoffset:0,opacity:[1,1,0]},transition:{strokeDashoffset:{duration:1.05,delay:.5,ease:`easeInOut`},opacity:{duration:1.8,delay:.5,times:[0,.8,1]}},children:`hassaan`}),(0,G.jsx)(`text`,{x:`110`,y:`280`,className:`loader-word`,children:Eh.map((e,t)=>(0,G.jsx)(K.tspan,{initial:{fillOpacity:0},animate:{fillOpacity:1},transition:{duration:.3,delay:1.2+t*.08,ease:`easeOut`},children:e},t))}),(0,G.jsx)(K.circle,{cx:a.dotX,cy:`252`,r:`25`,className:`loader-dot`,initial:{scale:0,y:-90},animate:{scale:1,y:0},transition:{type:`spring`,stiffness:420,damping:15,delay:1.8},style:{transformBox:`fill-box`,transformOrigin:`center`}})]})}),(0,G.jsx)(`div`,{className:`loader-corner loader-corner--bl`,children:(0,G.jsx)(K.span,{className:`loader-count`,children:c})}),(0,G.jsx)(`div`,{className:`loader-corner loader-corner--br`,children:(0,G.jsx)(`span`,{children:`entrepreneurship · consultative sales · growth`})})]},`loader`)})}"""
+SPLICE_1 = r"""wh=[.22,1,.36,1],Th=[.76,0,.24,1],Eh=[`h`,`a`,`s`,`s`,`a`,`a`,`n`],Dh=2.5,Oh=[{d:`M20 280H980`,delay:.05},{d:`M60 172H940`,delay:.16},{d:`M100 350H760`,delay:.28},{d:`M110 70V380`,delay:.2},{d:`M452 100V372`,delay:.32},{d:`M788 110V400`,delay:.44},{d:`M110 372L580 84`,delay:.38}],kh=[{x:22,y:272,text:`baseline`,delay:.5},{x:62,y:164,text:`x-height`,delay:.6},{x:102,y:342,text:`descender`,delay:.7}];function Ah(){let e=um(),[t,n]=(0,v.useState)(`wait`),r=(0,v.useRef)(null),i=(0,v.useRef)(null),[a,o]=(0,v.useState)({dotX:886,shift:0}),s=nm(0),c=am(s,e=>`${String(Math.round(e)).padStart(3,`0`)}%`);return(0,v.useEffect)(()=>(`scrollRestoration`in history&&(history.scrollRestoration=`manual`),window.scrollTo(0,0),document.documentElement.classList.add(`is-loading`),r.current=setInterval(()=>Vm()?.stop(),50),()=>{r.current&&clearInterval(r.current)}),[]),(0,v.useEffect)(()=>{let safety=setTimeout(()=>{r.current&&clearInterval(r.current);r.current=null;document.documentElement.classList.remove(`is-loading`);try{let vm=Vm();if(!document.querySelector(`.case-overlay[open]`)){vm?.start()}}catch(err){}},2800);return()=>clearTimeout(safety)},[]),(0,v.useEffect)(()=>{let e=!1,t=()=>!e&&n(e=>e===`wait`?`draw`:e),r=setTimeout(t,700);return document.fonts?.ready.then(()=>{clearTimeout(r),t()}).catch(()=>{clearTimeout(r),t()}),()=>{e=!0,clearTimeout(r)}},[]),(0,v.useLayoutEffect)(()=>{if(t!==`draw`||!i.current)return;try{let e=typeof i.current.getBBox===`function`?i.current.getBBox():{x:110,width:680};let n=(e.x||110)+(e.width||680)+22;o({dotX:n,shift:500-((e.x||110)+n+30)/2})}catch(err){o({dotX:886,shift:0})}},[t]),(0,v.useEffect)(()=>{if(t!==`draw`)return;let r=Fm(s,100,{duration:e?.3:2.3,ease:[.4,0,.2,1]}),timer=setTimeout(()=>{try{Ch.whoosh()}catch(err){}n(`done`)},e?400:Dh*1e3);return()=>{r.stop(),clearTimeout(timer)}},[t,s,e]),(0,G.jsx)(cf,{onExitComplete:()=>{r.current&&clearInterval(r.current),r.current=null,document.documentElement.classList.remove(`is-loading`);try{let e=Vm();if(document.querySelector(`.case-overlay[open]`)){e?.stop();return}e?.start(),e?.scrollTo(0,{immediate:!0})}catch(err){}},children:t!==`done`&&(0,G.jsxs)(K.div,{className:`loader`,role:`status`,"aria-label":`Loading Muhammad Hassaan's portfolio`,initial:{y:0},exit:e?{opacity:0,transition:{duration:.3}}:{y:`-100%`,transition:{duration:.9,ease:Th}},children:[(0,G.jsx)(`div`,{className:`loader-texture`,style:{backgroundImage:`url(${zm})`},"aria-hidden":!0}),(0,G.jsxs)(`div`,{className:`loader-corner loader-corner--tl`,children:[(0,G.jsx)(`span`,{children:`muhammad hassaan`}),(0,G.jsx)(`span`,{children:`listening closely, solving problems`})]}),(0,G.jsxs)(`div`,{className:`loader-corner loader-corner--tr`,children:[(0,G.jsx)(`span`,{children:`visitor no. 01`}),(0,G.jsx)(`span`,{children:`glad you dropped by`})]}),t===`draw`&&(0,G.jsx)(K.svg,{className:`loader-mark`,viewBox:`0 0 1000 420`,fill:`none`,"aria-hidden":!0,exit:{opacity:0,y:-40,transition:{duration:.5,ease:wh}},children:(0,G.jsxs)(`g`,{transform:`translate(${a.shift} 0)`,children:[(0,G.jsx)(`text`,{ref:i,x:`110`,y:`280`,className:`loader-word`,opacity:`0`,children:`hassaan`}),(0,G.jsxs)(`g`,{className:`loader-guides`,children:[Oh.map(e=>(0,G.jsx)(K.path,{d:e.d,initial:{pathLength:0,opacity:0},animate:{pathLength:1,opacity:[0,1,1,.4]},transition:{pathLength:{duration:.9,delay:e.delay,ease:wh},opacity:{duration:2.1,delay:e.delay,times:[0,.1,.65,1]}}},e.d)),(0,G.jsx)(K.circle,{cx:a.dotX,cy:`252`,r:`30`,initial:{pathLength:0},animate:{pathLength:1},transition:{duration:.8,delay:.55,ease:wh}})]}),kh.map(e=>(0,G.jsx)(K.text,{x:e.x,y:e.y,className:`loader-spec`,initial:{opacity:0},animate:{opacity:[0,1,1,.5]},transition:{duration:1.8,delay:e.delay,times:[0,.15,.7,1]},children:e.text},e.text)),(0,G.jsx)(K.text,{x:`110`,y:`280`,className:`loader-word loader-word--outline`,initial:{strokeDashoffset:1400,opacity:1},animate:{strokeDashoffset:0,opacity:[1,1,0]},transition:{strokeDashoffset:{duration:1.05,delay:.5,ease:`easeInOut`},opacity:{duration:1.8,delay:.5,times:[0,.8,1]}},children:`hassaan`}),(0,G.jsx)(`text`,{x:`110`,y:`280`,className:`loader-word`,children:Eh.map((e,t)=>(0,G.jsx)(K.tspan,{initial:{fillOpacity:0},animate:{fillOpacity:1},transition:{duration:.3,delay:1.2+t*.08,ease:`easeOut`},children:e},t))}),(0,G.jsx)(K.circle,{cx:a.dotX,cy:`252`,r:`25`,className:`loader-dot`,initial:{scale:0,y:-90},animate:{scale:1,y:0},transition:{type:`spring`,stiffness:420,damping:15,delay:1.8},style:{transformBox:`fill-box`,transformOrigin:`center`}})]})}),(0,G.jsx)(`div`,{className:`loader-corner loader-corner--bl`,children:(0,G.jsx)(K.span,{className:`loader-count`,children:c})}),(0,G.jsx)(`div`,{className:`loader-corner loader-corner--br`,children:(0,G.jsx)(`span`,{children:`entrepreneurship · consultative sales · growth`})})]},`loader`)})}"""
 
 # ============================================================================
 # SPLICE 2: ENTREPRENEURSHIP EXPERIMENTS & IDEATION/MVP DATA + CASE RENDERER
@@ -582,6 +582,12 @@ function lv({active:e=!0}){
 # Replaces the VR headset with an interactive 3D Door in Three.js!
 # ============================================================================
 SPLICE_5 = r"""var _B=``;
+class SafeCanvas extends v.Component{
+  constructor(props){super(props);this.state={hasError:!1}}
+  static getDerivedStateFromError(){return{hasError:!0}}
+  componentDidCatch(err){console.warn(`3D canvas fallback:`,err)}
+  render(){if(this.state.hasError)return this.props.fallback||null;return this.props.children}
+}
 function bB({clone:e=!1,openProgress:t=0,hingeRef:n}){
   return(0,G.jsxs)(`group`,{scale:1.15,children:[
     (0,G.jsx)(`mesh`,{position:[0,0,-0.08],children:[(0,G.jsx)(`boxGeometry`,{args:[1.62,2.62,0.14]}),(0,G.jsx)(`meshStandardMaterial`,{color:`#242620`,roughness:0.45,metalness:0.15})]}),
@@ -618,19 +624,19 @@ function CB({progress:e,onTriggerOpen:t}){
   }),(0,G.jsx)(`group`,{ref:r,onClick:t,children:(0,G.jsx)(bB,{hingeRef:hinge})})
 }
 function wB({progress:e,onTriggerOpen:t}){
-  return(0,G.jsxs)(RL,{frameloop:`demand`,camera:{position:[0,0,6],fov:32},dpr:[1,1.6],gl:{antialias:!0,alpha:!0},children:[
+  return(0,G.jsx)(SafeCanvas,{children:(0,G.jsxs)(RL,{frameloop:`demand`,camera:{position:[0,0,6],fov:32},dpr:[1,1.6],gl:{antialias:!0,alpha:!0},children:[
     (0,G.jsx)(`ambientLight`,{intensity:.85,color:`#ffffff`}),
     (0,G.jsx)(`hemisphereLight`,{args:[`#fff8f0`,`#242620`,.65]}),
     (0,G.jsx)(`directionalLight`,{position:[3,4,5],intensity:1.8,color:`#ffffff`}),
     (0,G.jsx)(`directionalLight`,{position:[-4,2,-3],intensity:.75,color:`#d8631f`}),
     (0,G.jsx)(`pointLight`,{position:[0,0,1.2],intensity:1.2,color:`#ead56f`}),
     (0,G.jsx)(CB,{progress:e,onTriggerOpen:t})
-  ]})
+  ]})})
 }
 function TB(){try{let e=document.createElement(`canvas`);return!!(e.getContext(`webgl`)||e.getContext(`experimental-webgl`))}catch{return!1}}
 var EB=[{at:0,text:`Click the door (or scroll) to open & enter my workstation.`},{at:.25,text:`Opening the door — let's go look inside.`}];
 function DB(){
-  let e=(0,v.useRef)(null),{scrollYProgress:t}=bg(e),n=um(),[r,i]=(0,v.useState)(!0);
+  let e=(0,v.useRef)(null),{scrollYProgress:t}=bg(e),n=um(),[r,i]=(0,v.useState)(()=>TB());
   (0,v.useEffect)(()=>{i(TB())},[]);
   let a=am(t,e=>Math.max(0,Math.min((e-.78)/.12,1))*3.4),
       o=am(t,[0,.15,.68,.84,1],[1,1,1,0,0]),
@@ -662,6 +668,16 @@ pos_fw = src.find("var fW=[{from:0")
 
 vb_to_tv_code = src[pos_vb:pos_tv_scanner]
 cat_sprite_to_vv_code = src[pos_nv_cat:pos_vv].replace("Samay's cat", "Hassaan's cat")
+# Guard hV against missing entries
+cat_sprite_to_vv_code = cat_sprite_to_vv_code.replace(
+    "function hV(e,t){let n=e[t],r=e.body/(UB.right-UB.left)*n.scale;",
+    "function hV(e,t){if(!e||!e[t])return{scale:1,left:0,top:0,width:0,height:0};let n=e[t],r=e.body/(UB.right-UB.left)*(n.scale||1);"
+)
+# Guard _V layout effect transform
+cat_sprite_to_vv_code = cat_sprite_to_vv_code.replace(
+    "e&&a&&!p.current&&(e.style.transform=gV(hV(a,d.current)))",
+    "e&&a&&!p.current&&(()=>{try{let pos=hV(a,d.current);if(pos)e.style.transform=gV(pos)}catch(err){}})()"
+)
 qu_to_fw_code = src[pos_qu:pos_fw]
 
 SPLICE_6 = r"""var zB=[
@@ -670,7 +686,25 @@ SPLICE_6 = r"""var zB=[
   {src:`/hero/photo-3.jpg`,fallback:`/hero/photo-3.jpg`,alt:`Muhammad Hassaan on his first cruise across the Arabian Sea from Kochi to Mumbai on Cordelia Cruises`,caption:`first cruise in the Arabian Sea · Kochi to Mumbai, Cordelia Cruises.`,tilt:-4}
 ];
 function BB(){let[e,t]=(0,v.useState)(null),n=um();return(0,G.jsxs)(`div`,{className:`hero-pinboard`,children:[zB.map((r,i)=>{let a=e===i;return(0,G.jsxs)(K.figure,{className:`hero-polaroid hero-polaroid--${i+1}`,initial:!1,animate:{rotate:a?0:r.tilt,scale:a?1.14:1,y:a?-22:0,zIndex:a?10:i+1,boxShadow:a?`0 28px 50px #2426203a, 0 0 0 1px #2426200a`:`0 12px 30px #2426201f, 0 0 0 1px #2426200a`},whileHover:a||n?void 0:{rotate:r.tilt*.35,y:-8,zIndex:9},whileTap:n?void 0:{scale:a?1.08:.97},transition:{type:`spring`,stiffness:260,damping:20},onClick:()=>t(a?null:i),role:`button`,"data-sfx":`pop`,tabIndex:0,"aria-pressed":a,"aria-label":`${r.caption} — ${a?`put the photo back`:`bring the photo forward`}`,onKeyDown:e=>{(e.key===`Enter`||e.key===` `)&&(e.preventDefault(),t(a?null:i))},children:[(0,G.jsx)(`div`,{className:`hero-polaroid-window`,children:(0,G.jsx)(`img`,{src:r.src,alt:r.alt,loading:i===0?`eager`:`lazy`,decoding:`async`,draggable:!1,onError:e=>{let t=e.currentTarget;t.src!==r.fallback&&(t.src=r.fallback)}})}),(0,G.jsx)(`figcaption`,{className:`hero-polaroid-caption`,children:r.caption})]},r.src)}),(0,G.jsxs)(`span`,{className:`hero-hand`,"aria-hidden":!0,children:[(0,G.jsx)(kB,{className:`hero-arrow`}),`that’s me`]})]})}
-""" + vb_to_tv_code + r"""function tV(e,t){let n=e.firstChild,r=e.querySelector(`.hero-wordmark-baseline`);if(!n||n.nodeType!==Node.TEXT_NODE||!r)return null;let i=getComputedStyle(e),a=Number.parseFloat(i.fontSize),o=`${i.fontStyle} ${i.fontWeight} ${WB}px ${i.fontFamily}`,s=`${o}|${[...document.fonts].map(e=>e.status).join(``)}`;YB.has(s)||YB.set(s,QB(o));let c=YB.get(s);if(!c)return null;let{bowl:u}=c,d=u.bottom-u.top,f=Math.max(...[...u.rows.values()].map(e=>e.right-e.left)),m=Math.max(GB/(a/WB),f*1.02),g=a/WB,_=t.getBoundingClientRect(),v=r.getBoundingClientRect().top-_.top,y=e=>{let t=document.createRange();return t.setStart(n,e),t.setEnd(n,e+1),t.getBoundingClientRect().left-_.left},b=(e,t,n)=>({x:e+(t-qB)*g,bottom:v+(n-JB)*g}),x=(n.textContent??``).toLowerCase(),S=x.lastIndexOf(`a`),C=x.indexOf(`a`);if(S<0||C<0)return null;let w=u.bottom-d*.04;return{body:m*g,shelf:v-c.xHeight*g,y:{id:`y`,scale:.92,...b(y(S),eV(u,u.top+d*.55),w)},a:{id:`a`,scale:.84,...b(y(C),eV(u,u.top+d*.55),w)}}}""" + cat_sprite_to_vv_code + r"""var vV={"Masters' Union":`/brands/masters-union.svg`,"Hustlers' Edge":`/brands/hustlers-edge.svg`,"Delhi University":`/brands/delhi-university.svg`};
+""" + vb_to_tv_code + r"""function tV(e,t){
+  try{
+    let n=e.firstChild,r=e.querySelector(`.hero-wordmark-baseline`);
+    if(!n||n.nodeType!==Node.TEXT_NODE||!r)return null;
+    let i=getComputedStyle(e),a=Number.parseFloat(i.fontSize)||184,o=`${i.fontStyle} ${i.fontWeight} ${WB}px ${i.fontFamily}`;
+    let fontsStatus;
+    try{fontsStatus=document.fonts?[...document.fonts].map(e=>e.status).join(``):`ready`}catch{fontsStatus=`ready`}
+    let s=`${o}|${fontsStatus}`;
+    YB.has(s)||YB.set(s,QB(o));
+    let c=YB.get(s);
+    if(!c||!c.bowl||!c.bowl.rows)return null;
+    let{bowl:u}=c,d=u.bottom-u.top,f=Math.max(...[...u.rows.values()].map(e=>e.right-e.left)),m=Math.max(GB/(a/WB),f*1.02),g=a/WB,_=t.getBoundingClientRect(),v=r.getBoundingClientRect().top-_.top,y=e=>{let t=document.createRange();return t.setStart(n,e),t.setEnd(n,e+1),t.getBoundingClientRect().left-_.left},b=(e,t,n)=>({x:e+(t-qB)*g,bottom:v+(n-JB)*g}),x=(n.textContent??``).toLowerCase(),S=x.lastIndexOf(`a`),C=x.indexOf(`a`);
+    if(S<0||C<0)return null;
+    let w=u.bottom-d*.04;
+    return{body:m*g,shelf:v-c.xHeight*g,y:{id:`y`,scale:.92,...b(y(S),eV(u,u.top+d*.55),w)},a:{id:`a`,scale:.84,...b(y(C),eV(u,u.top+d*.55),w)}}
+  }catch(err){
+    return null;
+  }
+}""" + cat_sprite_to_vv_code + r"""var vV={"Masters' Union":`/brands/masters-union.svg`,"Hustlers' Edge":`/brands/hustlers-edge.svg`,"Delhi University":`/brands/delhi-university.svg`};
 function yV({background:e=!1}){
   let t=e?`p`:`h1`,n=(0,v.useRef)(null);
   return(0,G.jsxs)(`header`,{className:`hero paper-grain`,children:[
@@ -968,7 +1002,22 @@ function $K(){
     ]})})
   ]})
 }
-(0,b.createRoot)(document.getElementById(`root`)).render((0,G.jsx)(v.StrictMode,{children:(0,G.jsx)(Sn,{children:(0,G.jsx)($K,{})})}));"""
+class AppErrorBoundary extends v.Component{
+  constructor(props){super(props);this.state={hasError:!1,error:null}}
+  static getDerivedStateFromError(err){return{hasError:!0,error:err}}
+  componentDidCatch(err,info){console.error(`Portfolio Error caught:`,err,info)}
+  render(){
+    if(this.state.hasError){
+      return(0,G.jsxs)(`div`,{style:{minHeight:`100vh`,padding:`48px 24px`,background:`#f1f0eb`,color:`#242620`,fontFamily:`system-ui,sans-serif`,display:`flex`,flexDirection:`column`,alignItems:`center`,justifyContent:`center`,textAlign:`center`},children:[
+        (0,G.jsx)(`h1`,{style:{fontSize:`36px`,fontFamily:`serif`,marginBottom:`14px`},children:`Hey! I'm Hassaan.`}),
+        (0,G.jsx)(`p`,{style:{fontSize:`18px`,color:`#6f7168`,maxWidth:`540px`,marginBottom:`28px`,lineHeight:1.6},children:`I listen to people & solve their problems by giving them tailored solutions.`}),
+        (0,G.jsx)(`a`,{href:`/`,onClick:()=>window.location.reload(),style:{padding:`12px 26px`,borderRadius:`999px`,background:`#242620`,color:`#f1f0eb`,textDecoration:`none`,fontWeight:`600`},children:`Reload Portfolio`})
+      ]});
+    }
+    return this.props.children;
+  }
+}
+(0,b.createRoot)(document.getElementById(`root`)).render((0,G.jsx)(v.StrictMode,{children:(0,G.jsx)(AppErrorBoundary,{children:(0,G.jsx)(Sn,{children:(0,G.jsx)($K,{})})})}));"""
 
 # Apply all 8 splices in order
 out = src
