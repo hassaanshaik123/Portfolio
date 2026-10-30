@@ -679,6 +679,15 @@ cat_sprite_to_vv_code = cat_sprite_to_vv_code.replace(
     "e&&a&&!p.current&&(()=>{try{let pos=hV(a,d.current);if(pos)e.style.transform=gV(pos)}catch(err){}})()"
 )
 qu_to_fw_code = src[pos_qu:pos_fw]
+# Guard sW and lW against NaN / undefined widths causing RangeError in Array(t)
+qu_to_fw_code = qu_to_fw_code.replace(
+    "var oW=220,sW=e=>Math.min(6,Math.max(2,Math.floor(e/oW)));",
+    "var oW=220,sW=e=>{let v=Number(e);return(!Number.isFinite(v)||v<=0)?4:Math.min(6,Math.max(2,Math.floor(v/oW)))};"
+)
+qu_to_fw_code = qu_to_fw_code.replace(
+    "function lW(e,t){let n=Array.from({length:t},()=>[]),r=Array(t).fill(0);",
+    "function lW(e,t){let cols=Number.isFinite(t)&&t>0?Math.max(1,Math.min(6,Math.floor(t))):4;let n=Array.from({length:cols},()=>[]),r=Array(cols).fill(0);"
+)
 
 SPLICE_6 = r"""var zB=[
   {src:`/hero/photo-1.jpg`,fallback:`/hero/photo-1.jpg`,alt:`Muhammad Hassaan at Canton Fair Phase 1 in Guangzhou, China`,caption:`Canton Fair Phase 1 · Guangzhou, China.`,tilt:-7},
@@ -797,6 +806,9 @@ function FV({progress:e,start:t,end:n}){let r=MV(e,[t,n],[0,1]),i=am(r,e=>+(e>.0
 function IV({beat:e,index:t,progress:n}){let r=t===jV.length-1,i=[e.from,e.from+kV,e.to-kV,e.to],a=MV(n,r?[e.from,e.from+kV,AV+OV(4.8),1-OV(7.2)]:i,[0,1,1,0].map((e,n)=>t===0&&n===0?1:e)),o=MV(n,i,[t===0?0:40,0,0,r?0:-50]),s=MV(n,r?[AV,1-OV(7.2)]:[e.to-kV,e.to],[1,r?3.2:.97]),c=e.lines.flat(),l=t===0?e.from:e.from+kV*.5,u=r?(AV-e.from)*.55:(e.to-e.from)*.6,d=u/c.length,f=e.lines.map((t,n)=>e.lines.slice(0,n).reduce((e,t)=>e+t.length,0));return(0,G.jsxs)(K.div,{className:`intro-beat${r?` intro-beat--zoom`:``}`,style:{opacity:a,y:o,scale:s},children:[e.lines.map((e,t)=>(0,G.jsx)(`div`,{className:`intro-line`,children:e.map((e,r)=>{let i=l+d*(f[t]+r),a=i+d*1.4;return(0,G.jsx)(NV,{word:e,progress:n,start:i,end:a},`${t}-${e.text}`)})},t)),r&&(0,G.jsx)(PV,{progress:n,start:e.from+u*.9}),e.underline&&(0,G.jsx)(FV,{progress:n,start:e.from+u*.85,end:e.to-kV*2})]})}
 function LV(){let e=(0,v.useRef)(null),{scrollYProgress:t}=bg(e),n=um(),r=MV(t,[0,OV(14),OV(30)],[1,1,0]),i=MV(t,[AV+OV(14.4),1-OV(2.4)],[1,0]);return n?(0,G.jsxs)(`section`,{className:`intro-static paper-grain`,"aria-label":`Welcome to my workstation`,children:[(0,G.jsxs)(`p`,{className:`intro-line`,children:[`welcome to my `,(0,G.jsx)(`span`,{className:`intro-accent`,children:`workstation.`})]}),(0,G.jsx)(`p`,{className:`intro-line`,children:`Open the Door`})]}):(0,G.jsxs)(`section`,{ref:e,className:`intro`,"aria-label":`Welcome to my workstation`,children:[(0,G.jsx)(`p`,{className:`sr-only`,children:`Welcome to my workstation. Open the Door.`}),(0,G.jsxs)(K.div,{"data-scroll-stage":!0,className:`intro-stage paper-grain`,style:{opacity:i},"aria-hidden":!0,children:[jV.map((e,n)=>(0,G.jsx)(IV,{beat:e,index:n,progress:t},n)),(0,G.jsxs)(K.p,{className:`intro-hint`,style:{opacity:r},children:[`keep scrolling `,(0,G.jsx)(`span`,{children:`↓`})]})]})]})}
 var VU=[{id:`academic`,label:`Academic Projects`},{id:`business`,label:`Business Projects`}],
+HU={x:.06,y:0},
+UU=e=>e.device?(1-2*HU.x)/(e.cardRatio||1.33)+2*HU.y:1/(e.cardRatio||1.33),
+WU=e=>e?{maskImage:`url("${e}")`,maskSize:`100% 100%`,maskRepeat:`no-repeat`,maskMode:`luminance`}:void 0,
 GU=(e,t)=>e.category===t,
 YU=[
   {kind:`image`,id:`bharti-airtel`,category:`academic`,src:`/assets/covers/bharti-airtel.svg`,thumb:`/assets/covers/bharti-airtel.svg`,ratio:1200/900,cardRatio:1200/900,device:!1,caption:`Bharti Airtel — Business Strategy`,href:`/work/bharti-airtel`},
