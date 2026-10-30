@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#f1f0eb"/>
+  <rect x="44" y="44" width="1112" height="712" rx="22" fill="#ffffff" stroke="#d3d3c8" stroke-width="2"/>
+  <rect x="88" y="96" width="260" height="42" rx="21" fill="#242620"/>
+  <text x="218" y="123" text-anchor="middle" fill="#ffffff" font-family="DM Sans, system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="0.12em">MINIMUM VIABLE PRODUCT</text>
+  <text x="88" y="280" fill="#242620" font-family="Instrument Serif, Georgia, serif" font-size="112" font-style="italic">Buildsy</text>
+  <text x="88" y="355" fill="#242620" font-family="DM Sans, system-ui, sans-serif" font-size="28" font-weight="600">AI-Powered Tool-Stack Recommendation Platform</text>
+  <text x="88" y="425" fill="#6f7168" font-family="DM Sans, system-ui, sans-serif" font-size="20">Personalized AI tools, software plans & phased budget packages for solopreneurs and first-time founders.</text>
+  <line x1="88" y1="540" x2="1112" y2="540" stroke="#d3d3c8" stroke-width="1.5"/>
+  <text x="88" y="615" fill="#6f7168" font-family="DM Sans, system-ui, sans-serif" font-size="16" letter-spacing="0.08em">PROBLEMS IN IDEATION &amp; MVP · MUHAMMAD HASSAAN</text>
+</svg>

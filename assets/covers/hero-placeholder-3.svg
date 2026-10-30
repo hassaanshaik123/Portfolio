@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <rect width="600" height="600" fill="#e9e7e0"/>
+  <rect x="28" y="28" width="544" height="544" rx="8" fill="none" stroke="#d3d3c8" stroke-width="2" stroke-dasharray="8 8"/>
+  <line x1="28" y1="300" x2="572" y2="300" stroke="#dcdad2" stroke-width="1"/>
+  <line x1="300" y1="28" x2="300" y2="572" stroke="#dcdad2" stroke-width="1"/>
+  <circle cx="300" cy="240" r="44" fill="#f1f0eb" stroke="#242620" stroke-width="2"/>
+  <circle cx="300" cy="240" r="16" fill="#e25531"/>
+  <text x="300" y="345" text-anchor="middle" fill="#242620" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="34">Hero Photograph 03</text>
+  <text x="300" y="382" text-anchor="middle" fill="#6f7168" font-family="DM Sans, system-ui, sans-serif" font-weight="500" font-size="15" letter-spacing="0.08em">SUPPORTING VISUAL — AWAITING UPLOAD</text>
+  <text x="300" y="530" text-anchor="middle" fill="#6f7168" font-family="DM Sans, system-ui, sans-serif" font-size="13">Muhammad Hassaan · Portfolio</text>
+</svg>
