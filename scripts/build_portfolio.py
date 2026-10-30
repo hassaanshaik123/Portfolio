@@ -679,7 +679,7 @@ function yV({background:e=!1}){
       (0,G.jsxs)(`ul`,{className:`hero-nav-links`,children:[
         (0,G.jsx)(`li`,{children:(0,G.jsx)(`a`,{href:`#work`,children:`work`})}),
         (0,G.jsx)(`li`,{children:(0,G.jsx)(`a`,{href:`#experience`,children:`about me`})}),
-        (0,G.jsx)(`li`,{children:(0,G.jsxs)(`a`,{href:`#experience`,className:`hero-nav-resume`,children:[`resume`,(0,G.jsx)(`svg`,{width:`12`,height:`12`,viewBox:`0 0 24 24`,fill:`none`,stroke:`currentColor`,strokeWidth:`2.2`,strokeLinecap:`round`,strokeLinejoin:`round`,"aria-hidden":!0,children:(0,G.jsx)(`path`,{d:`M12 4v12m0 0l-5-5m5 5l5-5M5 20h14`})})]})})
+        (0,G.jsx)(`li`,{children:(0,G.jsxs)(`a`,{href:`https://www.linkedin.com/in/hassaan-shaik/`,target:`_blank`,rel:`noopener noreferrer`,className:`hero-nav-resume`,children:[`connect`,(0,G.jsx)(`svg`,{width:`12`,height:`12`,viewBox:`0 0 24 24`,fill:`none`,stroke:`currentColor`,strokeWidth:`2.2`,strokeLinecap:`round`,strokeLinejoin:`round`,"aria-hidden":!0,children:(0,G.jsx)(`path`,{d:`M7 17L17 7M8 7h9v9`})})]})})
       ]}),
       (0,G.jsxs)(`a`,{href:`#contact`,className:`hero-say-hey`,children:[`say hey`,(0,G.jsx)(`svg`,{width:`12`,height:`12`,viewBox:`0 0 24 24`,fill:`none`,stroke:`currentColor`,strokeWidth:`2.2`,strokeLinecap:`round`,strokeLinejoin:`round`,"aria-hidden":!0,children:(0,G.jsx)(`path`,{d:`M7 17L17 7M8 7h9v9`})})]})
     ]}),
