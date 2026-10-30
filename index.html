@@ -1,30 +1,653 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/assets/h-logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=Caveat:wght@500;600&display=swap"
-      rel="stylesheet"
-    />
-    <!-- seo:start -->
-    <title data-seo>Muhammad Hassaan — Entrepreneurship · Consultative Sales · Business Development</title>
-    <meta data-seo name="description" content="Hey! I'm Hassaan. I listen to people &amp; solve their problems by giving them tailored solutions. MBA Candidate at Masters' Union School of Business." />
-    <meta data-seo name="robots" content="index, follow, max-image-preview:large" />
-    <meta data-seo property="og:type" content="website" />
-    <meta data-seo property="og:site_name" content="Muhammad Hassaan" />
-    <meta data-seo property="og:locale" content="en_US" />
-    <meta data-seo property="og:title" content="Muhammad Hassaan — Entrepreneurship · Consultative Sales · Business Development" />
-    <meta data-seo property="og:description" content="Hey! I'm Hassaan. I listen to people &amp; solve their problems by giving them tailored solutions." />
-    <meta data-seo property="og:image" content="/assets/covers/stroque-consulting.svg" />
-    <!-- seo:end -->
-    <script type="module" src="/js/main.js"></script>
-    <link rel="stylesheet" href="/css/styles.css" />
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Muhammad Hassaan — Sales · Business Development · Growth Partnerships</title>
+  <meta name="description" content="Muhammad Hassaan — B2B Sales, Business Development, and Growth Partnerships. Turning conversations into solutions by listening closely to what people need and matching them with answers that deliver real value.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Muhammad Hassaan — Sales · Business Development · Growth Partnerships">
+  <meta property="og:description" content="I turn conversations into solutions by listening closely to what people need and matching them with answers that deliver real value.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/hassaan-hero.jpg">
+  <link rel="icon" type="image/png" href="assets/h-logo.png">
+  <link rel="preload" href="assets/fonts/PPMondwest-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/PPNeueMontreal-Book.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="page-shell" id="main">
+
+    <!-- ================= FLOATING PILL NAVIGATION ================= -->
+    <header class="nav-wrapper">
+      <nav class="nav-pill" aria-label="Primary navigation">
+        <a href="#hero" class="nav-logo" aria-label="Muhammad Hassaan — Back to top">
+          <img
+            src="assets/h-logo.png"
+            alt="H"
+            class="nav-logo-img"
+            width="24"
+            height="24"
+          >
+        </a>
+        <div class="nav-divider" aria-hidden="true"></div>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#about" class="nav-link">About Me</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#experience" class="nav-link">
+          <span>Resume</span>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M 7 7 L 17 7 L 17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 7 17 L 17 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </nav>
+    </header>
+
+    <!-- ================= TOP ATMOSPHERIC BLUR & LINE STACK ================= -->
+    <div class="ambient-top" aria-hidden="true">
+      <div class="ambient-glow"></div>
+      <div class="ambient-glow-secondary"></div>
+      <div class="ambient-noise"></div>
+      <div class="line-stack line-stack-top">
+        <div class="v-line h-120"></div>
+        <div class="v-line h-280"></div>
+        <div class="v-line h-440"></div>
+        <div class="v-line h-600"></div>
+        <div class="v-line h-600"></div>
+        <div class="v-line h-440"></div>
+        <div class="v-line h-280"></div>
+        <div class="v-line h-120"></div>
+      </div>
+    </div>
+
+    <!-- ================= BOTTOM ATMOSPHERIC BLUR & LINE STACK ================= -->
+    <div class="ambient-bottom" aria-hidden="true">
+      <div class="ambient-glow"></div>
+      <div class="ambient-glow-secondary"></div>
+      <div class="ambient-noise"></div>
+      <div class="line-stack line-stack-bottom">
+        <div class="v-line h-120"></div>
+        <div class="v-line h-280"></div>
+        <div class="v-line h-440"></div>
+        <div class="v-line h-600"></div>
+        <div class="v-line h-600"></div>
+        <div class="v-line h-440"></div>
+        <div class="v-line h-280"></div>
+        <div class="v-line h-120"></div>
+      </div>
+    </div>
+
+    <!-- ================= 01. HERO SECTION ================= -->
+    <section id="hero" class="hero-section" aria-labelledby="heroHeading">
+      <!-- Interactive Top Crimson Orb with Dark-Graded Portrait Reveal (Reference Signature) -->
+      <div
+        id="heroOrbStage"
+        class="hero-orb-stage"
+        tabindex="0"
+        role="button"
+        aria-label="Muhammad Hassaan portrait — hover or tap to reveal"
+      >
+        <div class="hero-orb">
+          <img
+            src="assets/hassaan-hero.jpg"
+            alt="Muhammad Hassaan"
+            class="hero-orb-avatar"
+            width="768"
+            height="1024"
+            fetchpriority="high"
+          >
+          <div class="hero-orb-tint" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="hero-header reveal-up">
+        <p class="hero-context">
+          <span class="hero-context-name">Muhammad Hassaan</span>
+          <span class="hero-context-sep" aria-hidden="true">—</span>
+          <span>Sales · Business Development · Growth Partnerships</span>
+        </p>
+
+        <div class="hero-title-group">
+          <h1 id="heroHeading" class="hero-title" aria-label="Hi There! I'm Hassaan. — Muhammad Hassaan">
+            <span class="hero-title-line">Hi There!</span>
+            <span class="hero-title-line">I'm Hassaan.</span>
+          </h1>
+        </div>
+
+        <p class="text-lead hero-oneliner">
+          I turn conversations into solutions by listening closely to what people need and matching them with answers that deliver real value.
+        </p>
+      </div>
+
+      <a href="mailto:hassaanshaik.work@gmail.com" class="btn-glass-pill reveal-up" aria-label="Get in touch via email at hassaanshaik.work@gmail.com">
+        <span>Get in touch</span>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M 5 12 L 19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M 12 5 L 19 12 L 12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </section>
+
+    <!-- ================= 02. SELECTED WORK SECTION ================= -->
+    <section id="work" class="content-section" aria-labelledby="workHeading">
+      <h2 id="workHeading" class="section-heading reveal-up">Selected work</h2>
+
+      <div class="cards-stack">
+        <!-- Project 1: Pepperfry — Customer Experience Improvement -->
+        <article
+          class="project-card project-card--pepperfry reveal-up"
+          data-project-id="pepperfry"
+        >
+          <div class="project-card-gradient" aria-hidden="true"></div>
+
+          <div class="project-card-content">
+            <div class="project-card-text">
+              <p class="project-category">Customer Experience · Business Analysis · Growth Strategy</p>
+              <h3 class="card-heading">Pepperfry — Customer Experience Improvement</h3>
+              <p class="text-lead project-description">
+                We identified a problem in Pepperfry's post-purchase services—an area the company appeared to be neglecting despite many customer complaints falling within that stage—and proposed three recommendations that could improve the customer experience and help boost sales.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              class="project-action-pill"
+              data-trigger-flashcard="pepperfry"
+              aria-label="Turn up and open the Pepperfry flashcard"
+            >
+              <span class="project-action-label">Turn flashcard</span>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M 5 12 L 19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 12 5 L 19 12 L 12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Interactive 3D Flashcard Visual (Pepperfry) -->
+          <div class="project-flashcard-stage">
+            <div
+              class="flashcard-3d"
+              data-flashcard-id="pepperfry"
+              tabindex="0"
+              role="button"
+              aria-expanded="false"
+              aria-label="Pepperfry project flashcard. Click on it to turn up the flashcard."
+            >
+              <div class="flashcard-inner">
+                <!-- Front Face: Uploaded Project Image + Prompt -->
+                <div class="flashcard-face flashcard-face--front">
+                  <div class="flashcard-img-wrap">
+                    <img
+                      src="assets/pepperfry.png"
+                      alt="Pepperfry — Customer Experience Improvement"
+                      class="flashcard-img"
+                      width="1024"
+                      height="491"
+                    >
+                    <span class="flashcard-corner-badge">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                        <path d="M3 3v5h5"/>
+                        <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+                        <path d="M16 16h5v5"/>
+                      </svg>
+                      <span>Interactive Flashcard</span>
+                    </span>
+                  </div>
+                  <div class="flashcard-caption-bar">
+                    <span class="flashcard-caption-dot" aria-hidden="true"></span>
+                    <p class="flashcard-caption-text">Click on it to turn up the flashcard.</p>
+                    <span class="flashcard-caption-arrow" aria-hidden="true">↗</span>
+                  </div>
+                </div>
+
+                <!-- Back Face: Sleek Minimal Case Study Breakdown -->
+                <div class="flashcard-face flashcard-face--back">
+                  <div class="flashcard-back-top">
+                    <span class="flashcard-back-tag">Customer Experience · Business Analysis · Growth Strategy</span>
+                    <span class="flashcard-back-hint">Click to pop out / flip ↺</span>
+                  </div>
+                  <h4 class="flashcard-back-title">Pepperfry — Customer Experience Improvement</h4>
+                  <div class="flashcard-back-points">
+                    <div class="flashcard-point">
+                      <span class="flashcard-point-label">Context</span>
+                      <p class="flashcard-point-body">
+                        We identified a problem in Pepperfry's post-purchase services. This was an area the company appeared to be neglecting, despite many customer complaints falling within that stage of the customer journey.
+                      </p>
+                    </div>
+                    <div class="flashcard-point">
+                      <span class="flashcard-point-label">Our Work &amp; Expected Impact</span>
+                      <p class="flashcard-point-body">
+                        We highlighted the problem and proposed three recommendations that could improve the customer experience and help boost sales as a potential outcome.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Clario AI — Articles to Regional Audio Notes -->
+        <article
+          class="project-card project-card--clario reveal-up"
+          data-project-id="clario"
+        >
+          <div class="project-card-gradient" aria-hidden="true"></div>
+
+          <div class="project-card-content">
+            <div class="project-card-text">
+              <p class="project-category">Product Discovery · User Research · EdTech · AI &amp; Text-to-Speech</p>
+              <h3 class="card-heading">Clario AI — Articles to Regional Audio Notes</h3>
+              <p class="text-lead project-description">
+                A text-to-speech product concept designed for MBA students and UPSC aspirants to convert long articles into audio notes in regional languages and explain the content in simple language.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              class="project-action-pill"
+              data-trigger-flashcard="clario"
+              aria-label="Turn up and open the Clario AI flashcard"
+            >
+              <span class="project-action-label">Turn flashcard</span>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M 5 12 L 19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 12 5 L 19 12 L 12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Interactive 3D Flashcard Visual (Clario AI) -->
+          <div class="project-flashcard-stage">
+            <div
+              class="flashcard-3d"
+              data-flashcard-id="clario"
+              tabindex="0"
+              role="button"
+              aria-expanded="false"
+              aria-label="Clario AI project flashcard. Click on it to turn up the flashcard."
+            >
+              <div class="flashcard-inner">
+                <!-- Front Face: Uploaded Project Image + Prompt -->
+                <div class="flashcard-face flashcard-face--front">
+                  <div class="flashcard-img-wrap">
+                    <img
+                      src="assets/clario.png"
+                      alt="Clario AI — Articles to Regional Audio Notes"
+                      class="flashcard-img"
+                      width="1024"
+                      height="764"
+                    >
+                    <span class="flashcard-corner-badge">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                        <path d="M3 3v5h5"/>
+                        <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+                        <path d="M16 16h5v5"/>
+                      </svg>
+                      <span>Interactive Flashcard</span>
+                    </span>
+                  </div>
+                  <div class="flashcard-caption-bar">
+                    <span class="flashcard-caption-dot" aria-hidden="true"></span>
+                    <p class="flashcard-caption-text">Click on it to turn up the flashcard.</p>
+                    <span class="flashcard-caption-arrow" aria-hidden="true">↗</span>
+                  </div>
+                </div>
+
+                <!-- Back Face: Sleek Minimal Case Study Breakdown -->
+                <div class="flashcard-face flashcard-face--back">
+                  <div class="flashcard-back-top">
+                    <span class="flashcard-back-tag">Product Discovery · User Research · EdTech · AI &amp; Text-to-Speech</span>
+                    <span class="flashcard-back-hint">Click to pop out / flip ↺</span>
+                  </div>
+                  <h4 class="flashcard-back-title">Clario AI — Articles to Regional Audio Notes</h4>
+                  <div class="flashcard-back-points">
+                    <div class="flashcard-point">
+                      <span class="flashcard-point-label">Context &amp; Target Users</span>
+                      <p class="flashcard-point-body">
+                        A text-to-speech product concept for MBA students and UPSC aspirants designed to convert long articles into regional-language audio notes explained in simple language.
+                      </p>
+                    </div>
+                    <div class="flashcard-point">
+                      <span class="flashcard-point-label">Problem &amp; Our Approach</span>
+                      <p class="flashcard-point-body">
+                        Conceived around the difficulty these users face in consuming lengthy written information. We identified the problem and developed a product concept that makes information easier to consume through regional-language audio.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= 03. ABOUT ME, EDUCATION, EXPERIENCE & GALLERY ================= -->
+    <section id="about" class="content-section" aria-labelledby="aboutHeading">
+      <h2 id="aboutHeading" class="section-heading reveal-up">A little about me</h2>
+
+      <div class="bento-stack">
+        <!-- Row 1: About Me Bio Card + Interactive Halftone/Pixel Portrait Card (Exact 3:1 Reference Ratio) -->
+        <div class="bento-row reveal-up">
+          <div class="bento-card bento-card--bio">
+            <h3 class="card-heading">Some context</h3>
+            <div class="bio-copy">
+              <p class="text-body">
+                I'm Muhammad Hassaan, currently pursuing my MBA at Masters' Union School of Business.
+              </p>
+              <p class="text-body">
+                I've always been interested in building things, figuring out how businesses work, and helping people find their way forward. I've spent time building ventures from 0 to 1, mentoring people, and exploring different sides of business.
+              </p>
+              <p class="text-body">
+                One thing I'm learning along the way is that sales can be genuinely rewarding. Not when you're trying to convince someone to buy something, but when you listen closely, understand what they actually need, and help them find the right solution.
+              </p>
+              <p class="text-body">
+                That's the side of sales I connect with most. And it's what I'm working on getting better at every day.
+              </p>
+              <p class="text-body">
+                This website is a little space to share what I've been working on, what I've learned, and where I'm headed next.
+              </p>
+            </div>
+          </div>
+
+          <div class="bento-card bento-card--portrait" id="aboutPortraitCard">
+            <img
+              id="aboutPortraitSource"
+              src="assets/hassaan-hero.jpg"
+              alt="Muhammad Hassaan portrait"
+              class="about-portrait-img"
+              width="768"
+              height="1024"
+              crossorigin="anonymous"
+            >
+            <canvas
+              id="portraitCanvas"
+              class="portrait-canvas"
+              aria-label="Interactive halftone portrait of Muhammad Hassaan — hover or move cursor to reveal color photograph"
+            ></canvas>
+            <div class="portrait-reveal-hint" id="portraitHint" aria-hidden="true">
+              <span class="portrait-hint-dot"></span>
+              <span>Hover to reveal</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2A: Education Timeline (4 Chronological Entries) -->
+        <div id="education" class="bento-card bento-card--timeline reveal-up" aria-labelledby="educationHeading">
+          <div class="timeline-card-header">
+            <h3 id="educationHeading" class="card-heading">Education</h3>
+          </div>
+
+          <div class="timeline-grid" role="list">
+            <!-- Entry 1: X Class (2019) -->
+            <div class="timeline-item" role="listitem">
+              <p class="timeline-period">2019</p>
+              <div class="timeline-track" aria-hidden="true">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+              </div>
+              <div class="timeline-details">
+                <p class="timeline-title">X Class</p>
+                <p class="timeline-org">Sri Chaitanya Institutions</p>
+              </div>
+            </div>
+
+            <!-- Entry 2: XII (2021) -->
+            <div class="timeline-item" role="listitem">
+              <p class="timeline-period">2021</p>
+              <div class="timeline-track" aria-hidden="true">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+              </div>
+              <div class="timeline-details">
+                <p class="timeline-title">XII</p>
+                <p class="timeline-org">Challengers Civil Services Academy</p>
+              </div>
+            </div>
+
+            <!-- Entry 3: Undergraduate (2025) -->
+            <div class="timeline-item" role="listitem">
+              <p class="timeline-period">2025</p>
+              <div class="timeline-track" aria-hidden="true">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+              </div>
+              <div class="timeline-details">
+                <p class="timeline-title">Undergraduate</p>
+                <p class="timeline-org">Delhi University</p>
+              </div>
+            </div>
+
+            <!-- Entry 4: MBA (Expected 2028) -->
+            <div class="timeline-item" role="listitem">
+              <p class="timeline-period">Expected completion: 2028</p>
+              <div class="timeline-track" aria-hidden="true">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+              </div>
+              <div class="timeline-details">
+                <p class="timeline-title">MBA</p>
+                <p class="timeline-org">Masters' Union School of Business</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2B: Experience & Credentials (Target of #experience / Resume Navigation) -->
+        <div id="experience" class="bento-card bento-card--timeline reveal-up" aria-labelledby="experienceHeading">
+          <div class="timeline-card-header">
+            <h3 id="experienceHeading" class="card-heading">Work experience</h3>
+            <div class="resume-status-pill" aria-label="Resume status: Detailed resume is being prepared">
+              <span class="resume-status-dot" aria-hidden="true"></span>
+              <span>Detailed resume is being prepared</span>
+            </div>
+          </div>
+
+          <div class="timeline-grid" role="list">
+            <!-- Role 1 -->
+            <div class="timeline-item" role="listitem">
+              <p class="timeline-period">01 · Venture</p>
+              <div class="timeline-track" aria-hidden="true">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+              </div>
+              <div class="timeline-details">
+                <p class="timeline-title">Independent Business Owner</p>
+                <p class="timeline-org">IDigitalpreneur Pvt Ltd.</p>
+              </div>
+            </div>
+
+            <!-- Role 2 -->
+            <div class="timeline-item" role="listitem">
+              <p class="timeline-period">02 · Community</p>
+              <div class="timeline-track" aria-hidden="true">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+              </div>
+              <div class="timeline-details">
+                <p class="timeline-title">Founder &amp; CRO</p>
+                <p class="timeline-org">Hustlers' Edge Community</p>
+              </div>
+            </div>
+
+            <!-- Role 3 -->
+            <div class="timeline-item" role="listitem">
+              <p class="timeline-period">03 · Consulting</p>
+              <div class="timeline-track" aria-hidden="true">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+              </div>
+              <div class="timeline-details">
+                <p class="timeline-title">Founder &amp; Handwriting Analyst</p>
+                <p class="timeline-org">Stroque Consulting</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: Personal Gallery (Photos & Videos — Two Full-Bleed 488px Editorial Cards) -->
+        <div id="gallery" class="bento-row reveal-up" aria-label="Personal gallery">
+          <!-- Card 1: Photos -->
+          <article class="gallery-card" aria-labelledby="galleryPhotosHeading">
+            <div class="gallery-surface gallery-surface--photos" aria-hidden="true"></div>
+            <div class="gallery-card-header">
+              <h3 id="galleryPhotosHeading" class="card-heading">Photos</h3>
+              <p class="text-body">
+                Photographs from my personal journey, events, and other relevant moments.
+              </p>
+            </div>
+
+            <div class="gallery-stage" role="region" aria-label="Photographs placeholder gallery">
+              <div class="gallery-slide is-active" data-photo-slide="0">
+                <span class="gallery-stage-badge">01 / Personal Journey</span>
+                <p class="gallery-stage-title">Entrepreneurial Journey &amp; Ventures</p>
+                <p class="gallery-stage-note">Photographs will be added here in the next iteration.</p>
+              </div>
+              <div class="gallery-slide" data-photo-slide="1">
+                <span class="gallery-stage-badge">02 / Events &amp; Community</span>
+                <p class="gallery-stage-title">Events &amp; Community Gatherings</p>
+                <p class="gallery-stage-note">Photographs will be added here in the next iteration.</p>
+              </div>
+              <div class="gallery-slide" data-photo-slide="2">
+                <span class="gallery-stage-badge">03 / Campus &amp; Mentorship</span>
+                <p class="gallery-stage-title">Masters' Union &amp; Mentorship Moments</p>
+                <p class="gallery-stage-note">Photographs will be added here in the next iteration.</p>
+              </div>
+            </div>
+
+            <div class="gallery-dots" role="tablist" aria-label="Photograph placeholder slides">
+              <button type="button" class="gallery-dot is-active" data-photo-slide-btn="0" role="tab" aria-selected="true" aria-label="Photo placeholder 1"></button>
+              <button type="button" class="gallery-dot" data-photo-slide-btn="1" role="tab" aria-selected="false" aria-label="Photo placeholder 2"></button>
+              <button type="button" class="gallery-dot" data-photo-slide-btn="2" role="tab" aria-selected="false" aria-label="Photo placeholder 3"></button>
+            </div>
+          </article>
+
+          <!-- Card 2: Videos -->
+          <article class="gallery-card" aria-labelledby="galleryVideosHeading">
+            <div class="gallery-surface gallery-surface--videos" aria-hidden="true"></div>
+            <div class="gallery-card-header">
+              <h3 id="galleryVideosHeading" class="card-heading">Videos</h3>
+              <p class="text-body">
+                Videos featuring public talks and speaking engagements.
+              </p>
+            </div>
+
+            <div class="gallery-stage" role="img" aria-label="Videos placeholder for public talks and speaking engagements">
+              <div class="video-play-placeholder" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5.14v14l11-7-11-7Z"/>
+                </svg>
+              </div>
+              <span class="gallery-stage-badge">Speaking &amp; Sessions</span>
+              <p class="gallery-stage-title">Public Talks &amp; Speaking Engagements</p>
+              <p class="gallery-stage-note">Video recordings will be added here once provided.</p>
+            </div>
+
+            <div class="gallery-dots" aria-hidden="true">
+              <span class="gallery-dot is-active"></span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 04. CLOSING CONTACT SECTION ================= -->
+    <footer id="contact" class="contact-section" aria-labelledby="contactHeading">
+      <div class="contact-header reveal-up">
+        <h2 id="contactHeading" class="section-heading">Your turn. Say hello</h2>
+        <p class="text-lead contact-subtitle">
+          If you'd like to connect about B2B sales, business development, growth partnerships, or interesting opportunities, I'd love to hear from you.
+        </p>
+      </div>
+
+      <div class="contact-actions reveal-up">
+        <a
+          href="mailto:hassaanshaik.work@gmail.com"
+          class="contact-email-pill"
+          aria-label="Send an email to hassaanshaik.work@gmail.com"
+        >
+          <span class="contact-email-swap">
+            <span class="contact-email-default">Email me</span>
+            <span class="contact-email-hover">hassaanshaik.work@gmail.com</span>
+          </span>
+        </a>
+
+        <a href="mailto:hassaanshaik.work@gmail.com" class="contact-direct-link">
+          hassaanshaik.work@gmail.com
+        </a>
+      </div>
+
+      <div class="contact-bottom-orb" aria-hidden="true"></div>
+    </footer>
+
+  </div>
+
+  <!-- ================= 3D POP-OUT FLASHCARD MODAL STAGE ================= -->
+  <div
+    id="flashcardModalBackdrop"
+    class="flashcard-modal-backdrop"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-labelledby="popoutTitle"
+  >
+    <div class="flashcard-popout-stage">
+      <div class="flashcard-popout-controls">
+        <button type="button" id="popoutFlipBtn" class="flashcard-control-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+            <path d="M3 3v5h5"/>
+            <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+            <path d="M16 16h5v5"/>
+          </svg>
+          <span id="popoutFlipLabel">Flip to front photo</span>
+        </button>
+
+        <button type="button" id="popoutCloseBtn" class="flashcard-close-btn" aria-label="Close flashcard">
+          <span>Close</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 6 6 18"/>
+            <path d="m6 6 12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- 3D Flipping Card in Pop-Out Stage -->
+      <div id="popoutCard3D" class="popout-card-3d is-flipped">
+        <div class="popout-card-inner">
+          <!-- Front of Pop-Out Card (Project Photo) -->
+          <div class="popout-face popout-face--front" id="popoutFrontFace">
+            <div class="popout-front-image-box">
+              <img id="popoutImage" src="assets/pepperfry.png" alt="" class="popout-front-img">
+            </div>
+            <div class="popout-front-footer">
+              <p class="flashcard-caption-text">Click on it to turn up the flashcard.</p>
+            </div>
+          </div>
+
+          <!-- Back of Pop-Out Card (Sleek Minimal Pro Case-Study Breakdown) -->
+          <div class="popout-face popout-face--back">
+            <div class="popout-back-header">
+              <p id="popoutCategory" class="project-category"></p>
+              <h3 id="popoutTitle" class="card-heading"></h3>
+              <p id="popoutSummary" class="text-lead popout-summary"></p>
+            </div>
+
+            <div id="popoutGrid" class="popout-details-grid"></div>
+
+            <div class="popout-back-footer">
+              <span class="popout-footer-hint">Tip: Click the card or "Flip to front photo" to inspect the visual</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
 </html>
