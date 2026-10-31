@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Muhammad Hassaan — Master Resume Dossier & Credentials</title>
+  <style>
+    @font-face {
+      font-family: "PP Neue Montreal";
+      src: url("assets/fonts/PPNeueMontreal-Book.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "PP Neue Montreal";
+      src: url("assets/fonts/PPNeueMontreal-Medium.woff2") format("woff2");
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "PP Neue Montreal";
+      src: url("assets/fonts/PPNeueMontreal-Bold.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "PP Mondwest";
+      src: url("assets/fonts/PPMondwest-Regular.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    :root {
+      --bg: #f9f9f7;
+      --card: #ffffff;
+      --text: #111111;
+      --muted: #666666;
+      --subtle: #888888;
+      --border: rgba(0, 0, 0, 0.09);
+      --accent-camel: #a88052;
+      --accent-badge: #f0ece6;
+      --font-sans: "PP Neue Montreal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: "PP Mondwest", Menlo, Monaco, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      padding: 2.5rem 1.5rem;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .print-bar {
+      max-width: 860px;
+      margin: 0 auto 1.5rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.25rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    }
+
+    .print-hint {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .btn-print {
+      background: #111111;
+      color: #ffffff;
+      border: none;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: opacity 0.2s;
+    }
+
+    .btn-print:hover {
+      opacity: 0.85;
+    }
+
+    .dossier-sheet {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3.5rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    }
+
+    /* Header */
+    .header-top {
+      border-bottom: 2px solid #111111;
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .header-name {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #111111;
+      line-height: 1.1;
+    }
+
+    .header-tagline {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      color: var(--accent-camel);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.5rem;
+    }
+
+    .header-meta {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .header-quote {
+      margin-top: 1.25rem;
+      background: var(--bg);
+      border-left: 3px solid var(--accent-camel);
+      padding: 0.85rem 1.25rem;
+      border-radius: 4px;
+    }
+
+    .header-quote p {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #111111;
+    }
+
+    .header-quote span {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* Section Styling */
+    .section-block {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent-camel);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Entry */
+    .entry-block {
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .entry-block:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.35rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .entry-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #111111;
+    }
+
+    .entry-pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent-camel);
+      background: var(--accent-badge);
+      padding: 0.2rem 0.65rem;
+      border-radius: 9999px;
+    }
+
+    .entry-role {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .entry-desc {
+      font-size: 0.96rem;
+      color: #333333;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    /* Metrics Strip */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric-val {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #111111;
+    }
+
+    .metric-lbl {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 1.25rem;
+      font-size: 0.92rem;
+      color: #333333;
+      line-height: 1.55;
+    }
+
+    .bullet-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--accent-camel);
+    }
+
+    .bullet-list li strong {
+      color: #111111;
+    }
+
+    /* Print media optimization */
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+      .print-bar {
+        display: none !important;
+      }
+      .dossier-sheet {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+      .entry-block {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-bar">
+    <span class="print-hint">📄 <strong>Muhammad Hassaan — Master Resume Dossier</strong> (Ready for print &amp; PDF export)</span>
+    <button type="button" class="btn-print" onclick="window.print()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="6 9 6 2 18 2 18 9"/>
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+        <rect x="6" y="14" width="12" height="8"/>
+      </svg>
+      <span>Print / Save as PDF</span>
+    </button>
+  </div>
+
+  <main class="dossier-sheet">
+
+    <!-- Header -->
+    <header class="header-top">
+      <h1 class="header-name">Muhammad Hassaan</h1>
+      <p class="header-tagline">Business Developer · B2B Sales | Consultative Selling</p>
+      <div class="header-meta">
+        <span><strong>Education:</strong> MBA Candidate, Masters' Union School of Business</span>
+        <span>·</span>
+        <span><strong>Location:</strong> New Delhi, India</span>
+        <span>·</span>
+        <span><strong>Email:</strong> hassaanshaik.work@gmail.com</span>
+      </div>
+
+      <div class="header-quote">
+        <p>"Turning Problems into tailored Solutions that get closed."</p>
+        <span>Selling Ethos: Consultative discovery and diagnostic alignment > hard-selling scripts.</span>
+      </div>
+    </header>
+
+    <!-- Executive Summary -->
+    <section class="section-block">
+      <h2 class="section-title">01 / Executive Profile</h2>
+      <p class="entry-desc">
+        Pursuing an MBA at Masters' Union School of Business with hands-on experience building ventures from 0 to 1, scaling peer skill communities, and driving consultative sales pipelines. Experienced in managing cold outbound prospecting, navigating high-friction buyer objections, and training sales representatives in consultative discovery. Passionate about listening closely to what clients genuinely need, diagnosing systemic operational gaps, and closing high-ROI commercial partnerships.
+      </p>
+    </section>
+
+    <!-- Education -->
+    <section class="section-block">
+      <h2 class="section-title">02 / Academic Credentials</h2>
+      <ul class="bullet-list">
+        <li><strong>MBA (Candidate 2026–2028):</strong> Masters' Union School of Business — Core focus on Business Strategy, Go-to-Market Mechanics, Platform Business Models, and Enterprise Sales.</li>
+        <li><strong>Undergraduate Degree (2021–2025):</strong> Delhi University — Analytical, commercial, and organizational foundation.</li>
+        <li><strong>Class XII (2021):</strong> Challengers Civil Services Academy · <strong>Class X (2019):</strong> Sri Chaitanya Institutions.</li>
+      </ul>
+    </section>
+
+    <!-- Entrepreneurship Experiments -->
+    <section class="section-block">
+      <h2 class="section-title">03 / Entrepreneurship Experiments &amp; Professional History</h2>
+
+      <!-- Stroque -->
+      <article class="entry-block">
+        <div class="entry-header">
+          <h3 class="entry-title">Stroque Consulting</h3>
+          <span class="entry-pill">$26K+ Revenue</span>
+        </div>
+        <p class="entry-role">Founder &amp; Senior Handwriting Analyst · November 2022 – Present</p>
+        <p class="entry-desc">
+          Founded a 0-to-1 human consulting practice based on handwriting psychology, Grapho-Therapy, and diagnostic executive consultations to help individuals improve personal and professional habits.
+        </p>
+
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <span class="metric-val">$26,000+</span>
+            <span class="metric-lbl">Total Revenue</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val">300+</span>
+            <span class="metric-lbl">People Helped</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val">250+</span>
+            <span class="metric-lbl">Consultation Calls</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val">130+</span>
+            <span class="metric-lbl">Grapho-Therapy</span>
+          </div>
+        </div>
+
+        <ul class="bullet-list">
+          <li><strong>Consultative Discovery:</strong> Conducted 250+ 1-on-1 diagnostic consultation calls translating handwriting assessments into actionable executive growth roadmaps.</li>
+          <li><strong>Therapy Program Design:</strong> Administered structured Grapho-Therapy regimens for 130+ individuals targeting subconscious habit and communication barriers.</li>
+          <li><strong>Commercial Growth:</strong> Generated over $26,000 in closed revenue via high-trust consultative selling and word-of-mouth client referrals.</li>
+        </ul>
+      </article>
+
+      <!-- Hustlers' Edge -->
+      <article class="entry-block">
+        <div class="entry-header">
+          <h3 class="entry-title">Hustlers' Edge</h3>
+          <span class="entry-pill">140+ Earners</span>
+        </div>
+        <p class="entry-role">Founder &amp; Community Lead · August 2024 – April 2026</p>
+        <p class="entry-desc">
+          Built and scaled a skill-development community helping final-year undergraduate students and early-career talent from Tier 2 and Tier 3 markets learn in-demand skills and monetize them.
+        </p>
+
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <span class="metric-val">140+</span>
+            <span class="metric-lbl">5-Figure Earners (INR)</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val">200+</span>
+            <span class="metric-lbl">Community Members</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val">Tier 2 &amp; 3</span>
+            <span class="metric-lbl">Focus Demographic</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val">0 to 1</span>
+            <span class="metric-lbl">Ecosystem Builder</span>
+          </div>
+        </div>
+
+        <ul class="bullet-list">
+          <li><strong>Community Leadership:</strong> Scaled active membership to 200+ aspiring builders across multiple regional hubs.</li>
+          <li><strong>Monetization Training:</strong> Curated actionable playbooks on cold outbound pitching, consultative objection handling, portfolio positioning, and commercial pricing.</li>
+          <li><strong>Measurable Impact:</strong> Enabled 140+ individuals from non-metro markets to generate sustainable five-figure monthly incomes in INR.</li>
+        </ul>
+      </article>
+
+      <!-- Idigitalpreneur -->
+      <article class="entry-block">
+        <div class="entry-header">
+          <h3 class="entry-title">Idigitalpreneur Pvt. Ltd.</h3>
+          <span class="entry-pill">30% Sales Efficiency Improvement</span>
+        </div>
+        <p class="entry-role">Business Development — Affiliate · February 2023 – April 2024</p>
+        <p class="entry-desc">
+          Executed end-to-end B2C and affiliate business development operations, conducting high-volume outbound prospecting, customer objection handling, and team enablement.
+        </p>
+
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <span class="metric-val">30%</span>
+            <span class="metric-lbl">Efficiency Gain</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val">~$2,000</span>
+            <span class="metric-lbl">Inbound Closed Deals</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val">$60</span>
+            <span class="metric-lbl">Average Ticket Size</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val">20+</span>
+            <span class="metric-lbl">Sales Reps Trained</span>
+          </div>
+        </div>
+
+        <ul class="bullet-list">
+          <li><strong>Deal Closing:</strong> Managed end-to-end sales cycles, closing approximately $2,000 in inbound sales deals at an average ticket size of $60.</li>
+          <li><strong>Objection Discovery:</strong> Replaced transactional hard-selling with consultative active listening, framing program enrollment around career ROI.</li>
+          <li><strong>Sales Enablement:</strong> Trained 20+ sales peers on consultative discovery methodologies, driving a documented 30% team efficiency improvement.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Academic Projects & Business Problem Analysis -->
+    <section class="section-block">
+      <h2 class="section-title">04 / Strategy Projects &amp; Diagnostics</h2>
+      <ul class="bullet-list">
+        <li><strong>Bharti Airtel Growth Strategy (Business Strategy):</strong> Strategic growth vectors and market expansion analysis formulating competitive enterprise connectivity and digital services roadmap.</li>
+        <li><strong>Ownwise (Decoding Business Models II):</strong> Unit economics breakdown, customer acquisition loops, gross margin structures, and sustainable competitive moats.</li>
+        <li><strong>Stride (Decoding Business Models II):</strong> Platform monetization mechanics, CAC vs. LTV dynamics, and marketplace network effects.</li>
+        <li><strong>GoSTOPS (Business Problem Analysis):</strong> Hospitality diagnostic examining operational bottlenecks, booking funnel drop-offs, and guest touchpoint monetization.</li>
+        <li><strong>Pepperfry (Customer Experience Improvement):</strong> Post-purchase service friction analysis proposing three strategic recommendations to elevate customer retention and sales.</li>
+      </ul>
+    </section>
+
+    <!-- Startup Ideas & MVPs -->
+    <section class="section-block">
+      <h2 class="section-title">05 / Startup Concepts &amp; Product Portfolio</h2>
+      <ul class="bullet-list">
+        <li><strong>Clario.AI (Early MVP / Phase 1):</strong> AI-powered reading and listening assistant converting long-form case studies into plain-language explanations and downloadable audio notes.</li>
+        <li><strong>LYVO (Ideation &amp; Research):</strong> Conversational support marketplace connecting young adults with life coaches for accessible 1-on-1 conversations (positioned as non-clinical support).</li>
+        <li><strong>Buildsy (MVP in Progress):</strong> AI-powered tool-stack recommendation engine matching first-time builders with the leanest, most affordable software stack.</li>
+        <li><strong>RAAH.AI (Diagnostic Platform):</strong> AI career diagnostic platform evaluating career readiness across 8 distinct role tracks and 5 multidimensional assessment vectors.</li>
+      </ul>
+    </section>
+
+    <!-- Contact & Channels -->
+    <section class="section-block">
+      <h2 class="section-title">06 / Contact &amp; Channels</h2>
+      <ul class="bullet-list">
+        <li><strong>Email:</strong> hassaanshaik.work@gmail.com</li>
+        <li><strong>LinkedIn:</strong> Muhammad Hassaan</li>
+        <li><strong>Topmate:</strong> Book a 1:1 Consultative Session</li>
+        <li><strong>Instagram:</strong> @muhammadhassaan · <strong>GitHub:</strong> github.com/hassaanshaik123/Portfolio</li>
+      </ul>
+    </section>
+
+  </main>
+</body>
+</html>
