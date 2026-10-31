@@ -3,651 +3,1225 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Muhammad Hassaan — Sales · Business Development · Growth Partnerships</title>
-  <meta name="description" content="Muhammad Hassaan — B2B Sales, Business Development, and Growth Partnerships. Turning conversations into solutions by listening closely to what people need and matching them with answers that deliver real value.">
-  <meta name="theme-color" content="#000000">
-  <meta property="og:title" content="Muhammad Hassaan — Sales · Business Development · Growth Partnerships">
-  <meta property="og:description" content="I turn conversations into solutions by listening closely to what people need and matching them with answers that deliver real value.">
+  <title>Muhammad Hassaan — Business Developer · B2B Sales | Consultative Selling</title>
+  <meta name="description" content="Muhammad Hassaan — Business Developer specializing in B2B Sales and Consultative Selling. MBA candidate at Masters' Union School of Business, New Delhi, India.">
+  <meta name="theme-color" content="#0a0a0d">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Muhammad Hassaan — Business Developer · B2B Sales">
+  <meta property="og:description" content="Turning Problems into tailored Solutions that get closed. B2B Sales, Consultative Selling, and Venture Building.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/hassaan-hero.jpg">
   <link rel="icon" type="image/png" href="assets/h-logo.png">
-  <link rel="preload" href="assets/fonts/PPMondwest-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Preload Custom Foundry Fonts -->
   <link rel="preload" href="assets/fonts/PPNeueMontreal-Book.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/PPNeueMontreal-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/PPNeueMontreal-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/PPMondwest-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="page-shell" id="main">
 
-    <!-- ================= FLOATING PILL NAVIGATION ================= -->
-    <header class="nav-wrapper">
-      <nav class="nav-pill" aria-label="Primary navigation">
-        <a href="#hero" class="nav-logo" aria-label="Muhammad Hassaan — Back to top">
-          <img
-            src="assets/h-logo.png"
-            alt="H"
-            class="nav-logo-img"
-            width="24"
-            height="24"
-          >
-        </a>
-        <div class="nav-divider" aria-hidden="true"></div>
-        <a href="#work" class="nav-link">Work</a>
-        <a href="#about" class="nav-link">About Me</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <a href="#experience" class="nav-link">
-          <span>Resume</span>
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M 7 7 L 17 7 L 17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M 7 17 L 17 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- ================= TOP AMBIENT GLOW ================= -->
+  <div class="ambient-glow-top" aria-hidden="true"></div>
+
+  <!-- ================= COMPASS NAVIGATION (Reference Signature) ================= -->
+  <header class="compass-header" role="banner">
+    <nav class="compass-dock" aria-label="Compass navigation">
+      
+      <!-- Compass Wayfinding Dial -->
+      <a href="#hero" class="compass-brand" aria-label="Muhammad Hassaan — Reset Compass to Home">
+        <div class="compass-dial-stage" aria-hidden="true">
+          <div class="compass-dial-ring"></div>
+          <svg id="compassNeedle" class="compass-dial-needle" viewBox="0 0 24 24" fill="none">
+            <!-- North Needle (Gold) -->
+            <polygon points="12,2 15,12 9,12" fill="#c69f68"/>
+            <!-- South Needle (Muted) -->
+            <polygon points="12,22 15,12 9,12" fill="#4a4c5a"/>
+            <!-- Center Pivot Pin -->
+            <circle cx="12" cy="12" r="2" fill="#f5f5f7"/>
           </svg>
-        </a>
-      </nav>
-    </header>
-
-    <!-- ================= TOP ATMOSPHERIC BLUR & LINE STACK ================= -->
-    <div class="ambient-top" aria-hidden="true">
-      <div class="ambient-glow"></div>
-      <div class="ambient-glow-secondary"></div>
-      <div class="ambient-noise"></div>
-      <div class="line-stack line-stack-top">
-        <div class="v-line h-120"></div>
-        <div class="v-line h-280"></div>
-        <div class="v-line h-440"></div>
-        <div class="v-line h-600"></div>
-        <div class="v-line h-600"></div>
-        <div class="v-line h-440"></div>
-        <div class="v-line h-280"></div>
-        <div class="v-line h-120"></div>
-      </div>
-    </div>
-
-    <!-- ================= BOTTOM ATMOSPHERIC BLUR & LINE STACK ================= -->
-    <div class="ambient-bottom" aria-hidden="true">
-      <div class="ambient-glow"></div>
-      <div class="ambient-glow-secondary"></div>
-      <div class="ambient-noise"></div>
-      <div class="line-stack line-stack-bottom">
-        <div class="v-line h-120"></div>
-        <div class="v-line h-280"></div>
-        <div class="v-line h-440"></div>
-        <div class="v-line h-600"></div>
-        <div class="v-line h-600"></div>
-        <div class="v-line h-440"></div>
-        <div class="v-line h-280"></div>
-        <div class="v-line h-120"></div>
-      </div>
-    </div>
-
-    <!-- ================= 01. HERO SECTION ================= -->
-    <section id="hero" class="hero-section" aria-labelledby="heroHeading">
-      <!-- Interactive Top Crimson Orb with Dark-Graded Portrait Reveal (Reference Signature) -->
-      <div
-        id="heroOrbStage"
-        class="hero-orb-stage"
-        tabindex="0"
-        role="button"
-        aria-label="Muhammad Hassaan portrait — hover or tap to reveal"
-      >
-        <div class="hero-orb">
-          <img
-            src="assets/hassaan-hero.jpg"
-            alt="Muhammad Hassaan"
-            class="hero-orb-avatar"
-            width="768"
-            height="1024"
-            fetchpriority="high"
-          >
-          <div class="hero-orb-tint" aria-hidden="true"></div>
         </div>
-      </div>
-
-      <div class="hero-header reveal-up">
-        <p class="hero-context">
-          <span class="hero-context-name">Muhammad Hassaan</span>
-          <span class="hero-context-sep" aria-hidden="true">—</span>
-          <span>Sales · Business Development · Growth Partnerships</span>
-        </p>
-
-        <div class="hero-title-group">
-          <h1 id="heroHeading" class="hero-title" aria-label="Hi There! I'm Hassaan. — Muhammad Hassaan">
-            <span class="hero-title-line">Hi There!</span>
-            <span class="hero-title-line">I'm Hassaan.</span>
-          </h1>
-        </div>
-
-        <p class="text-lead hero-oneliner">
-          I turn conversations into solutions by listening closely to what people need and matching them with answers that deliver real value.
-        </p>
-      </div>
-
-      <a href="mailto:hassaanshaik.work@gmail.com" class="btn-glass-pill reveal-up" aria-label="Get in touch via email at hassaanshaik.work@gmail.com">
-        <span>Get in touch</span>
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M 5 12 L 19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M 12 5 L 19 12 L 12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <span class="compass-brand-text">COMPASS</span>
       </a>
-    </section>
 
-    <!-- ================= 02. SELECTED WORK SECTION ================= -->
-    <section id="work" class="content-section" aria-labelledby="workHeading">
-      <h2 id="workHeading" class="section-heading reveal-up">Selected work</h2>
-
-      <div class="cards-stack">
-        <!-- Project 1: Pepperfry — Customer Experience Improvement -->
-        <article
-          class="project-card project-card--pepperfry reveal-up"
-          data-project-id="pepperfry"
-        >
-          <div class="project-card-gradient" aria-hidden="true"></div>
-
-          <div class="project-card-content">
-            <div class="project-card-text">
-              <p class="project-category">Customer Experience · Business Analysis · Growth Strategy</p>
-              <h3 class="card-heading">Pepperfry — Customer Experience Improvement</h3>
-              <p class="text-lead project-description">
-                We identified a problem in Pepperfry's post-purchase services—an area the company appeared to be neglecting despite many customer complaints falling within that stage—and proposed three recommendations that could improve the customer experience and help boost sales.
-              </p>
-            </div>
-
-            <button
-              type="button"
-              class="project-action-pill"
-              data-trigger-flashcard="pepperfry"
-              aria-label="Turn up and open the Pepperfry flashcard"
-            >
-              <span class="project-action-label">Turn flashcard</span>
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M 5 12 L 19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M 12 5 L 19 12 L 12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
-
-          <!-- Interactive 3D Flashcard Visual (Pepperfry) -->
-          <div class="project-flashcard-stage">
-            <div
-              class="flashcard-3d"
-              data-flashcard-id="pepperfry"
-              tabindex="0"
-              role="button"
-              aria-expanded="false"
-              aria-label="Pepperfry project flashcard. Click on it to turn up the flashcard."
-            >
-              <div class="flashcard-inner">
-                <!-- Front Face: Uploaded Project Image + Prompt -->
-                <div class="flashcard-face flashcard-face--front">
-                  <div class="flashcard-img-wrap">
-                    <img
-                      src="assets/pepperfry.png"
-                      alt="Pepperfry — Customer Experience Improvement"
-                      class="flashcard-img"
-                      width="1024"
-                      height="491"
-                    >
-                    <span class="flashcard-corner-badge">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
-                        <path d="M3 3v5h5"/>
-                        <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
-                        <path d="M16 16h5v5"/>
-                      </svg>
-                      <span>Interactive Flashcard</span>
-                    </span>
-                  </div>
-                  <div class="flashcard-caption-bar">
-                    <span class="flashcard-caption-dot" aria-hidden="true"></span>
-                    <p class="flashcard-caption-text">Click on it to turn up the flashcard.</p>
-                    <span class="flashcard-caption-arrow" aria-hidden="true">↗</span>
-                  </div>
-                </div>
-
-                <!-- Back Face: Sleek Minimal Case Study Breakdown -->
-                <div class="flashcard-face flashcard-face--back">
-                  <div class="flashcard-back-top">
-                    <span class="flashcard-back-tag">Customer Experience · Business Analysis · Growth Strategy</span>
-                    <span class="flashcard-back-hint">Click to pop out / flip ↺</span>
-                  </div>
-                  <h4 class="flashcard-back-title">Pepperfry — Customer Experience Improvement</h4>
-                  <div class="flashcard-back-points">
-                    <div class="flashcard-point">
-                      <span class="flashcard-point-label">Context</span>
-                      <p class="flashcard-point-body">
-                        We identified a problem in Pepperfry's post-purchase services. This was an area the company appeared to be neglecting, despite many customer complaints falling within that stage of the customer journey.
-                      </p>
-                    </div>
-                    <div class="flashcard-point">
-                      <span class="flashcard-point-label">Our Work &amp; Expected Impact</span>
-                      <p class="flashcard-point-body">
-                        We highlighted the problem and proposed three recommendations that could improve the customer experience and help boost sales as a potential outcome.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 2: Clario AI — Articles to Regional Audio Notes -->
-        <article
-          class="project-card project-card--clario reveal-up"
-          data-project-id="clario"
-        >
-          <div class="project-card-gradient" aria-hidden="true"></div>
-
-          <div class="project-card-content">
-            <div class="project-card-text">
-              <p class="project-category">Product Discovery · User Research · EdTech · AI &amp; Text-to-Speech</p>
-              <h3 class="card-heading">Clario AI — Articles to Regional Audio Notes</h3>
-              <p class="text-lead project-description">
-                A text-to-speech product concept designed for MBA students and UPSC aspirants to convert long articles into audio notes in regional languages and explain the content in simple language.
-              </p>
-            </div>
-
-            <button
-              type="button"
-              class="project-action-pill"
-              data-trigger-flashcard="clario"
-              aria-label="Turn up and open the Clario AI flashcard"
-            >
-              <span class="project-action-label">Turn flashcard</span>
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M 5 12 L 19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M 12 5 L 19 12 L 12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
-
-          <!-- Interactive 3D Flashcard Visual (Clario AI) -->
-          <div class="project-flashcard-stage">
-            <div
-              class="flashcard-3d"
-              data-flashcard-id="clario"
-              tabindex="0"
-              role="button"
-              aria-expanded="false"
-              aria-label="Clario AI project flashcard. Click on it to turn up the flashcard."
-            >
-              <div class="flashcard-inner">
-                <!-- Front Face: Uploaded Project Image + Prompt -->
-                <div class="flashcard-face flashcard-face--front">
-                  <div class="flashcard-img-wrap">
-                    <img
-                      src="assets/clario.png"
-                      alt="Clario AI — Articles to Regional Audio Notes"
-                      class="flashcard-img"
-                      width="1024"
-                      height="764"
-                    >
-                    <span class="flashcard-corner-badge">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
-                        <path d="M3 3v5h5"/>
-                        <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
-                        <path d="M16 16h5v5"/>
-                      </svg>
-                      <span>Interactive Flashcard</span>
-                    </span>
-                  </div>
-                  <div class="flashcard-caption-bar">
-                    <span class="flashcard-caption-dot" aria-hidden="true"></span>
-                    <p class="flashcard-caption-text">Click on it to turn up the flashcard.</p>
-                    <span class="flashcard-caption-arrow" aria-hidden="true">↗</span>
-                  </div>
-                </div>
-
-                <!-- Back Face: Sleek Minimal Case Study Breakdown -->
-                <div class="flashcard-face flashcard-face--back">
-                  <div class="flashcard-back-top">
-                    <span class="flashcard-back-tag">Product Discovery · User Research · EdTech · AI &amp; Text-to-Speech</span>
-                    <span class="flashcard-back-hint">Click to pop out / flip ↺</span>
-                  </div>
-                  <h4 class="flashcard-back-title">Clario AI — Articles to Regional Audio Notes</h4>
-                  <div class="flashcard-back-points">
-                    <div class="flashcard-point">
-                      <span class="flashcard-point-label">Context &amp; Target Users</span>
-                      <p class="flashcard-point-body">
-                        A text-to-speech product concept for MBA students and UPSC aspirants designed to convert long articles into regional-language audio notes explained in simple language.
-                      </p>
-                    </div>
-                    <div class="flashcard-point">
-                      <span class="flashcard-point-label">Problem &amp; Our Approach</span>
-                      <p class="flashcard-point-body">
-                        Conceived around the difficulty these users face in consuming lengthy written information. We identified the problem and developed a product concept that makes information easier to consume through regional-language audio.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ================= 03. ABOUT ME, EDUCATION, EXPERIENCE & GALLERY ================= -->
-    <section id="about" class="content-section" aria-labelledby="aboutHeading">
-      <h2 id="aboutHeading" class="section-heading reveal-up">A little about me</h2>
-
-      <div class="bento-stack">
-        <!-- Row 1: About Me Bio Card + Interactive Halftone/Pixel Portrait Card (Exact 3:1 Reference Ratio) -->
-        <div class="bento-row reveal-up">
-          <div class="bento-card bento-card--bio">
-            <h3 class="card-heading">Some context</h3>
-            <div class="bio-copy">
-              <p class="text-body">
-                I'm Muhammad Hassaan, currently pursuing my MBA at Masters' Union School of Business.
-              </p>
-              <p class="text-body">
-                I've always been interested in building things, figuring out how businesses work, and helping people find their way forward. I've spent time building ventures from 0 to 1, mentoring people, and exploring different sides of business.
-              </p>
-              <p class="text-body">
-                One thing I'm learning along the way is that sales can be genuinely rewarding. Not when you're trying to convince someone to buy something, but when you listen closely, understand what they actually need, and help them find the right solution.
-              </p>
-              <p class="text-body">
-                That's the side of sales I connect with most. And it's what I'm working on getting better at every day.
-              </p>
-              <p class="text-body">
-                This website is a little space to share what I've been working on, what I've learned, and where I'm headed next.
-              </p>
-            </div>
-          </div>
-
-          <div class="bento-card bento-card--portrait" id="aboutPortraitCard">
-            <img
-              id="aboutPortraitSource"
-              src="assets/hassaan-hero.jpg"
-              alt="Muhammad Hassaan portrait"
-              class="about-portrait-img"
-              width="768"
-              height="1024"
-              crossorigin="anonymous"
-            >
-            <canvas
-              id="portraitCanvas"
-              class="portrait-canvas"
-              aria-label="Interactive halftone portrait of Muhammad Hassaan — hover or move cursor to reveal color photograph"
-            ></canvas>
-            <div class="portrait-reveal-hint" id="portraitHint" aria-hidden="true">
-              <span class="portrait-hint-dot"></span>
-              <span>Hover to reveal</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Row 2A: Education Timeline (4 Chronological Entries) -->
-        <div id="education" class="bento-card bento-card--timeline reveal-up" aria-labelledby="educationHeading">
-          <div class="timeline-card-header">
-            <h3 id="educationHeading" class="card-heading">Education</h3>
-          </div>
-
-          <div class="timeline-grid" role="list">
-            <!-- Entry 1: X Class (2019) -->
-            <div class="timeline-item" role="listitem">
-              <p class="timeline-period">2019</p>
-              <div class="timeline-track" aria-hidden="true">
-                <div class="timeline-dot"></div>
-                <div class="timeline-line"></div>
-              </div>
-              <div class="timeline-details">
-                <p class="timeline-title">X Class</p>
-                <p class="timeline-org">Sri Chaitanya Institutions</p>
-              </div>
-            </div>
-
-            <!-- Entry 2: XII (2021) -->
-            <div class="timeline-item" role="listitem">
-              <p class="timeline-period">2021</p>
-              <div class="timeline-track" aria-hidden="true">
-                <div class="timeline-dot"></div>
-                <div class="timeline-line"></div>
-              </div>
-              <div class="timeline-details">
-                <p class="timeline-title">XII</p>
-                <p class="timeline-org">Challengers Civil Services Academy</p>
-              </div>
-            </div>
-
-            <!-- Entry 3: Undergraduate (2025) -->
-            <div class="timeline-item" role="listitem">
-              <p class="timeline-period">2025</p>
-              <div class="timeline-track" aria-hidden="true">
-                <div class="timeline-dot"></div>
-                <div class="timeline-line"></div>
-              </div>
-              <div class="timeline-details">
-                <p class="timeline-title">Undergraduate</p>
-                <p class="timeline-org">Delhi University</p>
-              </div>
-            </div>
-
-            <!-- Entry 4: MBA (Expected 2028) -->
-            <div class="timeline-item" role="listitem">
-              <p class="timeline-period">Expected completion: 2028</p>
-              <div class="timeline-track" aria-hidden="true">
-                <div class="timeline-dot"></div>
-                <div class="timeline-line"></div>
-              </div>
-              <div class="timeline-details">
-                <p class="timeline-title">MBA</p>
-                <p class="timeline-org">Masters' Union School of Business</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Row 2B: Experience & Credentials (Target of #experience / Resume Navigation) -->
-        <div id="experience" class="bento-card bento-card--timeline reveal-up" aria-labelledby="experienceHeading">
-          <div class="timeline-card-header">
-            <h3 id="experienceHeading" class="card-heading">Work experience</h3>
-            <div class="resume-status-pill" aria-label="Resume status: Detailed resume is being prepared">
-              <span class="resume-status-dot" aria-hidden="true"></span>
-              <span>Detailed resume is being prepared</span>
-            </div>
-          </div>
-
-          <div class="timeline-grid" role="list">
-            <!-- Role 1 -->
-            <div class="timeline-item" role="listitem">
-              <p class="timeline-period">01 · Venture</p>
-              <div class="timeline-track" aria-hidden="true">
-                <div class="timeline-dot"></div>
-                <div class="timeline-line"></div>
-              </div>
-              <div class="timeline-details">
-                <p class="timeline-title">Independent Business Owner</p>
-                <p class="timeline-org">IDigitalpreneur Pvt Ltd.</p>
-              </div>
-            </div>
-
-            <!-- Role 2 -->
-            <div class="timeline-item" role="listitem">
-              <p class="timeline-period">02 · Community</p>
-              <div class="timeline-track" aria-hidden="true">
-                <div class="timeline-dot"></div>
-                <div class="timeline-line"></div>
-              </div>
-              <div class="timeline-details">
-                <p class="timeline-title">Founder &amp; CRO</p>
-                <p class="timeline-org">Hustlers' Edge Community</p>
-              </div>
-            </div>
-
-            <!-- Role 3 -->
-            <div class="timeline-item" role="listitem">
-              <p class="timeline-period">03 · Consulting</p>
-              <div class="timeline-track" aria-hidden="true">
-                <div class="timeline-dot"></div>
-                <div class="timeline-line"></div>
-              </div>
-              <div class="timeline-details">
-                <p class="timeline-title">Founder &amp; Handwriting Analyst</p>
-                <p class="timeline-org">Stroque Consulting</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Row 3: Personal Gallery (Photos & Videos — Two Full-Bleed 488px Editorial Cards) -->
-        <div id="gallery" class="bento-row reveal-up" aria-label="Personal gallery">
-          <!-- Card 1: Photos -->
-          <article class="gallery-card" aria-labelledby="galleryPhotosHeading">
-            <div class="gallery-surface gallery-surface--photos" aria-hidden="true"></div>
-            <div class="gallery-card-header">
-              <h3 id="galleryPhotosHeading" class="card-heading">Photos</h3>
-              <p class="text-body">
-                Photographs from my personal journey, events, and other relevant moments.
-              </p>
-            </div>
-
-            <div class="gallery-stage" role="region" aria-label="Photographs placeholder gallery">
-              <div class="gallery-slide is-active" data-photo-slide="0">
-                <span class="gallery-stage-badge">01 / Personal Journey</span>
-                <p class="gallery-stage-title">Entrepreneurial Journey &amp; Ventures</p>
-                <p class="gallery-stage-note">Photographs will be added here in the next iteration.</p>
-              </div>
-              <div class="gallery-slide" data-photo-slide="1">
-                <span class="gallery-stage-badge">02 / Events &amp; Community</span>
-                <p class="gallery-stage-title">Events &amp; Community Gatherings</p>
-                <p class="gallery-stage-note">Photographs will be added here in the next iteration.</p>
-              </div>
-              <div class="gallery-slide" data-photo-slide="2">
-                <span class="gallery-stage-badge">03 / Campus &amp; Mentorship</span>
-                <p class="gallery-stage-title">Masters' Union &amp; Mentorship Moments</p>
-                <p class="gallery-stage-note">Photographs will be added here in the next iteration.</p>
-              </div>
-            </div>
-
-            <div class="gallery-dots" role="tablist" aria-label="Photograph placeholder slides">
-              <button type="button" class="gallery-dot is-active" data-photo-slide-btn="0" role="tab" aria-selected="true" aria-label="Photo placeholder 1"></button>
-              <button type="button" class="gallery-dot" data-photo-slide-btn="1" role="tab" aria-selected="false" aria-label="Photo placeholder 2"></button>
-              <button type="button" class="gallery-dot" data-photo-slide-btn="2" role="tab" aria-selected="false" aria-label="Photo placeholder 3"></button>
-            </div>
-          </article>
-
-          <!-- Card 2: Videos -->
-          <article class="gallery-card" aria-labelledby="galleryVideosHeading">
-            <div class="gallery-surface gallery-surface--videos" aria-hidden="true"></div>
-            <div class="gallery-card-header">
-              <h3 id="galleryVideosHeading" class="card-heading">Videos</h3>
-              <p class="text-body">
-                Videos featuring public talks and speaking engagements.
-              </p>
-            </div>
-
-            <div class="gallery-stage" role="img" aria-label="Videos placeholder for public talks and speaking engagements">
-              <div class="video-play-placeholder" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8 5.14v14l11-7-11-7Z"/>
-                </svg>
-              </div>
-              <span class="gallery-stage-badge">Speaking &amp; Sessions</span>
-              <p class="gallery-stage-title">Public Talks &amp; Speaking Engagements</p>
-              <p class="gallery-stage-note">Video recordings will be added here once provided.</p>
-            </div>
-
-            <div class="gallery-dots" aria-hidden="true">
-              <span class="gallery-dot is-active"></span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= 04. CLOSING CONTACT SECTION ================= -->
-    <footer id="contact" class="contact-section" aria-labelledby="contactHeading">
-      <div class="contact-header reveal-up">
-        <h2 id="contactHeading" class="section-heading">Your turn. Say hello</h2>
-        <p class="text-lead contact-subtitle">
-          If you'd like to connect about B2B sales, business development, growth partnerships, or interesting opportunities, I'd love to hear from you.
-        </p>
-      </div>
-
-      <div class="contact-actions reveal-up">
-        <a
-          href="mailto:hassaanshaik.work@gmail.com"
-          class="contact-email-pill"
-          aria-label="Send an email to hassaanshaik.work@gmail.com"
-        >
-          <span class="contact-email-swap">
-            <span class="contact-email-default">Email me</span>
-            <span class="contact-email-hover">hassaanshaik.work@gmail.com</span>
-          </span>
+      <!-- 6 Navigation Targets -->
+      <div class="compass-links" role="menubar">
+        <a href="#work" class="compass-link" role="menuitem">
+          <span class="compass-link-idx">01</span>
+          <span>Work</span>
         </a>
-
-        <a href="mailto:hassaanshaik.work@gmail.com" class="contact-direct-link">
-          hassaanshaik.work@gmail.com
+        <a href="#about" class="compass-link" role="menuitem">
+          <span class="compass-link-idx">02</span>
+          <span>About Me</span>
+        </a>
+        <a href="#ideas" class="compass-link" role="menuitem">
+          <span class="compass-link-idx">03</span>
+          <span>Ideas &amp; MVP</span>
+        </a>
+        <a href="#mentorship" class="compass-link" role="menuitem">
+          <span class="compass-link-idx">04</span>
+          <span>Mentorship</span>
+        </a>
+        <a href="#resume" class="compass-link" role="menuitem">
+          <span class="compass-link-idx">05</span>
+          <span>Resume</span>
+        </a>
+        <a href="#connect" class="compass-link" role="menuitem">
+          <span class="compass-link-idx">06</span>
+          <span>Connect</span>
         </a>
       </div>
 
-      <div class="contact-bottom-orb" aria-hidden="true"></div>
-    </footer>
+      <!-- Live Location & Status -->
+      <div class="compass-status" aria-label="Current location: New Delhi, India">
+        <span class="status-indicator" aria-hidden="true"></span>
+        <span>New Delhi</span>
+      </div>
 
+      <!-- Mobile Menu Trigger -->
+      <button
+        type="button"
+        id="compassMobileToggle"
+        class="compass-mobile-toggle"
+        aria-expanded="false"
+        aria-controls="compassMobileMenu"
+        aria-label="Toggle compass navigation menu"
+      >
+        <span>Menu</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m6 9 6 6 6-6"/>
+        </svg>
+      </button>
+
+    </nav>
+  </header>
+
+  <!-- Mobile Dropdown Drawer -->
+  <div id="compassMobileMenu" class="compass-mobile-menu" aria-hidden="true">
+    <div class="compass-mobile-grid">
+      <a href="#work" class="compass-mobile-item">
+        <span>Work</span>
+        <span class="compass-link-idx">01</span>
+      </a>
+      <a href="#about" class="compass-mobile-item">
+        <span>About Me</span>
+        <span class="compass-link-idx">02</span>
+      </a>
+      <a href="#ideas" class="compass-mobile-item">
+        <span>Ideas &amp; MVP</span>
+        <span class="compass-link-idx">03</span>
+      </a>
+      <a href="#mentorship" class="compass-mobile-item">
+        <span>Mentorship</span>
+        <span class="compass-link-idx">04</span>
+      </a>
+      <a href="#resume" class="compass-mobile-item">
+        <span>Resume</span>
+        <span class="compass-link-idx">05</span>
+      </a>
+      <a href="#connect" class="compass-mobile-item">
+        <span>Connect</span>
+        <span class="compass-link-idx">06</span>
+      </a>
+    </div>
   </div>
 
-  <!-- ================= 3D POP-OUT FLASHCARD MODAL STAGE ================= -->
+  <!-- ================= MAIN PAGE CONTAINER ================= -->
+  <main class="page-shell">
+
+    <!-- ================= 00. HERO SECTION ================= -->
+    <section id="hero" class="hero-section" aria-labelledby="heroHeadline">
+      
+      <!-- Meta Badge -->
+      <div class="hero-meta-badge">
+        <span>Business Developer</span>
+        <span class="hero-meta-dot" aria-hidden="true"></span>
+        <span>B2B Sales | Consultative Selling</span>
+        <span class="hero-meta-dot" aria-hidden="true"></span>
+        <span>New Delhi, India</span>
+      </div>
+
+      <!-- Primary Statement -->
+      <h1 id="heroHeadline" class="hero-headline">
+        Turning Problems into tailored <span class="highlight-word">Solutions</span> that get closed.
+      </h1>
+
+      <!-- Supporting Identity -->
+      <p class="hero-subheadline">
+        I'm <span class="hero-identity-tag">Muhammad Hassaan</span>, pursuing my MBA at Masters' Union School of Business. Entrepreneur, venture builder, and consultative seller who believes in understanding customers deeply before recommending solutions.
+      </p>
+
+      <!-- Bespoke Hero Stage: Trio Illustration (Hassaan + Adult Lion + Lion Cub) -->
+      <div class="hero-stage">
+        <div class="hero-illustration-wrapper">
+          <img
+            src="assets/hero-trio.svg"
+            alt="Muhammad Hassaan standing on a mountain summit between a majestic adult lion on the left and an attentive lion cub on the right"
+            width="1000"
+            height="640"
+            fetchpriority="high"
+          >
+        </div>
+        <div class="hero-illustration-badge" aria-hidden="true">
+          <svg class="hero-badge-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 16v-4"/>
+            <path d="M12 8h.01"/>
+          </svg>
+          <span>Temporary character illustration · Awaiting reference photograph</span>
+        </div>
+      </div>
+
+      <!-- Quick Action CTAs -->
+      <div class="hero-actions">
+        <a href="#work" class="btn-primary">
+          <span>Explore Selected Work</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 17L17 7"/>
+            <path d="M7 7h10v10"/>
+          </svg>
+        </a>
+        <a href="#connect" class="btn-secondary">
+          <span>Let's Connect</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14"/>
+            <path d="M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+    </section>
+
+    <!-- ================= 01. WORK SECTION ================= -->
+    <section id="work" class="content-section" aria-labelledby="workTitle">
+      <div class="section-header-block">
+        <div class="section-label-row">
+          <span class="section-number">01</span>
+          <span class="section-line" aria-hidden="true"></span>
+          <span class="section-category">Selected Work &amp; Ventures</span>
+        </div>
+        <h2 id="workTitle" class="section-title">Work &amp; Ventures</h2>
+        <p class="section-subtitle">
+          Venture building experiments, consultative sales results, academic frameworks, and business diagnostics.
+        </p>
+      </div>
+
+      <!-- Category A: Entrepreneurship Experiments -->
+      <div class="work-category-group">
+        <div class="category-header-row">
+          <div class="category-title-area">
+            <span class="category-tag">Category A · 01</span>
+            <h3 class="category-heading">Entrepreneurship Experiments</h3>
+          </div>
+          <p class="category-description">
+            Ventures built from 0 to 1, consultative sales methodologies, habit transformation, and community monetization pipelines.
+          </p>
+        </div>
+
+        <div class="entrepreneur-cards-grid">
+
+          <!-- Project 001: Stroque Consulting -->
+          <article
+            class="project-card"
+            data-project-trigger="stroque"
+            tabindex="0"
+            role="button"
+            aria-haspopup="dialog"
+            aria-label="Open Stroque Consulting deep dive modal"
+          >
+            <div class="card-top-bar">
+              <span class="card-number-tag">001</span>
+              <div class="card-badges-cluster">
+                <span class="card-pill-category">Human Consulting Firm</span>
+                <span class="card-highlight-badge">$26K+ Revenue</span>
+              </div>
+            </div>
+
+            <div class="card-main-content">
+              <h4 class="card-project-title">Stroque Consulting</h4>
+              <p class="card-role-duration">
+                <strong>Founder &amp; Senior Handwriting Analyst</strong> · November 2022 – Present
+              </p>
+              <p class="card-description-text">
+                Helps individuals improve their personal and professional lives through handwriting analysis, personalized consultations, and Grapho-Therapy.
+              </p>
+            </div>
+
+            <!-- Key Metrics Bar -->
+            <div class="card-metrics-strip">
+              <div class="metric-item">
+                <span class="metric-val">$26,000+</span>
+                <span class="metric-lbl">Total Revenue</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-val">300+</span>
+                <span class="metric-lbl">People Helped</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-val">250+</span>
+                <span class="metric-lbl">Consultation Calls</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-val">130+</span>
+                <span class="metric-lbl">Grapho-Therapy</span>
+              </div>
+            </div>
+
+            <div class="card-action-row">
+              <span class="card-action-hint">Click card to view complete case breakdown</span>
+              <span class="btn-card-action">
+                <span>Explore Full Case Study</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M7 17L17 7"/>
+                  <path d="M7 7h10v10"/>
+                </svg>
+              </span>
+            </div>
+          </article>
+
+          <!-- Project 002: Hustlers' Edge -->
+          <article
+            class="project-card"
+            data-project-trigger="hustlers-edge"
+            tabindex="0"
+            role="button"
+            aria-haspopup="dialog"
+            aria-label="Open Hustlers' Edge deep dive modal"
+          >
+            <div class="card-top-bar">
+              <span class="card-number-tag">002</span>
+              <div class="card-badges-cluster">
+                <span class="card-pill-category">Skill Development Community</span>
+                <span class="card-highlight-badge">140+ Earners</span>
+              </div>
+            </div>
+
+            <div class="card-main-content">
+              <h4 class="card-project-title">Hustlers' Edge</h4>
+              <p class="card-role-duration">
+                <strong>Founder &amp; Community Lead</strong> · August 2024 – April 2026
+              </p>
+              <p class="card-description-text">
+                Helped final-year undergraduate students and early-career professionals from Tier 2 and Tier 3 markets learn in-demand skills and monetize them.
+              </p>
+            </div>
+
+            <!-- Key Metrics Bar -->
+            <div class="card-metrics-strip">
+              <div class="metric-item">
+                <span class="metric-val">140+</span>
+                <span class="metric-lbl">Five-Figure Earners (INR)</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-val">200+</span>
+                <span class="metric-lbl">Active Members</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-val">Tier 2 &amp; 3</span>
+                <span class="metric-lbl">Focus Demographic</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-val">0 to 1</span>
+                <span class="metric-lbl">Ecosystem Builder</span>
+              </div>
+            </div>
+
+            <div class="card-action-row">
+              <span class="card-action-hint">Click card to view complete case breakdown</span>
+              <span class="btn-card-action">
+                <span>Explore Full Case Study</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M7 17L17 7"/>
+                  <path d="M7 7h10v10"/>
+                </svg>
+              </span>
+            </div>
+          </article>
+
+          <!-- Project 003: Idigitalpreneur Pvt. Ltd. -->
+          <article
+            class="project-card"
+            data-project-trigger="idigitalpreneur"
+            tabindex="0"
+            role="button"
+            aria-haspopup="dialog"
+            aria-label="Open Idigitalpreneur deep dive modal"
+          >
+            <div class="card-top-bar">
+              <span class="card-number-tag">003</span>
+              <div class="card-badges-cluster">
+                <span class="card-pill-category">EdTech / Affiliate Sales</span>
+                <span class="card-highlight-badge">30% Sales Efficiency Improvement</span>
+              </div>
+            </div>
+
+            <div class="card-main-content">
+              <h4 class="card-project-title">Idigitalpreneur Pvt. Ltd.</h4>
+              <p class="card-role-duration">
+                <strong>Business Development — Affiliate</strong> · February 2023 – April 2024
+              </p>
+              <p class="card-description-text">
+                Managed cold outreach, customer objections, and end-to-end sales activities. Trained 20+ sales representatives in consultative selling techniques.
+              </p>
+            </div>
+
+            <!-- Key Metrics Bar -->
+            <div class="card-metrics-strip">
+              <div class="metric-item">
+                <span class="metric-val">30%</span>
+                <span class="metric-lbl">Efficiency Improvement</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-val">~$2,000</span>
+                <span class="metric-lbl">Closed Inbound Deals</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-val">$60</span>
+                <span class="metric-lbl">Average Ticket Size</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-val">20+</span>
+                <span class="metric-lbl">Sales Reps Trained</span>
+              </div>
+            </div>
+
+            <div class="card-action-row">
+              <span class="card-action-hint">Click card to view complete case breakdown</span>
+              <span class="btn-card-action">
+                <span>Explore Full Case Study</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M7 17L17 7"/>
+                  <path d="M7 7h10v10"/>
+                </svg>
+              </span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Category B: Academic Projects -->
+      <div class="work-category-group">
+        <div class="category-header-row">
+          <div class="category-title-area">
+            <span class="category-tag">Category B · 02</span>
+            <h3 class="category-heading">Academic Projects</h3>
+          </div>
+          <p class="category-description">
+            Business strategy frameworks, unit economics deconstructions, and market expansion analyses developed at Masters' Union.
+          </p>
+        </div>
+
+        <div class="deck-cards-grid">
+
+          <!-- 004: Bharti Airtel Growth Strategy -->
+          <article class="deck-card">
+            <div>
+              <div class="deck-top-row">
+                <span class="deck-number">004</span>
+                <span class="deck-tag">Strategy</span>
+              </div>
+              <h4 class="deck-title">Bharti Airtel Growth Strategy</h4>
+              <p class="deck-subtitle">Business Strategy</p>
+              <p class="deck-desc">
+                Strategic growth and market expansion analysis formulating competitive vectors for telecom and enterprise digital offerings.
+              </p>
+            </div>
+            <div class="deck-btn-row">
+              <button
+                type="button"
+                class="btn-deck is-disabled"
+                data-deck-id="bharti-airtel"
+                aria-label="Bharti Airtel Growth Strategy Deck — Deck Coming Soon"
+              >
+                <span>Deck Coming Soon</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- 005: Ownwise -->
+          <article class="deck-card">
+            <div>
+              <div class="deck-top-row">
+                <span class="deck-number">005</span>
+                <span class="deck-tag">Business Models</span>
+              </div>
+              <h4 class="deck-title">Ownwise</h4>
+              <p class="deck-subtitle">Decoding Business Models II</p>
+              <p class="deck-desc">
+                Comprehensive breakdown of business model mechanics, unit economics, value chain positioning, and moat sustainability.
+              </p>
+            </div>
+            <div class="deck-btn-row">
+              <button
+                type="button"
+                class="btn-deck is-disabled"
+                data-deck-id="ownwise"
+                aria-label="Ownwise Deck — Deck Coming Soon"
+              >
+                <span>Deck Coming Soon</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- 006: Stride -->
+          <article class="deck-card">
+            <div>
+              <div class="deck-top-row">
+                <span class="deck-number">006</span>
+                <span class="deck-tag">Business Models</span>
+              </div>
+              <h4 class="deck-title">Stride</h4>
+              <p class="deck-subtitle">Decoding Business Models II</p>
+              <p class="deck-desc">
+                Deconstruction of platform monetization, customer acquisition cost vs. lifetime value dynamics, and scalable network effects.
+              </p>
+            </div>
+            <div class="deck-btn-row">
+              <button
+                type="button"
+                class="btn-deck is-disabled"
+                data-deck-id="stride"
+                aria-label="Stride Deck — Deck Coming Soon"
+              >
+                <span>Deck Coming Soon</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Category C: Business Problems -->
+      <div class="work-category-group">
+        <div class="category-header-row">
+          <div class="category-title-area">
+            <span class="category-tag">Category C · 03</span>
+            <h3 class="category-heading">Business Problems</h3>
+          </div>
+          <p class="category-description">
+            Diagnostic teardowns identifying operational bottlenecks and friction points across post-purchase and hospitality journeys.
+          </p>
+        </div>
+
+        <div class="deck-cards-grid">
+
+          <!-- 007: GoSTOPS -->
+          <article class="deck-card">
+            <div>
+              <div class="deck-top-row">
+                <span class="deck-number">007</span>
+                <span class="deck-tag">Hospitality</span>
+              </div>
+              <h4 class="deck-title">GoSTOPS</h4>
+              <p class="deck-subtitle">Business Problem Analysis</p>
+              <p class="deck-desc">
+                In-depth diagnostic examining operational hospitality bottlenecks, traveler touchpoints, and revenue optimization opportunities.
+              </p>
+            </div>
+            <div class="deck-btn-row">
+              <button
+                type="button"
+                class="btn-deck is-disabled"
+                data-deck-id="gostops"
+                aria-label="GoSTOPS Deck — Deck Coming Soon"
+              >
+                <span>Deck Coming Soon</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- 008: Pepperfry -->
+          <article class="deck-card">
+            <div>
+              <div class="deck-top-row">
+                <span class="deck-number">008</span>
+                <span class="deck-tag">Customer Experience</span>
+              </div>
+              <h4 class="deck-title">Pepperfry</h4>
+              <p class="deck-subtitle">Business Problem Analysis</p>
+              <p class="deck-desc">
+                Identification of post-purchase service friction and three strategic recommendations to elevate customer retention and sales.
+              </p>
+            </div>
+            <div class="deck-btn-row">
+              <button
+                type="button"
+                class="btn-deck is-disabled"
+                data-deck-id="pepperfry"
+                aria-label="Pepperfry Deck — Deck Coming Soon"
+              >
+                <span>Deck Coming Soon</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================= 02. ABOUT ME SECTION ================= -->
+    <section id="about" class="content-section" aria-labelledby="aboutTitle">
+      <div class="section-header-block">
+        <div class="section-label-row">
+          <span class="section-number">02</span>
+          <span class="section-line" aria-hidden="true"></span>
+          <span class="section-category">Background &amp; Philosophy</span>
+        </div>
+        <h2 id="aboutTitle" class="section-title">About Me</h2>
+        <p class="section-subtitle">
+          A closer look at who I am, how I think about sales, and where I'm headed next.
+        </p>
+      </div>
+
+      <!-- Editorial Magazine Grid Layout -->
+      <div class="about-grid-layout">
+        
+        <!-- Left: Portrait Frame with Upload Prompt -->
+        <div class="about-portrait-wrap">
+          <div class="about-portrait-frame">
+            <img
+              src="assets/hassaan-hero.jpg"
+              alt="Muhammad Hassaan"
+              width="768"
+              height="1024"
+              loading="lazy"
+            >
+            <div class="about-portrait-overlay" aria-hidden="true"></div>
+            <div class="about-portrait-caption">
+              <span>Muhammad Hassaan</span>
+              <span>New Delhi</span>
+            </div>
+          </div>
+          <div class="about-photo-status">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+              <circle cx="12" cy="13" r="4"/>
+            </svg>
+            <span>Temporary portrait · Upload your preferred photograph anytime</span>
+          </div>
+        </div>
+
+        <!-- Right: Editorial Narrative -->
+        <div class="about-narrative-col">
+          <blockquote class="about-lead-quote">
+            "Sales can be genuinely rewarding when you listen closely, understand what they actually need, and help them find the right solution."
+          </blockquote>
+
+          <p class="about-paragraph">
+            I'm Muhammad Hassaan, currently pursuing my MBA at Masters' Union School of Business.
+          </p>
+
+          <p class="about-paragraph">
+            I've always been interested in building things, figuring out how businesses work, and helping people find their way forward. I've spent time building ventures from 0 to 1, mentoring people, and exploring different sides of business.
+          </p>
+
+          <p class="about-paragraph">
+            One thing I'm learning along the way is that sales can be genuinely rewarding. Not when you're trying to convince someone to buy something, but when you listen closely, understand what they actually need, and help them find the right solution.
+          </p>
+
+          <p class="about-paragraph">
+            That's the side of sales I connect with most. And it's what I'm working on getting better at every day.
+          </p>
+
+          <p class="about-paragraph">
+            This website is a little space to share what I've been working on, what I've learned, and where I'm headed next.
+          </p>
+
+          <!-- Core Pillars -->
+          <div class="about-core-pillars">
+            <div class="pillar-card">
+              <p class="pillar-label">Academic Bedrock</p>
+              <p class="pillar-text">MBA, Masters' Union School of Business</p>
+            </div>
+            <div class="pillar-card">
+              <p class="pillar-label">Selling Ethos</p>
+              <p class="pillar-text">Consultative &amp; Diagnostic > Hard-Pitching</p>
+            </div>
+            <div class="pillar-card">
+              <p class="pillar-label">Execution Focus</p>
+              <p class="pillar-text">B2B Enterprise Growth &amp; 0-to-1 Ventures</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 03. IDEAS & MVP SECTION ================= -->
+    <section id="ideas" class="content-section" aria-labelledby="ideasTitle">
+      <div class="section-header-block">
+        <div class="section-label-row">
+          <span class="section-number">03</span>
+          <span class="section-line" aria-hidden="true"></span>
+          <span class="section-category">Product Thinking &amp; MVPs</span>
+        </div>
+        <h2 id="ideasTitle" class="section-title">Ideas &amp; MVP</h2>
+        <p class="section-subtitle">
+          Four startup concepts addressing real market friction across AI learning, emotional support, builder tooling, and career diagnostics.
+        </p>
+      </div>
+
+      <div class="startup-cards-grid">
+
+        <!-- Startup 1: Clario.AI -->
+        <article
+          class="startup-card"
+          data-startup-trigger="clario"
+          tabindex="0"
+          role="button"
+          aria-haspopup="dialog"
+          aria-label="Open Clario.AI modal for full info"
+        >
+          <div>
+            <div class="startup-card-top">
+              <span class="startup-tag">MVP 01</span>
+              <span class="startup-stage-pill">Early MVP / Phase 1</span>
+            </div>
+            <h3 class="startup-name">Clario.AI</h3>
+            <p class="startup-desc">
+              An AI-powered reading and listening assistant that simplifies long-form articles, case studies, and news into downloadable audio.
+            </p>
+          </div>
+          <div class="startup-card-footer">
+            <span class="startup-stage-label">Phase 1: Simplified English Audio</span>
+            <span class="btn-startup-info">
+              <span>Full Info</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17L17 7"/>
+                <path d="M7 7h10v10"/>
+              </svg>
+            </span>
+          </div>
+        </article>
+
+        <!-- Startup 2: LYVO -->
+        <article
+          class="startup-card"
+          data-startup-trigger="lyvo"
+          tabindex="0"
+          role="button"
+          aria-haspopup="dialog"
+          aria-label="Open LYVO modal for full info"
+        >
+          <div>
+            <div class="startup-card-top">
+              <span class="startup-tag">MVP 02</span>
+              <span class="startup-stage-pill">Ideation &amp; Research</span>
+            </div>
+            <h3 class="startup-name">LYVO</h3>
+            <p class="startup-desc">
+              A conversational support marketplace connecting young people with life coaches for empathetic 1-on-1 conversations.
+            </p>
+          </div>
+          <div class="startup-card-footer">
+            <span class="startup-stage-label">Conversational Support Marketplace</span>
+            <span class="btn-startup-info">
+              <span>Full Info</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17L17 7"/>
+                <path d="M7 7h10v10"/>
+              </svg>
+            </span>
+          </div>
+        </article>
+
+        <!-- Startup 3: Buildsy -->
+        <article
+          class="startup-card"
+          data-startup-trigger="buildsy"
+          tabindex="0"
+          role="button"
+          aria-haspopup="dialog"
+          aria-label="Open Buildsy modal for full info"
+        >
+          <div>
+            <div class="startup-card-top">
+              <span class="startup-tag">MVP 03</span>
+              <span class="startup-stage-pill">MVP in Progress</span>
+            </div>
+            <h3 class="startup-name">Buildsy</h3>
+            <p class="startup-desc">
+              An AI-powered tool-stack recommendation platform for first-time builders to pick the leanest, most affordable software stack.
+            </p>
+          </div>
+          <div class="startup-card-footer">
+            <span class="startup-stage-label">Market Research Done · Dev in Progress</span>
+            <span class="btn-startup-info">
+              <span>Full Info</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17L17 7"/>
+                <path d="M7 7h10v10"/>
+              </svg>
+            </span>
+          </div>
+        </article>
+
+        <!-- Startup 4: RAAH.AI -->
+        <article
+          class="startup-card"
+          data-startup-trigger="raah"
+          tabindex="0"
+          role="button"
+          aria-haspopup="dialog"
+          aria-label="Open RAAH.AI modal for full info"
+        >
+          <div>
+            <div class="startup-card-top">
+              <span class="startup-tag">MVP 04</span>
+              <span class="startup-stage-pill">Diagnostic Platform</span>
+            </div>
+            <h3 class="startup-name">RAAH.AI</h3>
+            <p class="startup-desc">
+              An AI-powered career diagnostic platform evaluating career readiness across eight role tracks and five assessment dimensions.
+            </p>
+          </div>
+          <div class="startup-card-footer">
+            <span class="startup-stage-label">8 Role Tracks · 5 Assessment Dimensions</span>
+            <span class="btn-startup-info">
+              <span>Full Info</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17L17 7"/>
+                <path d="M7 7h10v10"/>
+              </svg>
+            </span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ================= 04. MENTORSHIP SECTION ================= -->
+    <section id="mentorship" class="content-section" aria-labelledby="mentorshipTitle">
+      <div class="section-header-block">
+        <div class="section-label-row">
+          <span class="section-number">04</span>
+          <span class="section-line" aria-hidden="true"></span>
+          <span class="section-category">Giving Back &amp; Guidance</span>
+        </div>
+        <h2 id="mentorshipTitle" class="section-title">Mentorship</h2>
+        <p class="section-subtitle">
+          1-on-1 guidance, community building, and consultative skill development.
+        </p>
+      </div>
+
+      <div class="mentorship-card">
+        <div class="mentorship-badge">
+          <span class="mentorship-dot" aria-hidden="true"></span>
+          <span>Program in Curation</span>
+        </div>
+        <h3 class="mentorship-headline">Coming Soon.</h3>
+        <p class="mentorship-note">
+          A dedicated space for mentoring aspiring business builders, students, and early-career sales professionals on consultative selling, venture building, and career growth. Full program details and session booking will open soon.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= 05. RESUME SECTION ================= -->
+    <section id="resume" class="content-section" aria-labelledby="resumeTitle">
+      <div class="section-header-block">
+        <div class="section-label-row">
+          <span class="section-number">05</span>
+          <span class="section-line" aria-hidden="true"></span>
+          <span class="section-category">Credentials &amp; History</span>
+        </div>
+        <h2 id="resumeTitle" class="section-title">Resume</h2>
+        <p class="section-subtitle">A closer look at my experience.</p>
+      </div>
+
+      <div class="resume-card">
+        <div class="resume-header-row">
+          <div class="resume-title-block">
+            <h3>Muhammad Hassaan</h3>
+            <p>Business Developer · B2B Sales | Consultative Selling · New Delhi, India</p>
+          </div>
+          <span class="resume-status-badge">Curriculum Vitae</span>
+        </div>
+
+        <div class="resume-summary-grid">
+          <div class="resume-summary-item">
+            <h4 class="resume-item-role">MBA Candidate</h4>
+            <p class="resume-item-org">Masters' Union School of Business</p>
+            <p class="resume-item-desc">Core focus on business strategy, venture building, go-to-market mechanics, and enterprise sales.</p>
+          </div>
+
+          <div class="resume-summary-item">
+            <h4 class="resume-item-role">Founder &amp; Analyst</h4>
+            <p class="resume-item-org">Stroque Consulting</p>
+            <p class="resume-item-desc">Built 0-to-1 human consulting practice generating $26K+ revenue across 300+ clients via consultative diagnostics.</p>
+          </div>
+
+          <div class="resume-summary-item">
+            <h4 class="resume-item-role">Community Lead</h4>
+            <p class="resume-item-org">Hustlers' Edge</p>
+            <p class="resume-item-desc">Scaled 200+ member skill ecosystem enabling 140+ Tier 2 &amp; 3 individuals to earn 5-figure monthly incomes in INR.</p>
+          </div>
+
+          <div class="resume-summary-item">
+            <h4 class="resume-item-role">Business Development — Affiliate</h4>
+            <p class="resume-item-org">Idigitalpreneur Pvt. Ltd.</p>
+            <p class="resume-item-desc">Closed inbound deals, managed objection workflows, and trained 20+ sales representatives in consultative selling.</p>
+          </div>
+        </div>
+
+        <div class="resume-action-area">
+          <span class="resume-action-hint">Resume PDF is being prepared with recent venture metrics</span>
+          <button
+            type="button"
+            id="viewResumeBtn"
+            class="btn-resume"
+            aria-label="View Resume — Resume PDF is being updated"
+          >
+            <span>View Resume</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 17L17 7"/>
+              <path d="M7 7h10v10"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 06. CONNECT SECTION ================= -->
+    <section id="connect" class="content-section" aria-labelledby="connectTitle">
+      <div class="section-header-block">
+        <div class="section-label-row">
+          <span class="section-number">06</span>
+          <span class="section-line" aria-hidden="true"></span>
+          <span class="section-category">Get In Touch</span>
+        </div>
+        <h2 id="connectTitle" class="section-title">Let's build something meaningful.</h2>
+        <p class="section-subtitle">
+          Whether it's business, sales, startups, or an interesting idea, I'm always up for a good conversation.
+        </p>
+      </div>
+
+      <div class="connect-container">
+        <div class="connect-grid">
+
+          <!-- 1. Email -->
+          <a
+            href="mailto:hassaanshaik.work@gmail.com"
+            class="connect-card"
+            data-connect-id="email"
+            aria-label="Send email to hassaanshaik.work@gmail.com"
+          >
+            <div class="connect-card-header">
+              <div class="connect-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <svg class="connect-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17L17 7"/>
+                <path d="M7 7h10v10"/>
+              </svg>
+            </div>
+            <div class="connect-card-body">
+              <h3 class="connect-channel-name">Email</h3>
+              <p class="connect-channel-handle">hassaanshaik.work@gmail.com</p>
+            </div>
+          </a>
+
+          <!-- 2. LinkedIn -->
+          <div
+            class="connect-card"
+            data-connect-id="linkedin"
+            tabindex="0"
+            role="link"
+            aria-label="Connect on LinkedIn"
+          >
+            <div class="connect-card-header">
+              <div class="connect-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+              </div>
+              <svg class="connect-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17L17 7"/>
+                <path d="M7 7h10v10"/>
+              </svg>
+            </div>
+            <div class="connect-card-body">
+              <h3 class="connect-channel-name">LinkedIn</h3>
+              <p class="connect-channel-handle">Muhammad Hassaan</p>
+            </div>
+          </div>
+
+          <!-- 3. Instagram -->
+          <div
+            class="connect-card"
+            data-connect-id="instagram"
+            tabindex="0"
+            role="link"
+            aria-label="Follow on Instagram"
+          >
+            <div class="connect-card-header">
+              <div class="connect-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+              </div>
+              <svg class="connect-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17L17 7"/>
+                <path d="M7 7h10v10"/>
+              </svg>
+            </div>
+            <div class="connect-card-body">
+              <h3 class="connect-channel-name">Instagram</h3>
+              <p class="connect-channel-handle">@muhammadhassaan</p>
+            </div>
+          </div>
+
+          <!-- 4. Topmate -->
+          <div
+            class="connect-card"
+            data-connect-id="topmate"
+            tabindex="0"
+            role="link"
+            aria-label="Book a consultative session on Topmate"
+          >
+            <div class="connect-card-header">
+              <div class="connect-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+              </div>
+              <svg class="connect-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17L17 7"/>
+                <path d="M7 7h10v10"/>
+              </svg>
+            </div>
+            <div class="connect-card-body">
+              <h3 class="connect-channel-name">Topmate</h3>
+              <p class="connect-channel-handle">Book a 1:1 Session</p>
+            </div>
+          </div>
+
+          <!-- 5. GitHub -->
+          <div
+            class="connect-card"
+            data-connect-id="github"
+            tabindex="0"
+            role="link"
+            aria-label="View code on GitHub"
+          >
+            <div class="connect-card-header">
+              <div class="connect-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                </svg>
+              </div>
+              <svg class="connect-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17L17 7"/>
+                <path d="M7 7h10v10"/>
+              </svg>
+            </div>
+            <div class="connect-card-body">
+              <h3 class="connect-channel-name">GitHub</h3>
+              <p class="connect-channel-handle">Code &amp; Repositories</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SITE FOOTER ================= -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-quote">
+          "Conceived, built &amp; refined with craft. Turning problems into tailored solutions that get closed."
+        </p>
+
+        <a href="#hero" class="footer-back-to-top" aria-label="Back to top of portfolio">
+          <span>Reset Compass</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="18 15 12 9 6 15"/>
+          </svg>
+        </a>
+
+        <div class="footer-bottom-row">
+          <span>Muhammad Hassaan · Masters' Union School of Business</span>
+          <span>New Delhi, India © 2026</span>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ================= REUSABLE PROJECT CASE STUDY MODAL ================= -->
   <div
-    id="flashcardModalBackdrop"
-    class="flashcard-modal-backdrop"
+    id="projectModalBackdrop"
+    class="modal-backdrop"
     role="dialog"
     aria-modal="true"
     aria-hidden="true"
-    aria-labelledby="popoutTitle"
+    aria-labelledby="modalProjectTitle"
   >
-    <div class="flashcard-popout-stage">
-      <div class="flashcard-popout-controls">
-        <button type="button" id="popoutFlipBtn" class="flashcard-control-btn">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
-            <path d="M3 3v5h5"/>
-            <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
-            <path d="M16 16h5v5"/>
-          </svg>
-          <span id="popoutFlipLabel">Flip to front photo</span>
-        </button>
+    <div class="modal-dialog">
+      <!-- Close Button -->
+      <button
+        type="button"
+        id="modalCloseBtn"
+        class="modal-close-btn"
+        aria-label="Close project modal"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
 
-        <button type="button" id="popoutCloseBtn" class="flashcard-close-btn" aria-label="Close flashcard">
-          <span>Close</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M18 6 6 18"/>
-            <path d="m6 6 12 12"/>
-          </svg>
-        </button>
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div class="modal-pretag">
+          <span id="modalProjectNumber" class="card-number-tag">001</span>
+          <span id="modalProjectCategory" class="card-pill-category">Human Consulting Firm</span>
+          <span id="modalProjectHighlight" class="card-highlight-badge">$26K+ Revenue</span>
+        </div>
+        <h3 id="modalProjectTitle" class="modal-title">Stroque Consulting</h3>
+        <p id="modalProjectRole" class="modal-subtitle">
+          <strong>Founder &amp; Senior Handwriting Analyst</strong> · November 2022 – Present
+        </p>
       </div>
 
-      <!-- 3D Flipping Card in Pop-Out Stage -->
-      <div id="popoutCard3D" class="popout-card-3d is-flipped">
-        <div class="popout-card-inner">
-          <!-- Front of Pop-Out Card (Project Photo) -->
-          <div class="popout-face popout-face--front" id="popoutFrontFace">
-            <div class="popout-front-image-box">
-              <img id="popoutImage" src="assets/pepperfry.png" alt="" class="popout-front-img">
-            </div>
-            <div class="popout-front-footer">
-              <p class="flashcard-caption-text">Click on it to turn up the flashcard.</p>
-            </div>
-          </div>
+      <!-- Key Numerical Results Grid -->
+      <div id="modalStatsGrid" class="modal-stats-grid">
+        <!-- Injected via JavaScript from PORTFOLIO_DATA -->
+      </div>
 
-          <!-- Back of Pop-Out Card (Sleek Minimal Pro Case-Study Breakdown) -->
-          <div class="popout-face popout-face--back">
-            <div class="popout-back-header">
-              <p id="popoutCategory" class="project-category"></p>
-              <h3 id="popoutTitle" class="card-heading"></h3>
-              <p id="popoutSummary" class="text-lead popout-summary"></p>
-            </div>
+      <!-- Narrative Section 1: Overview -->
+      <div class="modal-story-section">
+        <h4 class="modal-section-title">01 / Business Overview</h4>
+        <p id="modalProjectOverview" class="modal-body-text"></p>
+      </div>
 
-            <div id="popoutGrid" class="popout-details-grid"></div>
+      <!-- Narrative Section 2: Problem -->
+      <div class="modal-story-section">
+        <h4 class="modal-section-title">02 / The Core Friction &amp; Problem</h4>
+        <p id="modalProjectProblem" class="modal-body-text"></p>
+      </div>
 
-            <div class="popout-back-footer">
-              <span class="popout-footer-hint">Tip: Click the card or "Flip to front photo" to inspect the visual</span>
-            </div>
-          </div>
-        </div>
+      <!-- Narrative Section 3: Responsibilities -->
+      <div class="modal-story-section">
+        <h4 class="modal-section-title">03 / Key Responsibilities &amp; Execution</h4>
+        <ul id="modalProjectResponsibilities" class="modal-bullet-list"></ul>
+      </div>
+
+      <!-- Narrative Section 4: Approach -->
+      <div class="modal-story-section">
+        <h4 class="modal-section-title">04 / Sales &amp; Operating Methodology</h4>
+        <p id="modalProjectApproach" class="modal-body-text"></p>
+      </div>
+
+      <!-- Narrative Section 5: Results -->
+      <div class="modal-story-section">
+        <h4 class="modal-section-title">05 / Measurable Results &amp; Impact</h4>
+        <p id="modalProjectResults" class="modal-body-text"></p>
       </div>
     </div>
   </div>
 
+  <!-- ================= REUSABLE STARTUP IDEA MODAL ================= -->
+  <div
+    id="startupModalBackdrop"
+    class="modal-backdrop"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-labelledby="modalStartupName"
+  >
+    <div class="modal-dialog">
+      <!-- Close Button -->
+      <button
+        type="button"
+        id="startupModalCloseBtn"
+        class="modal-close-btn"
+        aria-label="Close startup modal"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div class="modal-pretag">
+          <span id="modalStartupTag" class="card-number-tag">MVP 01</span>
+          <span id="modalStartupStage" class="card-highlight-badge">Early MVP / Phase 1</span>
+        </div>
+        <h3 id="modalStartupName" class="modal-title">Clario.AI</h3>
+        <p id="modalStartupTagline" class="modal-subtitle">
+          Simplifying dense long-form knowledge into intuitive audio notes.
+        </p>
+      </div>
+
+      <!-- Narrative Section 1: Motivation -->
+      <div class="modal-story-section">
+        <h4 class="modal-section-title">01 / Why I Started It</h4>
+        <p id="modalStartupWhy" class="modal-body-text"></p>
+      </div>
+
+      <!-- Narrative Section 2: Problem -->
+      <div class="modal-story-section">
+        <h4 class="modal-section-title">02 / The Core Problem</h4>
+        <p id="modalStartupProblem" class="modal-body-text"></p>
+      </div>
+
+      <!-- Narrative Section 3: Solution -->
+      <div class="modal-story-section">
+        <h4 class="modal-section-title">03 / The Proposed Solution</h4>
+        <p id="modalStartupSolution" class="modal-body-text"></p>
+      </div>
+
+      <!-- Narrative Section 4: Development Stage -->
+      <div class="modal-story-section">
+        <h4 class="modal-section-title">04 / Development Stage</h4>
+        <p id="modalStartupStageText" class="modal-body-text"></p>
+      </div>
+
+      <!-- Extra Context: Roadmap or Boundary Note -->
+      <div id="modalStartupExtraBox" class="modal-callout-box" style="display: none;"></div>
+    </div>
+  </div>
+
+  <!-- Centralized Portfolio Configuration -->
+  <script src="js/portfolio-data.js"></script>
+  <!-- Interactive Controller -->
   <script src="js/main.js"></script>
 </body>
 </html>
