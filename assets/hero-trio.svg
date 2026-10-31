@@ -1,162 +1,141 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="100%" height="100%" fill="none" aria-label="Illustration: Muhammad Hassaan standing between an adult lion and a lion cub on a summit plateau">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="100%" height="100%" fill="none" aria-label="Illustration: Muhammad Hassaan standing between a majestic lion and a lion cub on a mountain peak">
   <defs>
-    <!-- Sky & Atmospheric Gradients -->
-    <radialGradient id="skyGlow" cx="50%" cy="40%" r="60%">
-      <stop offset="0%" stop-color="#2a2538" stop-opacity="0.8"/>
-      <stop offset="45%" stop-color="#181822" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#0a0a0e" stop-opacity="0"/>
+    <!-- Warm Paper Canvas Lighting -->
+    <radialGradient id="canvasGlow" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#f7f7f5" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#f2f2ee" stop-opacity="0"/>
     </radialGradient>
 
-    <radialGradient id="groundMist" cx="50%" cy="85%" r="50%">
-      <stop offset="0%" stop-color="#c69f68" stop-opacity="0.22"/>
-      <stop offset="40%" stop-color="#725b38" stop-opacity="0.10"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-    </radialGradient>
-
-    <!-- Rock Gradients -->
+    <!-- Mountain Rock Gradients (Warm Editorial Granite) -->
     <linearGradient id="rockBaseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#262833"/>
-      <stop offset="40%" stop-color="#181920"/>
-      <stop offset="100%" stop-color="#0d0e12"/>
+      <stop offset="0%" stop-color="#3d404d"/>
+      <stop offset="50%" stop-color="#2a2c36"/>
+      <stop offset="100%" stop-color="#1c1d24"/>
     </linearGradient>
 
-    <linearGradient id="rockHighlight" x1="0%" y1="0%" x2="100%" y2="50%">
-      <stop offset="0%" stop-color="#4a4d63"/>
-      <stop offset="100%" stop-color="#262833"/>
+    <linearGradient id="rockFacetLight" x1="0%" y1="0%" x2="100%" y2="40%">
+      <stop offset="0%" stop-color="#73778c"/>
+      <stop offset="100%" stop-color="#4b4f61"/>
     </linearGradient>
 
-    <!-- Adult Lion Gradients -->
+    <!-- Lion Warm Golden Tones -->
     <linearGradient id="lionBodyGrad" x1="20%" y1="0%" x2="80%" y2="100%">
-      <stop offset="0%" stop-color="#d49b4d"/>
-      <stop offset="50%" stop-color="#b07931"/>
-      <stop offset="100%" stop-color="#754b17"/>
+      <stop offset="0%" stop-color="#d99943"/>
+      <stop offset="50%" stop-color="#b87b28"/>
+      <stop offset="100%" stop-color="#805016"/>
     </linearGradient>
 
     <linearGradient id="lionManeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#8a4d1f"/>
-      <stop offset="40%" stop-color="#582a0d"/>
-      <stop offset="85%" stop-color="#2d1305"/>
+      <stop offset="0%" stop-color="#8c4718"/>
+      <stop offset="45%" stop-color="#5a2608"/>
+      <stop offset="100%" stop-color="#2e1103"/>
     </linearGradient>
 
-    <linearGradient id="lionRimLight" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#ffe3a6"/>
-      <stop offset="100%" stop-color="#b07931"/>
-    </linearGradient>
-
-    <!-- Hassaan Gradients (Old-Money Palette: Camel Wool, Charcoal, Deep Navy) -->
+    <!-- Hassaan Old-Money Camel Coat & Tailoring -->
     <linearGradient id="coatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#c8a57e"/>
-      <stop offset="45%" stop-color="#a47f54"/>
-      <stop offset="100%" stop-color="#7a5b36"/>
+      <stop offset="0%" stop-color="#caa57a"/>
+      <stop offset="45%" stop-color="#a88052"/>
+      <stop offset="100%" stop-color="#7a5832"/>
     </linearGradient>
 
     <linearGradient id="trouserGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#2c2d36"/>
-      <stop offset="100%" stop-color="#14151a"/>
+      <stop offset="0%" stop-color="#2c2d38"/>
+      <stop offset="100%" stop-color="#16171d"/>
     </linearGradient>
 
     <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#d9a37c"/>
-      <stop offset="100%" stop-color="#b87f58"/>
+      <stop offset="0%" stop-color="#dfa880"/>
+      <stop offset="100%" stop-color="#bd8259"/>
     </linearGradient>
 
-    <!-- Cub Gradients -->
+    <!-- Cub Golden Gradient -->
     <linearGradient id="cubBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#e2ab5b"/>
-      <stop offset="60%" stop-color="#be8537"/>
-      <stop offset="100%" stop-color="#8e5a1b"/>
+      <stop offset="0%" stop-color="#e8af5c"/>
+      <stop offset="60%" stop-color="#c48a34"/>
+      <stop offset="100%" stop-color="#915b18"/>
     </linearGradient>
 
-    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="14" result="blur"/>
-      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-    </filter>
+    <!-- Soft Ambient Ground Shadow -->
+    <radialGradient id="baseShadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.25"/>
+      <stop offset="70%" stop-color="#000000" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
   </defs>
 
-  <!-- Background Ambiance -->
-  <rect x="0" y="0" width="1000" height="640" fill="url(#skyGlow)"/>
-  <ellipse cx="500" cy="510" rx="380" ry="110" fill="url(#groundMist)"/>
+  <!-- Ambient Light Center Halo -->
+  <ellipse cx="500" cy="380" rx="420" ry="200" fill="url(#canvasGlow)" />
 
-  <!-- Background Constellations / Stardust Points -->
-  <g opacity="0.45" fill="#f0ebd9">
-    <circle cx="160" cy="90" r="1.5" />
-    <circle cx="280" cy="65" r="1.2" />
-    <circle cx="410" cy="110" r="1" />
-    <circle cx="580" cy="75" r="1.5" />
-    <circle cx="720" cy="120" r="1.2" />
-    <circle cx="850" cy="85" r="1.6" />
-    <circle cx="210" cy="170" r="1" />
-    <circle cx="790" cy="165" r="1" />
-  </g>
+  <!-- Mountain Peak Crag Structure -->
+  <g id="mountainPeak">
+    <!-- Base Plateau Shadow -->
+    <ellipse cx="500" cy="540" rx="440" ry="35" fill="url(#baseShadow)" />
 
-  <!-- Stylized Mountain Summit / Ground Plateau -->
-  <g id="summitPlateau">
-    <!-- Base Lower Cliffface -->
-    <polygon points="60,640 140,560 310,545 490,555 700,540 860,565 950,640" fill="url(#rockBaseGrad)" />
-    <!-- Upper Rock Ledge Facets -->
-    <polygon points="120,575 220,520 380,510 500,505 620,510 780,520 880,575 820,630 180,630" fill="#1b1c24" />
-    <polygon points="210,520 380,510 500,505 500,525 360,530 200,540" fill="url(#rockHighlight)" opacity="0.8" />
-    <polygon points="500,505 620,510 790,520 770,540 640,530 500,525" fill="#2d303f" opacity="0.85" />
-    <!-- Crag Lines -->
-    <path d="M 230 540 L 260 590 L 290 635" stroke="#373a4b" stroke-width="1.5" stroke-linecap="round"/>
-    <path d="M 480 525 L 495 570 L 485 640" stroke="#373a4b" stroke-width="1.5" stroke-linecap="round"/>
-    <path d="M 750 535 L 730 580 L 745 640" stroke="#373a4b" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Cliff Formation Facets -->
+    <polygon points="100,580 180,505 340,490 500,480 660,490 820,505 900,580 500,600" fill="url(#rockBaseGrad)" />
+    <!-- Upper Top Ledge -->
+    <polygon points="170,510 320,490 500,480 680,490 830,510 760,535 240,535" fill="url(#rockFacetLight)" />
+    <!-- Distinct Facet Planes for Depth -->
+    <polygon points="320,490 500,480 500,520 330,525" fill="#585c6e" />
+    <polygon points="500,480 680,490 670,525 500,520" fill="#3f4250" />
+
+    <!-- Organic Rock Crack Lines -->
+    <path d="M 270 515 L 290 550 L 310 590" stroke="#22242c" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M 495 510 L 505 555 L 495 600" stroke="#22242c" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M 720 515 L 705 550 L 715 595" stroke="#22242c" stroke-width="1.5" stroke-linecap="round" />
   </g>
 
   <!-- ================= LEFT: MAJESTIC ADULT LION ================= -->
-  <g id="adultLion" transform="translate(40, 20)">
-    <!-- Lion Shadow -->
-    <ellipse cx="230" cy="510" rx="110" ry="24" fill="#000000" opacity="0.55"/>
+  <g id="adultLion" transform="translate(45, 10)">
+    <!-- Lion Soft Shadow -->
+    <ellipse cx="230" cy="500" rx="95" ry="18" fill="url(#baseShadow)" />
 
-    <!-- Tail -->
-    <path d="M 150 460 C 110 470, 95 505, 120 520 C 135 528, 150 515, 145 505" fill="none" stroke="#9e6927" stroke-width="8" stroke-linecap="round"/>
-    <ellipse cx="148" cy="503" rx="10" ry="6" fill="#421f07"/>
+    <!-- Tufted Tail -->
+    <path d="M 155 450 C 115 460, 105 495, 130 510 C 145 518, 155 505, 150 495" fill="none" stroke="#a66e27" stroke-width="7" stroke-linecap="round"/>
+    <ellipse cx="152" cy="493" rx="9" ry="6" fill="#4d240a"/>
 
-    <!-- Hindquarters & Back -->
-    <path d="M 160 460 C 150 400, 190 355, 230 350 C 260 348, 280 370, 290 410 L 270 500 L 230 505 L 210 470 Z" fill="url(#lionBodyGrad)"/>
-    <ellipse cx="195" cy="485" rx="35" ry="25" fill="#9e6927"/>
-    <!-- Hind Paw -->
-    <path d="M 175 495 C 175 480, 215 480, 220 500 C 220 508, 175 510, 175 495 Z" fill="#b07931"/>
+    <!-- Lion Body (Sitting Nobly) -->
+    <path d="M 165 450 C 155 395, 195 350, 235 345 C 265 343, 285 365, 295 405 L 275 490 L 235 495 L 215 460 Z" fill="url(#lionBodyGrad)"/>
+    <ellipse cx="198" cy="475" rx="32" ry="22" fill="#9e6623"/>
+    <path d="M 180 485 C 180 472, 218 472, 222 490 C 222 497, 180 498, 180 485 Z" fill="#b87b28"/>
 
-    <!-- Stately Front Torso & Forelegs -->
-    <path d="M 240 370 C 260 370, 310 390, 315 435 L 305 502 C 305 508, 280 510, 275 500 L 265 440 Z" fill="url(#lionBodyGrad)"/>
-    <!-- Front Left Leg -->
-    <path d="M 235 410 L 235 500 C 235 508, 210 508, 210 500 L 220 420 Z" fill="#9e6927"/>
-    <!-- Front Paws with Toe Accents -->
-    <path d="M 268 495 Q 290 490 306 498 Q 306 507 270 506 Z" fill="#c99144"/>
-    <path d="M 208 495 Q 225 490 238 498 Q 238 507 210 506 Z" fill="#b07931"/>
+    <!-- Strong Forelegs & Chest -->
+    <path d="M 245 365 C 265 365, 312 385, 316 430 L 306 492 C 306 498, 284 500, 278 492 L 268 435 Z" fill="url(#lionBodyGrad)"/>
+    <path d="M 240 405 L 240 492 C 240 498, 218 498, 218 492 L 226 415 Z" fill="#9e6623"/>
+    <!-- Paws -->
+    <path d="M 272 488 Q 292 484 308 490 Q 308 498 274 497 Z" fill="#c99144"/>
+    <path d="M 215 488 Q 230 484 242 490 Q 242 498 217 497 Z" fill="#b87b28"/>
 
-    <!-- Magnificent Layered Mane (Voluminous & Regal) -->
-    <!-- Mane Outer Dark Tier -->
-    <path d="M 200 310 C 160 300, 140 370, 170 420 C 190 450, 240 460, 290 440 C 330 420, 345 350, 320 300 C 300 260, 240 250, 200 310 Z" fill="url(#lionManeGrad)"/>
-    <!-- Mane Tufts Detail -->
-    <path d="M 160 350 Q 140 380 170 395 Q 150 420 190 435 Q 220 460 260 450 Q 300 455 325 425 Q 350 390 330 360 Q 345 320 315 300 Q 285 260 240 270 Q 190 275 170 310 Z" fill="#4d240a"/>
-    <!-- Mane Golden Mid-Tier -->
-    <path d="M 185 325 C 175 355, 185 395, 215 415 C 245 435, 285 425, 305 395 C 320 365, 310 330, 290 305 C 265 285, 210 295, 185 325 Z" fill="#753d12"/>
+    <!-- Layered Regal Mane -->
+    <path d="M 205 305 C 165 295, 145 365, 175 415 C 195 445, 245 455, 295 435 C 335 415, 350 345, 325 295 C 305 255, 245 245, 205 305 Z" fill="url(#lionManeGrad)"/>
+    <!-- Mane Locks & Silhouette -->
+    <path d="M 165 345 Q 145 375 175 390 Q 155 415 195 430 Q 225 455 265 445 Q 305 450 330 420 Q 355 385 335 355 Q 350 315 320 295 Q 290 255 245 265 Q 195 270 175 305 Z" fill="#4d240a"/>
+    <path d="M 190 320 C 180 350, 190 390, 220 410 C 250 430, 290 420, 310 390 C 325 360, 315 325, 295 300 C 270 280, 215 290, 190 320 Z" fill="#7a3e14"/>
 
-    <!-- Regal Lion Head Structure -->
-    <g id="lionHead" transform="translate(205, 265)">
+    <!-- Head -->
+    <g id="lionFace" transform="translate(210, 260)">
       <!-- Ears -->
-      <circle cx="20" cy="25" r="14" fill="#582a0d"/>
-      <circle cx="20" cy="25" r="8" fill="#c99144"/>
-      <circle cx="85" cy="25" r="14" fill="#582a0d"/>
-      <circle cx="85" cy="25" r="8" fill="#c99144"/>
+      <circle cx="20" cy="25" r="13" fill="#582a0d"/>
+      <circle cx="20" cy="25" r="7" fill="#d99943"/>
+      <circle cx="85" cy="25" r="13" fill="#582a0d"/>
+      <circle cx="85" cy="25" r="7" fill="#d99943"/>
 
-      <!-- Cranium & Forehead -->
+      <!-- Cranium -->
       <path d="M 22 45 Q 52 20 82 45 Q 92 75 80 100 Q 52 118 24 100 Q 12 75 22 45 Z" fill="url(#lionBodyGrad)"/>
-      <!-- Brow Highlight -->
-      <path d="M 32 45 Q 52 35 72 45" stroke="#ffe3a6" stroke-width="2.5" fill="none" opacity="0.6"/>
+      <!-- Brow -->
+      <path d="M 32 45 Q 52 35 72 45" stroke="#fce5b3" stroke-width="2.5" fill="none" opacity="0.7"/>
 
-      <!-- Muzzle / Whisker Pads -->
-      <path d="M 35 80 Q 52 75 70 80 Q 78 100 52 104 Q 26 100 35 80 Z" fill="#e8c992"/>
-      <ellipse cx="43" cy="88" rx="10" ry="7" fill="#ebd2a7"/>
-      <ellipse cx="61" cy="88" rx="10" ry="7" fill="#ebd2a7"/>
+      <!-- Muzzle -->
+      <path d="M 35 80 Q 52 75 70 80 Q 78 100 52 104 Q 26 100 35 80 Z" fill="#ebd2a9"/>
+      <ellipse cx="43" cy="88" rx="9" ry="6" fill="#f0dbb8"/>
+      <ellipse cx="61" cy="88" rx="9" ry="6" fill="#f0dbb8"/>
 
-      <!-- Noble Nose -->
+      <!-- Nose -->
       <polygon points="46,75 58,75 52,85" fill="#2d170b"/>
       <line x1="52" y1="85" x2="52" y2="94" stroke="#2d170b" stroke-width="2"/>
 
-      <!-- Eyes (Regal, Focused) -->
+      <!-- Eyes (Regal, Amber) -->
       <polygon points="34,60 44,57 42,65 32,64" fill="#1b1208"/>
       <circle cx="38" cy="61" r="2.5" fill="#e0a13c"/>
       <circle cx="39" cy="60" r="1" fill="#ffffff"/>
@@ -165,180 +144,145 @@
       <circle cx="66" cy="61" r="2.5" fill="#e0a13c"/>
       <circle cx="65" cy="60" r="1" fill="#ffffff"/>
 
-      <!-- Beard / Chin Tuft -->
-      <path d="M 44 102 Q 52 116 60 102 Z" fill="#f2dcba"/>
+      <!-- Chin Beard -->
+      <path d="M 45 102 Q 52 115 59 102 Z" fill="#f7e6ce"/>
     </g>
-
-    <!-- Lion Left Golden Crest Rim Light -->
-    <path d="M 175 315 C 160 360, 185 410, 220 440" stroke="url(#lionRimLight)" stroke-width="2" fill="none" opacity="0.7"/>
   </g>
 
   <!-- ================= CENTER: MUHAMMAD HASSAAN (OLD-MONEY TAILORING) ================= -->
-  <g id="hassaanCenter" transform="translate(420, 110)">
-    <!-- Character Shadow -->
-    <ellipse cx="80" cy="405" rx="60" ry="14" fill="#000000" opacity="0.65"/>
+  <g id="hassaanCenter" transform="translate(420, 95)">
+    <!-- Shadow -->
+    <ellipse cx="80" cy="395" rx="55" ry="12" fill="url(#baseShadow)"/>
 
-    <!-- Polished Leather Dress Shoes / Oxfords -->
+    <!-- Polished Oxfords / Dress Shoes -->
     <g id="shoes">
-      <!-- Left Shoe -->
-      <path d="M 44 394 C 44 388, 62 388, 70 394 C 74 398, 72 404, 52 405 C 40 405, 42 399, 44 394 Z" fill="#161311"/>
-      <path d="M 47 393 Q 58 390 68 394" stroke="#4a3b32" stroke-width="1.5" fill="none"/>
-      <!-- Right Shoe -->
-      <path d="M 88 394 C 88 388, 106 388, 114 394 C 118 398, 116 404, 96 405 C 84 405, 86 399, 88 394 Z" fill="#161311"/>
-      <path d="M 91 393 Q 102 390 112 394" stroke="#4a3b32" stroke-width="1.5" fill="none"/>
+      <path d="M 45 385 C 45 380, 62 380, 70 385 C 74 389, 72 395, 52 396 C 40 396, 43 390, 45 385 Z" fill="#1c1917"/>
+      <path d="M 47 384 Q 58 381 68 385" stroke="#5a493e" stroke-width="1.2" fill="none"/>
+
+      <path d="M 88 385 C 88 380, 105 380, 113 385 C 117 389, 115 395, 95 396 C 83 396, 86 390, 88 385 Z" fill="#1c1917"/>
+      <path d="M 90 384 Q 101 381 111 385" stroke="#5a493e" stroke-width="1.2" fill="none"/>
     </g>
 
-    <!-- Tailored Charcoal Trousers (Sharp Pleat & Silhouette) -->
+    <!-- Tailored Charcoal Pleated Trousers -->
     <g id="trousers">
-      <path d="M 42 270 L 46 394 L 70 394 L 78 285 L 82 285 L 90 394 L 114 394 L 118 270 Z" fill="url(#trouserGrad)"/>
-      <!-- Sharp Center Crease Lines -->
-      <line x1="57" y1="280" x2="57" y2="390" stroke="#3b3d4a" stroke-width="1.2"/>
-      <line x1="102" y1="280" x2="102" y2="390" stroke="#3b3d4a" stroke-width="1.2"/>
+      <path d="M 43 265 L 47 385 L 70 385 L 78 280 L 82 280 L 90 385 L 113 385 L 117 265 Z" fill="url(#trouserGrad)"/>
+      <!-- Sharp Center Creases -->
+      <line x1="57" y1="275" x2="57" y2="382" stroke="#484a59" stroke-width="1.2"/>
+      <line x1="102" y1="275" x2="102" y2="382" stroke="#484a59" stroke-width="1.2"/>
     </g>
 
-    <!-- Inner Charcoal Mock-Neck / Turtleneck -->
-    <path d="M 68 110 L 92 110 L 94 140 L 66 140 Z" fill="#1c1d24"/>
-    <line x1="68" y1="122" x2="92" y2="122" stroke="#2c2d38" stroke-width="1"/>
+    <!-- Dark Mock-Neck / Fine Knitwear -->
+    <path d="M 68 108 L 92 108 L 94 138 L 66 138 Z" fill="#1e2028"/>
+    <line x1="68" y1="120" x2="92" y2="120" stroke="#333642" stroke-width="1"/>
 
-    <!-- Elegant Camel Wool Overcoat / Double-Breasted Tailored Jacket -->
+    <!-- Double-Breasted Tailored Camel Overcoat -->
     <g id="overcoat">
-      <!-- Main Coat Body -->
-      <path d="M 32 140 C 45 125, 115 125, 128 140 L 136 295 C 136 300, 115 305, 80 305 C 45 305, 24 300, 24 295 Z" fill="url(#coatGrad)"/>
+      <!-- Main Coat -->
+      <path d="M 32 138 C 45 123, 115 123, 128 138 L 136 290 C 136 295, 115 300, 80 300 C 45 300, 24 295, 24 290 Z" fill="url(#coatGrad)"/>
       
-      <!-- Lapels & Tailoring Seams -->
-      <!-- Left Peak Lapel -->
-      <polygon points="38,140 68,140 80,210 50,175 35,182" fill="#ba936a"/>
-      <polygon points="50,175 80,210 65,260 48,220" fill="#936f45"/>
-      <!-- Right Peak Lapel -->
-      <polygon points="122,140 92,140 80,210 110,175 125,182" fill="#cbb08f"/>
-      <polygon points="110,175 80,210 95,260 112,220" fill="#936f45"/>
+      <!-- Lapels -->
+      <polygon points="38,138 68,138 80,205 50,172 35,178" fill="#bc966e"/>
+      <polygon points="50,172 80,205 65,255 48,215" fill="#967248"/>
 
-      <!-- Coat Center Closure & Tortoiseshell Buttons -->
-      <line x1="80" y1="210" x2="80" y2="304" stroke="#5d4324" stroke-width="1.5"/>
-      <circle cx="75" cy="225" r="3" fill="#2d1c0e" stroke="#8c6436" stroke-width="1"/>
-      <circle cx="75" cy="245" r="3" fill="#2d1c0e" stroke="#8c6436" stroke-width="1"/>
-      <circle cx="75" cy="265" r="3" fill="#2d1c0e" stroke="#8c6436" stroke-width="1"/>
+      <polygon points="122,138 92,138 80,205 110,172 125,178" fill="#ceb292"/>
+      <polygon points="110,172 80,205 95,255 112,215" fill="#967248"/>
 
-      <!-- Silk Pocket Square Accent (Burgundy / White Accent) -->
-      <path d="M 100 195 L 112 195 L 112 198 L 100 198 Z" fill="#3a2517"/>
-      <polygon points="102,195 106,188 110,195" fill="#f0ebe1"/>
+      <!-- Center Seam & Buttons -->
+      <line x1="80" y1="205" x2="80" y2="299" stroke="#5d4223" stroke-width="1.5"/>
+      <circle cx="75" cy="220" r="3" fill="#2d1c0e" stroke="#8c6436" stroke-width="1"/>
+      <circle cx="75" cy="240" r="3" fill="#2d1c0e" stroke="#8c6436" stroke-width="1"/>
+      <circle cx="75" cy="260" r="3" fill="#2d1c0e" stroke="#8c6436" stroke-width="1"/>
 
-      <!-- Sleeves & Relaxed Confident Posture -->
-      <!-- Left Arm (Resting elegantly at side) -->
-      <path d="M 32 140 C 20 160, 16 210, 22 250 L 36 250 C 32 215, 34 175, 42 148 Z" fill="#8f6b42"/>
-      <!-- Left Hand -->
-      <path d="M 22 250 C 20 260, 26 268, 32 268 C 36 268, 38 260, 36 250 Z" fill="url(#skinGrad)"/>
+      <!-- Silk Pocket Square -->
+      <path d="M 100 190 L 112 190 L 112 193 L 100 193 Z" fill="#3a2517"/>
+      <polygon points="102,190 106,183 110,190" fill="#f7f5f0"/>
 
-      <!-- Right Arm (Hand poised / resting slightly in pocket) -->
-      <path d="M 128 140 C 140 160, 144 210, 138 250 L 124 250 C 128 215, 126 175, 118 148 Z" fill="#a47f54"/>
-      <!-- Right Hand with Luxury Watch Cuff Accent -->
-      <rect x="123" y="247" width="14" height="4" rx="1.5" fill="#d4af37"/>
-      <path d="M 124 251 C 122 261, 130 268, 136 266 C 140 264, 140 258, 138 251 Z" fill="url(#skinGrad)"/>
+      <!-- Arms / Sleeves -->
+      <path d="M 32 138 C 20 158, 16 208, 22 248 L 36 248 C 32 213, 34 173, 42 146 Z" fill="#8f6c44"/>
+      <path d="M 22 248 C 20 258, 26 266, 32 266 C 36 266, 38 258, 36 248 Z" fill="url(#skinGrad)"/>
+
+      <path d="M 128 138 C 140 158, 144 208, 138 248 L 124 248 C 128 213, 126 173, 118 146 Z" fill="#aa855a"/>
+      <!-- Gold Watch Cuff -->
+      <rect x="123" y="245" width="14" height="4" rx="1.5" fill="#d4af37"/>
+      <path d="M 124 249 C 122 259, 130 266, 136 264 C 140 262, 140 256, 138 249 Z" fill="url(#skinGrad)"/>
     </g>
 
-    <!-- Head & Neck -->
-    <g id="headAndFace">
+    <!-- Head & Grooming -->
+    <g id="head">
       <!-- Neck -->
-      <rect x="71" y="96" width="18" height="18" rx="4" fill="url(#skinGrad)"/>
-      <path d="M 71 106 Q 80 114 89 106" stroke="#9e6642" stroke-width="1.2" fill="none"/>
+      <rect x="71" y="94" width="18" height="18" rx="4" fill="url(#skinGrad)"/>
+      <path d="M 71 104 Q 80 112 89 104" stroke="#a36b47" stroke-width="1.2" fill="none"/>
 
-      <!-- Jaw & Head Shape -->
-      <path d="M 64 65 C 64 48, 96 48, 96 65 C 96 82, 88 98, 80 98 C 72 98, 64 82, 64 65 Z" fill="url(#skinGrad)"/>
+      <!-- Face -->
+      <path d="M 64 63 C 64 46, 96 46, 96 63 C 96 80, 88 96, 80 96 C 72 96, 64 80, 64 63 Z" fill="url(#skinGrad)"/>
 
-      <!-- Well-Groomed Hair (Modern Side Part / Classic Taper) -->
-      <path d="M 62 62 C 60 44, 76 34, 92 36 C 98 37, 100 45, 98 56 C 94 48, 88 44, 80 43 C 70 42, 64 50, 62 62 Z" fill="#1e1814"/>
-      <path d="M 62 62 C 63 68, 66 74, 66 76 L 63 74 Z" fill="#1e1814"/>
+      <!-- Hair -->
+      <path d="M 62 60 C 60 42, 76 32, 92 34 C 98 35, 100 43, 98 54 C 94 46, 88 42, 80 41 C 70 40, 64 48, 62 60 Z" fill="#1f1a16"/>
 
-      <!-- Clean Trimmed Beard & Stubble Contour -->
-      <path d="M 66 76 C 68 90, 74 97, 80 97 C 86 97, 92 90, 94 76 C 91 85, 85 91, 80 91 C 75 91, 69 85, 66 76 Z" fill="#2d221b"/>
-      <path d="M 73 84 Q 80 88 87 84" stroke="#2d221b" stroke-width="1.8" fill="none"/>
+      <!-- Neat Beard & Stubble -->
+      <path d="M 66 74 C 68 88, 74 95, 80 95 C 86 95, 92 88, 94 74 C 91 83, 85 89, 80 89 C 75 89, 69 83, 66 74 Z" fill="#2d231c"/>
 
-      <!-- Facial Features: Brows, Eyes, Nose, Mouth -->
-      <!-- Eyebrows -->
-      <path d="M 68 62 Q 74 59 78 62" stroke="#1a1410" stroke-width="2" stroke-linecap="round"/>
-      <path d="M 82 62 Q 86 59 92 62" stroke="#1a1410" stroke-width="2" stroke-linecap="round"/>
-      <!-- Focused Eyes -->
-      <ellipse cx="73" cy="67" rx="3" ry="1.8" fill="#1c1612"/>
-      <circle cx="74" cy="66.5" r="0.8" fill="#ffffff"/>
-      <ellipse cx="87" cy="67" rx="3" ry="1.8" fill="#1c1612"/>
-      <circle cx="88" cy="66.5" r="0.8" fill="#ffffff"/>
-      <!-- Nose -->
-      <path d="M 80 64 L 79 74 L 83 74" stroke="#965f3b" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-      <!-- Confident, Composed Mouth -->
-      <path d="M 75 80 Q 80 82 85 80" stroke="#683d22" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <!-- Eyes & Features -->
+      <path d="M 68 60 Q 74 57 78 60" stroke="#1c1612" stroke-width="2" stroke-linecap="round"/>
+      <path d="M 82 60 Q 86 57 92 60" stroke="#1c1612" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="73" cy="65" rx="3" ry="1.8" fill="#1c1612"/>
+      <circle cx="74" cy="64.5" r="0.8" fill="#ffffff"/>
+      <ellipse cx="87" cy="65" rx="3" ry="1.8" fill="#1c1612"/>
+      <circle cx="88" cy="64.5" r="0.8" fill="#ffffff"/>
+
+      <path d="M 80 62 L 79 72 L 83 72" stroke="#99623e" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      <path d="M 75 78 Q 80 80 85 78" stroke="#683d22" stroke-width="1.5" fill="none" stroke-linecap="round"/>
     </g>
-
-    <!-- Subtle Golden Light Aura around Character -->
-    <path d="M 28 140 C 20 220, 20 310, 44 400" stroke="#f0d5a3" stroke-width="1.5" fill="none" opacity="0.4"/>
-    <path d="M 132 140 C 140 220, 140 310, 116 400" stroke="#f0d5a3" stroke-width="1.5" fill="none" opacity="0.4"/>
   </g>
 
   <!-- ================= RIGHT: ATTENTIVE LION CUB ================= -->
-  <g id="lionCub" transform="translate(680, 160)">
-    <!-- Cub Shadow -->
-    <ellipse cx="110" cy="370" rx="70" ry="18" fill="#000000" opacity="0.6"/>
+  <g id="lionCub" transform="translate(685, 150)">
+    <!-- Cub Soft Shadow -->
+    <ellipse cx="110" cy="360" rx="60" ry="14" fill="url(#baseShadow)"/>
 
-    <!-- Playful Tail -->
-    <path d="M 160 330 C 195 325, 205 285, 195 270 C 188 260, 178 275, 185 285" fill="none" stroke="#be8537" stroke-width="6" stroke-linecap="round"/>
-    <circle cx="186" cy="285" r="6" fill="#582a0d"/>
+    <!-- Tail -->
+    <path d="M 160 320 C 195 315, 205 275, 195 260 C 188 250, 178 265, 185 275" fill="none" stroke="#c48a34" stroke-width="5.5" stroke-linecap="round"/>
+    <circle cx="186" cy="275" r="5.5" fill="#582a0d"/>
 
-    <!-- Cub Body & Hindquarter (Sitting Attentively) -->
-    <path d="M 85 300 C 65 310, 55 340, 75 365 L 145 365 C 160 345, 155 310, 130 300 Z" fill="url(#cubBodyGrad)"/>
-    <!-- Hind Leg & Paw -->
-    <ellipse cx="75" cy="355" rx="22" ry="14" fill="#a87126"/>
-    <path d="M 60 362 Q 78 358 92 364 Q 92 370 65 370 Z" fill="#d99f48"/>
+    <!-- Body -->
+    <path d="M 85 290 C 65 300, 55 330, 75 355 L 145 355 C 160 335, 155 300, 130 290 Z" fill="url(#cubBodyGrad)"/>
+    <ellipse cx="75" cy="345" rx="20" ry="12" fill="#ab7429"/>
+    <path d="M 60 352 Q 78 348 92 354 Q 92 360 65 360 Z" fill="#d99f48"/>
 
-    <!-- Forelegs (Straight, Curious Stance) -->
-    <path d="M 105 295 L 105 364 C 105 369, 122 369, 122 364 L 122 295 Z" fill="#c48a39"/>
-    <path d="M 125 295 L 128 364 C 128 369, 145 369, 145 364 L 140 295 Z" fill="#be8537"/>
-    <!-- Forepaws -->
-    <ellipse cx="113" cy="366" rx="10" ry="5" fill="#e0a955"/>
-    <ellipse cx="136" cy="366" rx="10" ry="5" fill="#e0a955"/>
+    <!-- Forelegs -->
+    <path d="M 105 285 L 105 354 C 105 359, 122 359, 122 354 L 122 285 Z" fill="#c48a39"/>
+    <path d="M 125 285 L 128 354 C 128 359, 145 359, 145 354 L 140 285 Z" fill="#bd8536"/>
+    <ellipse cx="113" cy="356" rx="9" ry="5" fill="#e0a955"/>
+    <ellipse cx="136" cy="356" rx="9" ry="5" fill="#e0a955"/>
 
-    <!-- Chest & Soft Underbelly Light Fur -->
-    <path d="M 98 280 Q 120 280 132 320 Q 115 340 100 320 Z" fill="#fae8c8"/>
+    <!-- Light Chest Fur -->
+    <path d="M 98 270 Q 120 270 132 310 Q 115 330 100 310 Z" fill="#faebd0"/>
 
-    <!-- Cub Head Structure (Expressive, Looking Up Toward Hassaan) -->
-    <g id="cubHead" transform="translate(85, 205)">
-      <!-- Round Cub Ears -->
-      <circle cx="18" cy="22" r="14" fill="#693710"/>
-      <circle cx="18" cy="22" r="8" fill="#e8ba74"/>
-      <circle cx="68" cy="20" r="14" fill="#693710"/>
-      <circle cx="68" cy="20" r="8" fill="#e8ba74"/>
+    <!-- Head -->
+    <g id="cubHead" transform="translate(85, 195)">
+      <circle cx="18" cy="22" r="13" fill="#693710"/>
+      <circle cx="18" cy="22" r="7" fill="#e8ba74"/>
+      <circle cx="68" cy="20" r="13" fill="#693710"/>
+      <circle cx="68" cy="20" r="7" fill="#e8ba74"/>
 
-      <!-- Round Head Contour -->
-      <circle cx="43" cy="46" r="32" fill="url(#cubBodyGrad)"/>
-      <ellipse cx="43" cy="40" rx="26" ry="20" fill="#d99f48"/>
+      <circle cx="43" cy="46" r="30" fill="url(#cubBodyGrad)"/>
+      <ellipse cx="43" cy="40" rx="24" ry="18" fill="#d99f48"/>
 
-      <!-- Cheeks & Muzzle -->
-      <ellipse cx="34" cy="56" rx="12" ry="8" fill="#fae8c8"/>
-      <ellipse cx="52" cy="56" rx="12" ry="8" fill="#fae8c8"/>
-      <!-- Soft Button Nose -->
+      <ellipse cx="34" cy="56" rx="11" ry="7" fill="#faebd0"/>
+      <ellipse cx="52" cy="56" rx="11" ry="7" fill="#faebd0"/>
       <polygon points="40,50 46,50 43,56" fill="#4d240d"/>
       <line x1="43" y1="56" x2="43" y2="61" stroke="#4d240d" stroke-width="1.5"/>
 
-      <!-- Large, Curious, Endearing Eyes -->
-      <ellipse cx="31" cy="40" rx="5.5" ry="6.5" fill="#24150b"/>
-      <circle cx="31" cy="40" r="4.2" fill="#d48c28"/>
-      <circle cx="32" cy="38" r="2" fill="#000000"/>
-      <circle cx="33" cy="37" r="1.2" fill="#ffffff"/>
+      <!-- Large Curious Eyes -->
+      <ellipse cx="31" cy="40" rx="5" ry="6" fill="#24150b"/>
+      <circle cx="31" cy="40" r="3.8" fill="#d48c28"/>
+      <circle cx="32" cy="38" r="1.8" fill="#000000"/>
+      <circle cx="33" cy="37" r="1.1" fill="#ffffff"/>
 
-      <ellipse cx="55" cy="39" rx="5.5" ry="6.5" fill="#24150b"/>
-      <circle cx="55" cy="39" r="4.2" fill="#d48c28"/>
-      <circle cx="56" cy="37" r="2" fill="#000000"/>
-      <circle cx="57" cy="36" r="1.2" fill="#ffffff"/>
-
-      <!-- Baby Whiskers (Fine Strokes) -->
-      <line x1="22" y1="55" x2="6" y2="52" stroke="#fae8c8" stroke-width="1" opacity="0.7"/>
-      <line x1="22" y1="58" x2="8" y2="60" stroke="#fae8c8" stroke-width="1" opacity="0.7"/>
-      <line x1="64" y1="55" x2="80" y2="52" stroke="#fae8c8" stroke-width="1" opacity="0.7"/>
-      <line x1="64" y1="58" x2="78" y2="60" stroke="#fae8c8" stroke-width="1" opacity="0.7"/>
+      <ellipse cx="55" cy="39" rx="5" ry="6" fill="#24150b"/>
+      <circle cx="55" cy="39" r="3.8" fill="#d48c28"/>
+      <circle cx="56" cy="37" r="1.8" fill="#000000"/>
+      <circle cx="57" cy="36" r="1.1" fill="#ffffff"/>
     </g>
-
-    <!-- Cub Golden Rim Light -->
-    <path d="M 68 330 C 58 280, 80 230, 110 215" stroke="#ffe3a6" stroke-width="1.8" fill="none" opacity="0.6"/>
   </g>
-
-  <!-- Ambient Forefront Grounding Mist -->
-  <path d="M 80 620 Q 300 580 500 595 Q 700 580 920 620 L 920 640 L 80 640 Z" fill="#0c0d12" opacity="0.9"/>
 </svg>
