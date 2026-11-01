@@ -1,3 +1,9 @@
 preview.html
 .DS_Store
 Video-assets-portfolio/
+dist/
+.site-source/
+output/
+
+# Local walkthrough evidence
+riffrec-feedback/
