@@ -1,75 +1,511 @@
-import { initMountainScene, initProjectGalleries, initPortraits } from './interactions.js';
-import {profile, projects, ventures} from './portfolio-data.js';
-const root = new URL('../', import.meta.url);
-const url = path => new URL(path,root).href;
-const route = location.pathname.slice(root.pathname.length).replace(/^\/+|\/+$/g,'').replace(/\/index\.html$/,'');
-const arrow = '<span aria-hidden="true">↗</span>';
-const compass = '<svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="10.5"/><path d="m18.8 9.2-2.9 6.7-6.7 2.9 2.9-6.7 6.7-2.9Z"/><path d="m12.1 12.1 3.8 3.8"/></svg>';
-const mail = `mailto:${profile.email}?subject=Let%E2%80%99s%20connect%2C%20Hassaan`;
-const contact = (label='Contact me',extra='') => `<a class="button ${extra}" href="${mail}">${label}${arrow}</a>`;
-function header(current='',back=false){return `<header class="site-header"><a class="wordmark" href="${url('')}">Muhammad Hassaan<span class="wordmark-dot">.</span></a>${back?`<a class="back-link" href="${url('work/')}">↵ <span>Work</span></a>`:`<button class="menu-toggle" aria-label="Open compass menu" aria-haspopup="dialog">${compass}<span>${current}</span></button>`}</header>`;}
-function menu(){return `<dialog class="compass-menu" aria-labelledby="menu-heading"><div class="menu-layout"><div class="menu-note"><span class="hand-note">Thanks for<br>stopping by.<br>Let’s build<br>something.</span><img src="${url('assets/hero-burning-sky.webp')}" alt="Hassaan with a lion and cub beneath an orange sky"></div><div class="menu-main"><button class="menu-close" aria-label="Close menu">×</button><p class="eyebrow" id="menu-heading">Compass</p><nav aria-label="Main navigation"><a href="${url('work/')}">Work<span>01</span></a><a href="${url('human/')}">Human<span>02</span></a><a href="${url('experience/')}">Experience<span>03</span></a><span class="resume-pending">Resume <small>Coming soon</small></span></nav><div class="menu-socials"><a href="${profile.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="${profile.instagram}" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div>${contact()}</div></div></dialog>`;}
-function footer(){return `<footer class="site-footer"><div class="footer-top"><span>Always curious. Always building.</span><a href="${mail}">Let’s talk ${arrow}</a></div><p class="end-scene" aria-hidden="true">End Scene</p><div class="footer-bottom"><span>Muhammad Hassaan · New Delhi</span><span>© ${new Date().getFullYear()} · All rights reserved</span></div></footer>`;}
-function home() {
-  return `${header()}<main id="main" class="mountain-home">
-    <section class="hero-scroll scene-scroll" aria-label="Interactive mountain introduction">
-      <div class="hero-sticky scene-stage">
-        <img class="scene-sky" src="${url('assets/scene-sky.webp')}" alt="" fetchpriority="high">
-        <div class="scene-world">
-          <img class="scene-trio" src="${url('assets/scene-trio.webp')}" alt="Hassaan standing with a lion and cub on the summit" fetchpriority="high">
-          <img class="scene-mountain" src="${url('assets/scene-mountain.webp')}" alt="" fetchpriority="high">
-          <img class="scene-ledge" src="${url('assets/scene-ledge.webp')}" alt="" fetchpriority="high">
-          <nav class="mountain-trail" aria-label="Explore the mountain">
-            <svg viewBox="0 0 1000 1400" preserveAspectRatio="none" aria-hidden="true"><path d="M 55 1380 C 150 1190 230 1060 260 830 S 350 740 380 650 S 450 550 460 480 S 530 420 520 310"/></svg>
-            ${[
-              ['work','Work',52,22.15,'work/'],
-              ['human','About',46,34.3,'human/'],
-              ['experience','Experience',38,46.43,'experience/'],
-              ['resume','Resume',26,59.3,null]
-            ].map(([id,label,x,y,path])=>`<a class="trail-stop" data-destination="${id}" style="--x:${x}%;--y:${y}%" ${path?`href="${url(path)}"`:'aria-disabled="true" tabindex="0" role="link"'} aria-label="${label}${path?'':' — coming soon'}"><span class="trail-square" aria-hidden="true"></span><span class="trail-star" aria-hidden="true">✳</span><span class="trail-label">${label}${path?'':' · coming soon'}</span></a>`).join('')}
-          </nav>
-        </div>
-        <canvas class="scene-transition" aria-hidden="true"></canvas>
-        <div class="scene-vignette"></div>
-        <div class="fireflies" aria-hidden="true">${Array.from({length:12},(_,i)=>`<i style="--i:${i}"></i>`).join('')}</div>
-        <div class="hero-copy scene-copy"><h1>Turning problems into<br>tailored solutions<br>that get closed.</h1><p>Business Development &amp; Consultative Sales · India</p>${contact()}</div>
-        <div class="lion-hello"><button class="lion-hotspot lion-left" aria-label="Say hello to the lion"><span>Big dreams. Bigger questions.</span></button><button class="lion-hotspot lion-right" aria-label="Say hello to the cub"><span>Hey, welcome to my little world.</span></button></div>
-        <button class="scroll-cue scene-scroll-button" aria-label="Explore the mountain"><span>Scroll to explore</span><span class="scroll-line"></span></button>
-        <a class="journey-card destination-card" href="${url('work/')}" aria-label="Explore Work"><span class="destination-title">Work</span><span class="destination-arrow" aria-hidden="true">⟶</span><span class="destination-art" aria-hidden="true"><span class="mini-page"></span><span class="mini-page"></span><span class="mini-page"></span></span><span class="destination-note">Strategy. Questions. Possibilities.</span></a>
-        <div class="scene-scroll-indicator" aria-hidden="true"><i></i></div>
-      </div>
-    </section>
-  </main>`;
-}
-function poster(p,large=false){return `<div class="project-poster ${p.theme} ${large?'poster-large':''}" aria-hidden="true"><div class="poster-top"><span>${p.eyebrow}</span><span>${p.number} / 05</span></div>${p.id==='airtel'?'<div class="signal-orbits"><i></i><i></i><i></i><b>●</b></div>':p.id==='ownwise'?'<div class="economics"><span>Value</span><i>↗</i><span>Growth</span><i>↘</i><span>Moat</span></div>':p.id==='stride'?'<div class="network"><b>+</b><b>+</b><b>+</b><b>+</b><b>+</b></div>':p.id==='gostops'?'<div class="journey"><span>Discover</span><i>→</i><span>Book</span><i>→</i><span>Stay</span></div>':'<div class="fulfillment"><span>Order placed <b>✓</b></span><span>On its way <b>→</b></span><span>What happens next? <b>?</b></span></div>'}<div class="poster-bottom"><strong>${p.label}</strong><span>${p.title}<br>${p.discipline}</span></div></div>`;}
-function gallerySlide(p, index) {
-  if (index===0) return `<a class="gallery-slide" href="${url(`work/${p.id}/`)}" aria-label="View ${p.title} project">${poster(p)}</a>`;
-  return `<a class="gallery-slide insight-slide ${p.theme} insight-${index}" href="${url(`work/${p.id}/`)}" aria-label="View ${p.title}: ${p.focus[index-1]}"><span class="eyebrow">${p.title} / ${String(index).padStart(2,'0')}</span><div class="insight-diagram" aria-hidden="true">${index===1?'<i></i><i></i><i></i>':'<b>↗</b><i></i><i></i>'}</div><h4>${p.focus[index-1]}</h4><span class="insight-caption">${p.discipline}</span></a>`;
-}
-function projectRow(p) {
-  return `<article class="project-row expandable-project" data-project="${p.id}">
-    <div class="project-row-head"><button class="project-disclosure" aria-expanded="false" aria-controls="gallery-${p.id}"><span class="project-number">${p.number.padStart(3,'0')}</span><h3>${p.title}</h3><span class="disclosure-symbol" aria-hidden="true">+</span></button><p>${p.summary}</p><a class="button" href="${url(`work/${p.id}/`)}">View project ${arrow}</a></div>
-    <div class="project-gallery-collapse" id="gallery-${p.id}" inert><div class="project-gallery-inner"><div class="gallery-track" role="region" aria-label="${p.title} project highlights" tabindex="0">${[0,1,2,3].map(i=>gallerySlide(p,i)).join('')}</div><div class="gallery-controls"><span>Drag to explore</span><div><button class="gallery-prev" aria-label="Previous ${p.title} highlight">←</button><button class="gallery-next" aria-label="Next ${p.title} highlight">→</button></div></div></div></div>
-  </article>`;
-}
-function work(){return `${header('Work')}<main id="main" class="work-main"><div class="page-heading"><p class="eyebrow">Thinking in frameworks. Seeing the friction.</p><h1>Selected work</h1><p class="page-intro">A collection of strategy exercises and business diagnostics.<br>Different questions. The same curiosity.</p></div><nav class="category-nav" aria-label="Project categories"><a href="#academic">Academic Projects <sup>03</sup></a><a href="#diagnostics">Business Problems Solved <sup>02</sup></a></nav><section id="academic" class="project-category"><div class="category-heading"><h2>Academic Projects</h2><span>Masters’ Union / Strategy &amp; business models</span></div>${projects.filter(p=>p.category==='Academic Projects').map(projectRow).join('')}</section><section id="diagnostics" class="project-category"><div class="category-heading"><h2>Business Problems Solved</h2><span>Diagnostics / Recommendations</span></div><p class="category-note">Independent analyses of customer experience and commercial opportunity.</p>${projects.filter(p=>p.category==='Business Problems Solved').map(projectRow).join('')}</section></main>${footer()}`;}
-function projectPage(p){const next=projects[(projects.indexOf(p)+1)%projects.length];return `${header('Work',true)}<main id="main" class="case-main"><div class="case-intro"><a class="eyebrow text-link" href="${url('work/')}">${p.category} / ${p.number}</a><h1>${p.title}</h1><p>${p.description}</p></div><dl class="case-meta"><div><dt>Discipline</dt><dd>${p.discipline}</dd></div><div><dt>Format</dt><dd>${p.category==='Academic Projects'?'Academic strategy exercise':'Business problem diagnostic'}</dd></div></dl>${poster(p,true)}<div class="case-body"><p class="case-context">${p.note}</p>${p.sections.map(([title,body],i)=>`<section class="case-section"><span class="eyebrow">0${i+1} / ${p.eyebrow}</span><h2>${title}</h2><p>${body}</p></section>`).join('')}<section class="focus-section"><h2>Focus areas</h2><ol>${p.focus.map(f=>`<li>${f}</li>`).join('')}</ol></section><div class="case-contact"><p>Have a business question<br>worth working through?</p>${contact('Let’s connect')}</div></div><a class="next-project" href="${url(`work/${next.id}/`)}"><span class="eyebrow">Next analysis</span><span>${next.title}</span>${arrow}</a></main>${footer()}`;}
-const skills=['Consultative Selling','Inbound Sales','B2B Sales','End-to-End Sales Cycle','Problem Solving','Stakeholder Management','Objection Handling','Agentic AI','RAG'];
-function human(){return `${header('Human')}<main id="main"><section class="human-hero"><div class="portrait-wrap"><img id="portrait" src="${url('assets/portraits/portrait-1.webp')}" alt="Muhammad Hassaan" fetchpriority="high"><canvas class="portrait-transition" aria-hidden="true"></canvas><button class="portrait-advance" aria-label="Show next portrait"></button><div class="photo-tabs" role="group" aria-label="Choose a portrait">${[1,2,3].map(i=>`<button class="photo-dot ${i===1?'active':''}" aria-label="Photo ${i}" aria-pressed="${i===1}" data-photo="${i}"></button>`).join('')}</div><span class="portrait-caption">The human behind the work.</span><span class="portrait-cloud" aria-hidden="true"></span></div><div class="human-copy"><p class="eyebrow">Hello, I’m Hassaan.</p><h1>Curious about people.<br><em>Driven to build.</em></h1><p>I’ve always been interested in building things, figuring out how businesses work, and helping people find their way forward. I’ve spent time building ventures from zero to one, mentoring people, and exploring different sides of business.</p><p>I’m currently pursuing my MBA in Tech and Business Management at Masters’ Union, in the Class of 2028.</p><p>Sales is most rewarding to me when I listen closely, understand what someone actually needs, and help them find the right solution. That’s the side of sales I connect with, and what I’m working on getting better at every day.</p><div class="human-links"><a class="text-link" href="${profile.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="text-link" href="${profile.instagram}" target="_blank" rel="noopener noreferrer">Instagram ↗</a>${contact()}</div></div></section><section class="human-details"><div class="detail-label"><span class="eyebrow">A few more things</span><h2>Always a<br>work in progress.</h2></div><div class="detail-content"><section><h3>Education</h3><div class="education-row"><div><h4>Masters’ Union</h4><p>MBA in Tech and Business Management</p></div><span>Class of 2028</span></div><div class="education-row"><div><h4>Delhi University</h4><p>BA · Economics Major</p></div><span>Undergraduate</span></div></section><section><h3>My toolkit</h3><div class="skill-list">${skills.map(s=>`<span>${s}</span>`).join('')}</div></section><section><h3>Beyond business</h3><p class="interest-list">Networking. Public speaking.<br>Personal growth books.<br>Comparative religion studies.</p></section><p class="closing-note">This space is a little home for what I’ve been working on, what I’ve learned, and where I’m heading next.</p></div></section></main>${footer()}`;}
-function experience(){return `${header('Experience')}<main id="main" class="experience-main"><div class="page-heading"><p class="eyebrow">Entrepreneurship experiments &amp; track record</p><h1>Built from zero.</h1><p class="page-intro">Some lessons only come from doing.<br>These are a few places I’ve learned them.</p></div>${ventures.map(v=>`<article class="venture"><div class="venture-side"><span class="eyebrow">${v.number} / Venture</span><h2>${v.name}</h2><p>${v.role}</p><span class="venture-date">${v.date}</span></div><div class="venture-body"><h3>${v.title}</h3><p>${v.description}</p><div class="metric-grid">${v.metrics.map(([a,b])=>`<div><strong>${a}</strong><span>${b}</span></div>`).join('')}</div><ul>${v.points.map(p=>`<li>${p}</li>`).join('')}</ul>${v.footnote?`<small class="metric-note">${v.footnote}</small>`:''}</div></article>`).join('')}<div class="experience-outro"><h2>The common thread?<br><em>Understand first.</em></h2><p>Listen closely. Find the friction.<br>Recommend a solution that fits.</p>${contact('Start a conversation')}</div></main>${footer()}`;}
-let page;
-if(!route||route==='index.html')page=home();else if(route==='work')page=work();else if(route==='human')page=human();else if(route==='experience')page=experience();else if(route.startsWith('work/')){const p=projects.find(p=>p.id===route.split('/')[1]);if(p){page=projectPage(p);document.title=`${p.title} — Muhammad Hassaan`;}}
-if(!page)page=`${header()}<main id="main" class="not-found"><p class="eyebrow">A small detour</p><h1>Let’s find our way.</h1><a class="button" href="${url('')}">Back to the mountain ↗</a></main>${footer()}`;
-if(['work','human','experience'].includes(route))document.title=`${route[0].toUpperCase()+route.slice(1)} — Muhammad Hassaan`;
-document.body.dataset.page=route.split('/')[0]||'home';
-document.querySelector('#app').innerHTML=page+menu();
-const dialog=document.querySelector('.compass-menu');
-const opener=document.querySelector('.menu-toggle');
-opener?.addEventListener('click',()=>{dialog.showModal();document.body.classList.add('menu-open');});
-const closeMenu=()=>{dialog.close();document.body.classList.remove('menu-open');};
-document.querySelector('.menu-close').addEventListener('click',closeMenu);
-dialog.addEventListener('click',e=>{if(e.target===dialog)closeMenu();});
-dialog.addEventListener('close',()=>document.body.classList.remove('menu-open'));
-initProjectGalleries();
-initPortraits(url);
-initMountainScene(url);
+/**
+ * Muhammad Hassaan — Business Development Portfolio
+ * Interactions Engine:
+ *  1. Signature Compass Navigation & Real-Time Bearing Needle Rotation
+ *  2. IntersectionObserver Section Tracking & Active State Management
+ *  3. Smooth Scroll Navigation with Precise Viewport Offset
+ *  4. Mobile Compass Drawer with Touch & Keyboard Controls
+ */
+
+(function () {
+  "use strict";
+
+  // Section Compass Bearings (in degrees)
+  const SECTION_BEARINGS = {
+    hero: 0,
+    work: 45,
+    about: 105,
+    ideas: 165,
+    mentorship: 225,
+    resume: 285,
+    connect: 330
+  };
+
+  // DOM Elements
+  const compassNeedle = document.getElementById("compassNeedle");
+  const navLinks = document.querySelectorAll(".compass-link");
+  const mobileNavLinks = document.querySelectorAll(".compass-mobile-item");
+  const mobileToggle = document.getElementById("compassMobileToggle");
+  const mobileMenu = document.getElementById("compassMobileMenu");
+  const sections = document.querySelectorAll("section[id]");
+
+  let activeSectionId = "hero";
+
+  /**
+   * Rotate Compass Needle to Bearing Angle
+   * @param {number} degrees
+   */
+  function rotateCompass(degrees) {
+    if (!compassNeedle) return;
+    compassNeedle.style.transform = `rotate(${degrees}deg)`;
+  }
+
+  /**
+   * Set Active Navigation Link
+   * @param {string} id
+   */
+  function setActiveNav(id) {
+    if (activeSectionId === id) return;
+    activeSectionId = id;
+
+    // Update Desktop Nav Links
+    navLinks.forEach((link) => {
+      const target = link.getAttribute("href")?.replace("#", "");
+      if (target === id) {
+        link.classList.add("is-active");
+      } else {
+        link.classList.remove("is-active");
+      }
+    });
+
+    // Update Mobile Nav Links
+    mobileNavLinks.forEach((item) => {
+      const target = item.getAttribute("href")?.replace("#", "");
+      if (target === id) {
+        item.classList.add("is-active");
+      } else {
+        item.classList.remove("is-active");
+      }
+    });
+
+    // Orient the Compass Needle to this section's bearing
+    const bearing = SECTION_BEARINGS[id] ?? 0;
+    rotateCompass(bearing);
+  }
+
+  /**
+   * IntersectionObserver for Smooth Wayfinding Tracking
+   */
+  const observerOptions = {
+    root: null,
+    rootMargin: "-20% 0px -60% 0px",
+    threshold: 0
+  };
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute("id");
+        if (id) {
+          setActiveNav(id);
+        }
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach((sec) => sectionObserver.observe(sec));
+
+  /**
+   * Smooth Scroll Handler with Proper Header Offset
+   */
+  function handleNavClick(event) {
+    const link = event.currentTarget;
+    const targetHref = link.getAttribute("href");
+    if (!targetHref || !targetHref.startsWith("#")) return;
+
+    const targetId = targetHref.substring(1);
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      event.preventDefault();
+
+      // Close mobile drawer if open
+      if (mobileMenu && mobileMenu.classList.contains("is-open")) {
+        closeMobileMenu();
+      }
+
+      const headerOffset = 90;
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL hash without jump
+      history.replaceState(null, "", targetHref);
+    }
+  }
+
+  // Bind Click Handlers
+  navLinks.forEach((link) => link.addEventListener("click", handleNavClick));
+  mobileNavLinks.forEach((link) => link.addEventListener("click", handleNavClick));
+
+  /**
+   * Mobile Menu Controls
+   */
+  function toggleMobileMenu() {
+    if (!mobileMenu) return;
+    const isOpen = mobileMenu.classList.toggle("is-open");
+    if (mobileToggle) {
+      mobileToggle.setAttribute("aria-expanded", String(isOpen));
+    }
+  }
+
+  function closeMobileMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove("is-open");
+    if (mobileToggle) {
+      mobileToggle.setAttribute("aria-expanded", "false");
+    }
+  }
+
+  if (mobileToggle) {
+    mobileToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleMobileMenu();
+    });
+  }
+
+  // Close Mobile Menu on Outside Click
+  document.addEventListener("click", (e) => {
+    if (
+      mobileMenu &&
+      mobileMenu.classList.contains("is-open") &&
+      !mobileMenu.contains(e.target) &&
+      !mobileToggle.contains(e.target)
+    ) {
+      closeMobileMenu();
+    }
+  });
+
+  // Close Mobile Menu on Escape Key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && mobileMenu && mobileMenu.classList.contains("is-open")) {
+      closeMobileMenu();
+    }
+  });
+
+  // Initial Needle Position
+  rotateCompass(0);
+
+  /* --------------------------------------------------------------------------
+     5. REUSABLE ACCESSIBLE PROJECT MODAL (Entrepreneurship Experiments)
+     -------------------------------------------------------------------------- */
+  const modalBackdrop = document.getElementById("projectModalBackdrop");
+  const modalCloseBtn = document.getElementById("modalCloseBtn");
+  let lastActiveElement = null;
+
+  /**
+   * Open Modal for a Specific Project
+   * @param {string} projectId
+   */
+  function openProjectModal(projectId) {
+    if (!modalBackdrop || typeof PORTFOLIO_DATA === "undefined") return;
+
+    const project = PORTFOLIO_DATA.entrepreneurship.find((p) => p.id === projectId);
+    if (!project) return;
+
+    lastActiveElement = document.activeElement;
+
+    // Populate Modal Elements
+    const numberEl = document.getElementById("modalProjectNumber");
+    const categoryEl = document.getElementById("modalProjectCategory");
+    const highlightEl = document.getElementById("modalProjectHighlight");
+    const titleEl = document.getElementById("modalProjectTitle");
+    const roleEl = document.getElementById("modalProjectRole");
+    const statsGridEl = document.getElementById("modalStatsGrid");
+    const overviewEl = document.getElementById("modalProjectOverview");
+    const problemEl = document.getElementById("modalProjectProblem");
+    const responsibilitiesEl = document.getElementById("modalProjectResponsibilities");
+    const approachEl = document.getElementById("modalProjectApproach");
+    const resultsEl = document.getElementById("modalProjectResults");
+
+    if (numberEl) numberEl.textContent = project.number;
+    if (categoryEl) categoryEl.textContent = project.category;
+    if (highlightEl) highlightEl.textContent = project.cardHighlight;
+    if (titleEl) titleEl.textContent = project.title;
+    if (roleEl) roleEl.innerHTML = `<strong>${project.role}</strong> · ${project.duration}`;
+
+    // Populate Key Metrics
+    if (statsGridEl && Array.isArray(project.metrics)) {
+      statsGridEl.innerHTML = project.metrics
+        .map(
+          (m) => `
+          <div class="modal-stat-box">
+            <span class="modal-stat-val">${m.value}</span>
+            <span class="modal-stat-lbl">${m.label}</span>
+          </div>
+        `
+        )
+        .join("");
+    }
+
+    // Populate Narrative Sections
+    if (overviewEl) overviewEl.textContent = project.modal.overview;
+    if (problemEl) problemEl.textContent = project.modal.problem;
+
+    if (responsibilitiesEl && Array.isArray(project.modal.responsibilities)) {
+      responsibilitiesEl.innerHTML = project.modal.responsibilities
+        .map((r) => `<li>${r}</li>`)
+        .join("");
+    }
+
+    if (approachEl) approachEl.textContent = project.modal.approach;
+    if (resultsEl) resultsEl.textContent = project.modal.results;
+
+    // Open Modal
+    modalBackdrop.classList.add("is-open");
+    modalBackdrop.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+
+    // Focus Close Button for accessibility
+    setTimeout(() => {
+      if (modalCloseBtn) modalCloseBtn.focus();
+    }, 50);
+  }
+
+  /**
+   * Close Project Modal
+   */
+  function closeProjectModal() {
+    if (!modalBackdrop) return;
+    modalBackdrop.classList.remove("is-open");
+    modalBackdrop.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+
+    if (lastActiveElement && typeof lastActiveElement.focus === "function") {
+      lastActiveElement.focus();
+    }
+  }
+
+  // Bind Project Card Clicks
+  const projectCards = document.querySelectorAll("[data-project-trigger]");
+  projectCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      const pid = card.getAttribute("data-project-trigger");
+      if (pid) openProjectModal(pid);
+    });
+
+    // Support Enter or Space on keyboard
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        const pid = card.getAttribute("data-project-trigger");
+        if (pid) openProjectModal(pid);
+      }
+    });
+  });
+
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener("click", closeProjectModal);
+  }
+
+  // Close on Backdrop Click
+  if (modalBackdrop) {
+    modalBackdrop.addEventListener("click", (e) => {
+      if (e.target === modalBackdrop) {
+        closeProjectModal();
+      }
+    });
+  }
+
+  // Close on Escape Key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modalBackdrop && modalBackdrop.classList.contains("is-open")) {
+      closeProjectModal();
+    }
+  });
+
+  /* --------------------------------------------------------------------------
+     6. REUSABLE STARTUP IDEA MODAL (Ideas & MVP Section)
+     -------------------------------------------------------------------------- */
+  const startupModalBackdrop = document.getElementById("startupModalBackdrop");
+  const startupModalCloseBtn = document.getElementById("startupModalCloseBtn");
+
+  /**
+   * Open Modal for a Specific Startup
+   * @param {string} startupId
+   */
+  function openStartupModal(startupId) {
+    if (!startupModalBackdrop || typeof PORTFOLIO_DATA === "undefined") return;
+
+    const startup = PORTFOLIO_DATA.startupIdeas.find((s) => s.id === startupId);
+    if (!startup) return;
+
+    lastActiveElement = document.activeElement;
+
+    // Elements
+    const tagEl = document.getElementById("modalStartupTag");
+    const stageEl = document.getElementById("modalStartupStage");
+    const nameEl = document.getElementById("modalStartupName");
+    const taglineEl = document.getElementById("modalStartupTagline");
+    const whyEl = document.getElementById("modalStartupWhy");
+    const problemEl = document.getElementById("modalStartupProblem");
+    const solutionEl = document.getElementById("modalStartupSolution");
+    const stageTextEl = document.getElementById("modalStartupStageText");
+    const extraBoxEl = document.getElementById("modalStartupExtraBox");
+
+    if (tagEl) tagEl.textContent = startup.tag;
+    if (stageEl) stageEl.textContent = startup.stage;
+    if (nameEl) nameEl.textContent = startup.name;
+    if (taglineEl) taglineEl.textContent = startup.modal.tagline;
+    if (whyEl) whyEl.textContent = startup.modal.whyStarted;
+    if (problemEl) problemEl.textContent = startup.modal.problem;
+    if (solutionEl) solutionEl.textContent = startup.modal.solution;
+    if (stageTextEl) stageTextEl.textContent = startup.stage;
+
+    // Handle extra callouts (Roadmap or Positioning Note)
+    if (extraBoxEl) {
+      if (startup.modal.roadmap) {
+        extraBoxEl.style.display = "block";
+        extraBoxEl.innerHTML = `
+          <p class="modal-callout-title">Product Roadmap &amp; Next Phases</p>
+          <p class="modal-callout-text">${startup.modal.roadmap}</p>
+        `;
+      } else if (startup.modal.positioningNote) {
+        extraBoxEl.style.display = "block";
+        extraBoxEl.innerHTML = `
+          <p class="modal-callout-title">Positioning &amp; Boundary Note</p>
+          <p class="modal-callout-text">${startup.modal.positioningNote}</p>
+        `;
+      } else {
+        extraBoxEl.style.display = "none";
+        extraBoxEl.innerHTML = "";
+      }
+    }
+
+    // Open Modal
+    startupModalBackdrop.classList.add("is-open");
+    startupModalBackdrop.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+
+    setTimeout(() => {
+      if (startupModalCloseBtn) startupModalCloseBtn.focus();
+    }, 50);
+  }
+
+  /**
+   * Close Startup Modal
+   */
+  function closeStartupModal() {
+    if (!startupModalBackdrop) return;
+    startupModalBackdrop.classList.remove("is-open");
+    startupModalBackdrop.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+
+    if (lastActiveElement && typeof lastActiveElement.focus === "function") {
+      lastActiveElement.focus();
+    }
+  }
+
+  // Bind Startup Trigger Clicks
+  const startupTriggers = document.querySelectorAll("[data-startup-trigger]");
+  startupTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const sid = trigger.getAttribute("data-startup-trigger");
+      if (sid) openStartupModal(sid);
+    });
+
+    trigger.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        const sid = trigger.getAttribute("data-startup-trigger");
+        if (sid) openStartupModal(sid);
+      }
+    });
+  });
+
+  if (startupModalCloseBtn) {
+    startupModalCloseBtn.addEventListener("click", closeStartupModal);
+  }
+
+  if (startupModalBackdrop) {
+    startupModalBackdrop.addEventListener("click", (e) => {
+      if (e.target === startupModalBackdrop) {
+        closeStartupModal();
+      }
+    });
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && startupModalBackdrop && startupModalBackdrop.classList.contains("is-open")) {
+      closeStartupModal();
+    }
+  });
+
+  /* --------------------------------------------------------------------------
+     7. SHOW DECK BUTTON HANDLERS (Academic & Business Problems)
+     -------------------------------------------------------------------------- */
+  const deckButtons = document.querySelectorAll("[data-deck-id]");
+  deckButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const deckId = btn.getAttribute("data-deck-id");
+      if (!deckId || typeof PORTFOLIO_DATA === "undefined") return;
+
+      // Find in academic projects or business problems
+      const item =
+        PORTFOLIO_DATA.academicProjects.find((p) => p.id === deckId) ||
+        PORTFOLIO_DATA.businessProblems.find((p) => p.id === deckId);
+
+      if (item && item.deckUrl) {
+        window.open(item.deckUrl, "_blank", "noopener,noreferrer");
+      } else {
+        // Subtle ripple or toast for Coming Soon
+        const originalText = btn.textContent;
+        btn.textContent = "URL placeholder configured · Coming Soon";
+        setTimeout(() => {
+          btn.textContent = originalText;
+        }, 2200);
+      }
+    });
+  });
+  /* --------------------------------------------------------------------------
+     8. RESUME ACTION HANDLER
+     -------------------------------------------------------------------------- */
+  const resumeBtn = document.getElementById("viewResumeBtn");
+  if (resumeBtn) {
+    resumeBtn.addEventListener("click", () => {
+      if (typeof PORTFOLIO_DATA !== "undefined" && PORTFOLIO_DATA.resume?.fileUrl) {
+        window.open(PORTFOLIO_DATA.resume.fileUrl, "_blank", "noopener,noreferrer");
+      } else {
+        const originalText = resumeBtn.innerHTML;
+        resumeBtn.innerHTML = `
+          <span>Resume PDF Coming Soon</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        `;
+        setTimeout(() => {
+          resumeBtn.innerHTML = originalText;
+        }, 2400);
+      }
+    });
+  }
+
+  /* --------------------------------------------------------------------------
+     9. CONNECT CHANNELS INTERACTION HANDLER
+     -------------------------------------------------------------------------- */
+  const connectCards = document.querySelectorAll("[data-connect-id]");
+  connectCards.forEach((card) => {
+    card.addEventListener("click", (e) => {
+      const channelId = card.getAttribute("data-connect-id");
+      if (!channelId || typeof PORTFOLIO_DATA === "undefined") return;
+
+      const linkObj = PORTFOLIO_DATA.connectLinks.find((l) => l.id === channelId);
+      if (!linkObj) return;
+
+      if (linkObj.url) {
+        if (linkObj.url.startsWith("mailto:")) {
+          window.location.href = linkObj.url;
+        } else {
+          window.open(linkObj.url, "_blank", "noopener,noreferrer");
+        }
+      } else {
+        e.preventDefault();
+        const handleEl = card.querySelector(".connect-channel-handle");
+        if (handleEl) {
+          const original = handleEl.textContent;
+          handleEl.textContent = "Awaiting link from Hassaan · Placeholder ready";
+          handleEl.style.color = "var(--accent-gold)";
+          setTimeout(() => {
+            handleEl.textContent = original;
+            handleEl.style.color = "";
+          }, 2400);
+        }
+      }
+    });
+  });
+})();
