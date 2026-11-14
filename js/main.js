@@ -1,567 +1,277 @@
-/**
- * Muhammad Hassaan — Personal Portfolio
- * Interactions:
- *  1. Smooth in-page anchor navigation & active section highlight
- *  2. Interactive top crimson orb portrait reveal (#heroOrbStage)
- *  3. Interactive 3D Flip & Pop-Out Project Flashcards (Pepperfry & Clario AI)
- *  4. Interactive HTML5 Canvas Halftone/Pixel Portrait Reveal (#portraitCanvas)
- *  5. Gallery slide switcher & scroll entrance reveals
- */
-
-(function () {
-  "use strict";
-
-  /* --------------------------------------------------------------------------
-     1. Project Flashcard Data (Strictly Factual — No Invented Metrics/Claims)
-     -------------------------------------------------------------------------- */
-  const PROJECTS = {
-    pepperfry: {
-      category: "Customer Experience · Business Analysis · Growth Strategy",
-      title: "Pepperfry — Customer Experience Improvement",
-      image: "assets/pepperfry.png",
-      imageAlt: "Pepperfry — Customer Experience Improvement visual",
-      summary:
-        "A customer experience and business growth project examining post-purchase service friction and its connection to customer retention and sales potential.",
-      details: [
-        {
-          label: "01 / Context",
-          body: "We identified a problem in Pepperfry's post-purchase services. This was an area the company appeared to be neglecting, despite many customer complaints falling within that stage of the customer journey."
-        },
-        {
-          label: "02 / Problem Stage",
-          body: "Customer complaints were concentrated in the post-purchase stage of the journey, signaling an underserved operational and customer-experience gap."
-        },
-        {
-          label: "03 / Our Work",
-          body: "We highlighted the problem and proposed three recommendations that could improve the customer experience and help boost sales."
-        },
-        {
-          label: "04 / Expected Impact (Potential Outcome)",
-          body: "Framed as a customer experience and business growth opportunity: resolving post-purchase friction has the potential to strengthen customer trust, improve satisfaction, and support stronger sales outcomes."
-        }
-      ]
-    },
-    clario: {
-      category: "Product Discovery · User Research · EdTech · AI and Text-to-Speech",
-      title: "Clario AI — Articles to Regional Audio Notes",
-      image: "assets/clario.png",
-      imageAlt: "Clario AI — Articles to Regional Audio Notes visual",
-      summary:
-        "A product discovery and development concept demonstrating problem identification and solution thinking around long-form reading fatigue.",
-      details: [
-        {
-          label: "01 / Product Concept",
-          body: "Clario AI is a text-to-speech product concept designed to convert long articles into audio notes in regional languages and explain the content in simple language."
-        },
-        {
-          label: "02 / Target Users",
-          body: "Designed specifically for MBA students and UPSC aspirants who regularly work through dense, high-volume reading material."
-        },
-        {
-          label: "03 / Core Problem",
-          body: "The product was conceived around the difficulty these users face in consuming lengthy written information efficiently."
-        },
-        {
-          label: "04 / Our Approach",
-          body: "We identified the problem and developed a product concept that makes information easier to consume through regional-language audio and simplified explanations."
-        }
-      ]
-    }
-  };
-
-  /* --------------------------------------------------------------------------
-     2. Smooth Scroll Navigation, Slide-Down After Hero & Active Link Highlight
-     -------------------------------------------------------------------------- */
-  const navWrapper = document.querySelector(".nav-wrapper");
-  const heroSection = document.getElementById("hero");
-
-  function updateNavVisibility() {
-    if (!navWrapper || !heroSection) return;
-    const heroRect = heroSection.getBoundingClientRect();
-    // Slide down the navigation bar once the user reaches the end of the hero section
-    const pastHero = heroRect.bottom <= 180;
-    navWrapper.classList.toggle("is-visible", pastHero);
+const experiments = [
+  {
+    id: "stroque",
+    name: "Stroque Consulting",
+    role: "Founder & Handwriting Analyst",
+    date: "Nov 2022 to present",
+    image: "assets/stroque.jpg",
+    preview:
+      "An impact-led consulting venture that taught me to listen, understand and build trust.",
+    originTitle: "Why I started",
+    origin:
+      "I wanted to help people work through personal and professional challenges. A writing sample became my starting point for conversations about their goals.",
+    work: "I led discovery conversations, introduced assessments through sample audits and tailored follow-up packages. One executive signed up for three months at ₹30,000 per month.",
+    metrics: [
+      ["250+", "Consultations done"],
+      ["5", "HR partners"],
+      ["20+", "Recruitment cases supported"],
+    ],
+    endTitle: "What comes next",
+    end: "At Masters’ Union, I’m developing software to test and automate parts of the manual process I used with hiring teams.",
+  },
+  {
+    id: "hustlers",
+    name: "Hustlers’ Edge Community",
+    role: "Founder & Community Lead",
+    date: "Aug 2024 to Apr 2026",
+    image: "assets/hustlers.jpg",
+    preview:
+      "A community helping students turn practical skills into their first income.",
+    originTitle: "Why I started",
+    origin:
+      "I saw students looking for jobs without the skills employers wanted. I wanted to help them learn practical skills and earn from their work, even before finding a job.",
+    work: "I grew the community through referrals, outreach and organic content. I guided members through prospecting, positioning their work, negotiating and finding their first paying clients.",
+    metrics: [
+      ["200+", "Community members"],
+      ["140+", "People started earning five figures per month (INR)"],
+      ["Near zero", "Acquisition cost"],
+    ],
+    endTitle: "What I learned",
+    end: "Getting people to join was only the beginning. I also had to understand where they were stuck and help them take the next step towards finding a client.",
+  },
+  {
+    id: "idp",
+    name: "iDigitalpreneur",
+    role: "Independent Sales Affiliate",
+    date: "Feb 2023 to Apr 2024",
+    image: "assets/idigitalpreneur.png",
+    preview:
+      "My first step into sales: discovery, real conversations and learning to close.",
+    originTitle: "How it started",
+    origin:
+      "I wanted to try something in business, so I joined iDigitalpreneur as a sales affiliate. Talking to students about their goals gave me my first real experience of selling.",
+    work: "Got exposure to consultative selling and raised inbound conversion by 15%. Also trained 20+ sales peers on consultative selling and handling objections.",
+    metrics: [
+      ["₹2L", "EdTech sales closed"],
+      ["₹60K", "Sales commissions earned"],
+      ["15%", "Improvement in inbound conversion"],
+    ],
+    endTitle: "What I learned",
+    end: "I found that I enjoyed sales most when I understood what someone needed and could recommend something that fit. That experience shaped how I approach discovery conversations today.",
+  },
+];
+const projects = [
+  {
+    id: "soundbuddy",
+    name: "SoundBuddy",
+    category: "Mac audio app",
+    preview:
+      "Built a Mac audio app for product managers and then expanded to normal users.",
+    role: "Product Growth & Sales Contributor",
+    originTitle: "The starting point",
+    origin:
+      "SoundBuddy began as a Mac audio app for product managers. We explored shared listening as a way to make it useful to a wider group of Mac users.",
+    work: "I helped identify shared listening as a growth opportunity and took the update to potential customers through warm-network outreach and automated Reddit messages.",
+    endTitle: "My contribution",
+    end: "My work focused on finding new uses for the product, reaching potential customers and contributing to early sales.",
+  },
+  {
+    id: "clario",
+    name: "Clario AI",
+    category: "Audio learning concept",
+    preview:
+      "A concept for turning long articles into simpler audio notes in regional languages, for MBA students and UPSC aspirants.",
+    note: "Articles to regional audio notes",
+    originTitle: "The idea",
+    origin:
+      "Clario AI is a text-to-speech product concept for MBA students and UPSC aspirants who need to work through long articles.",
+    work: "The concept combines regional-language audio notes with explanations in simple language. The existing project work covers product discovery, user research and the learning experience.",
+    endTitle: "Current stage",
+    end: "A product concept exploring how AI and text-to-speech can make long reading material easier to work through.",
+  },
+  {
+    id: "buildsy",
+    name: "Buildsy",
+    category: "AI tool stack planner",
+    preview:
+      "Share an idea, answer six questions and get a tool stack shaped around your MVP and budget.",
+    note: "Built for first-time and solo builders",
+    originTitle: "The problem",
+    origin:
+      "First-time builders face a lot of tool choices before they can start an MVP. Buildsy helps them work out what they need and how it fits their budget.",
+    work: "A builder shares an idea and answers six questions. Buildsy then puts together a personalized AI tool stack and budget allocation for building the first version.",
+    endTitle: "Who it is for",
+    end: "Solo builders and one-person companies looking for an affordable set of tools to get their idea off the ground.",
+  },
+  {
+    id: "lyvo",
+    name: "LYVO",
+    category: "In development",
+    preview:
+      "An AI life coach experiment exploring how conversation can help people reflect, find direction and plan their next steps.",
+    note: "Exploring conversational wellbeing",
+    originTitle: "Why we started",
+    origin:
+      "We wanted to explore how conversation could help people who feel stuck reflect on what they are going through and find a sense of direction.",
+    work: "We are developing an AI life coach and experimenting with conversations that help people describe their concerns and think through possible next steps.",
+    endTitle: "Current stage",
+    end: "LYVO is in development. We are still exploring the experience and what useful conversational support could look like.",
+  },
+];
+const arrow = '<span aria-hidden="true">↗</span>';
+const nav = document.querySelector("#site-nav");
+const onProjects = document.body.dataset.page === "projects";
+const home = onProjects ? "index.html" : "";
+nav.innerHTML = `<a class="brand" href="index.html" aria-label="Hassaan home"><span class="monogram">H</span>Hassaan</a><button class="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation"><span></span><span></span><span></span></button><div id="nav-links" class="nav-links">${[
+  ["About", "about"],
+  ["Experiments", "experiments"],
+  ["Projects", "projects"],
+  ["Timeline", "timeline"],
+]
+  .map(
+    ([label, id]) =>
+      `<a href="${onProjects && id === "projects" ? "projects.html" : home + "#" + id}"${onProjects && id === "projects" ? ' aria-current="page"' : ""}>${label}</a>`,
+  )
+  .join(
+    "",
+  )}<a class="button small" href="${home}#connect">Connect ${arrow}</a></div>`;
+const themeToggle = document.createElement("button");
+themeToggle.className = "theme-toggle";
+themeToggle.type = "button";
+nav.append(themeToggle);
+const sunIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>';
+const moonIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>';
+function updateThemeToggle() {
+  const dark = document.documentElement.dataset.theme === "dark";
+  themeToggle.innerHTML = dark ? sunIcon : moonIcon;
+  themeToggle.setAttribute("aria-label", dark ? "Switch to day mode" : "Switch to night mode");
+  themeToggle.title = dark ? "Switch to day mode" : "Switch to night mode";
+  themeToggle.setAttribute("aria-pressed", String(dark));
+}
+themeToggle.addEventListener("click", () => {
+  const theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  window.portfolioTheme.set(theme);
+});
+window.addEventListener("portfolio-theme-change", updateThemeToggle);
+updateThemeToggle();
+const menu = document.querySelector(".menu-toggle");
+menu.addEventListener("click", () => {
+  const open = menu.getAttribute("aria-expanded") !== "true";
+  menu.setAttribute("aria-expanded", String(open));
+  menu.setAttribute(
+    "aria-label",
+    open ? "Close navigation" : "Open navigation",
+  );
+  nav.classList.toggle("menu-open", open);
+});
+nav.querySelectorAll("a").forEach((a) =>
+  a.addEventListener("click", () => {
+    nav.classList.remove("menu-open");
+    menu.setAttribute("aria-expanded", "false");
+    menu.setAttribute("aria-label", "Open navigation");
+  }),
+);
+const cards = document.querySelector("#experiment-cards");
+if (cards)
+  cards.innerHTML = experiments
+    .map(
+      (x, i) =>
+        `<article class="experiment-card ${i === 1 ? "orange-card" : ""}"><h3>${i === 1 ? "Hustlers’ Edge" : x.name}</h3><p class="date">${x.date}</p><img src="${x.image}" alt="${x.name} logo" loading="lazy"><p>${x.preview}</p><button class="story-link" data-story="${x.id}"><span>The story<span class="sr-only"> of ${x.name}</span></span><span class="circle">↗</span></button></article>`,
+    )
+    .join("");
+const grid = document.querySelector("#project-grid");
+if (grid)
+  grid.innerHTML = projects
+    .map(
+      (x) =>
+        `<article class="project-card"><div class="project-art ${x.id}" aria-label="${x.name} temporary artwork"><span>${x.name}</span></div><div class="project-copy"><p class="eyebrow">${x.category}</p><h2>${x.name}</h2><p>${x.preview}</p><div class="project-bottom"><small>${x.role ? "My role: " + x.role : x.note}</small><button class="circle" data-story="${x.id}" aria-label="Read ${x.name} story">↗</button></div></div></article>`,
+    )
+    .join("");
+const dialog = document.querySelector("#story-dialog");
+const storyContent = document.querySelector("#story-content");
+let storyTrigger;
+function closeStory() {
+  dialog.close();
+}
+document.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-story]");
+  if (!button) return;
+  const x = [...experiments, ...projects].find(
+    (item) => item.id === button.dataset.story,
+  );
+  storyTrigger = button;
+  storyContent.innerHTML = `<header class="story-header">${x.image ? `<img src="${x.image}" alt="${x.name} logo">` : ""}<div><h2 id="story-title">${x.name}</h2><p>${x.role || x.category}</p>${x.date ? `<p class="story-date">${x.date}</p>` : ""}</div></header><div class="story-columns"><section><h3>${x.originTitle}</h3><p>${x.origin}</p></section><section><h3>What I did</h3><p>${x.work}</p></section></div>${x.metrics ? `<div class="story-metrics">${x.metrics.map(([n, t]) => `<div><strong>${n}</strong><span>${t}</span></div>`).join("")}</div>` : ""}<section class="story-ending"><h3>${x.endTitle}</h3><p>${x.end}</p></section><button class="back-story" type="button">Back to ${x.image ? "experiments" : "projects"}</button>`;
+  dialog.showModal();
+  dialog.scrollTop = 0;
+  document.body.classList.add("dialog-open");
+  storyContent
+    .querySelector(".back-story")
+    .addEventListener("click", closeStory);
+});
+document.querySelector(".close-dialog").addEventListener("click", closeStory);
+dialog.addEventListener("click", (e) => {
+  if (e.target === dialog) {
+    const r = dialog.getBoundingClientRect();
+    if (
+      e.clientX < r.left ||
+      e.clientX > r.right ||
+      e.clientY < r.top ||
+      e.clientY > r.bottom
+    )
+      closeStory();
   }
-
-  window.addEventListener("scroll", updateNavVisibility, { passive: true });
-  window.addEventListener("resize", updateNavVisibility, { passive: true });
-  updateNavVisibility();
-
-  const navLinks = document.querySelectorAll('.nav-link[href^="#"], .nav-logo[href^="#"]');
-
-  navLinks.forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const targetId = link.getAttribute("href");
-      if (!targetId || targetId === "#") return;
-      const targetEl = document.querySelector(targetId);
-      if (targetEl) {
-        event.preventDefault();
-        targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
-        history.replaceState(null, "", targetId);
-      }
+});
+dialog.addEventListener("close", () => {
+  document.body.classList.remove("dialog-open");
+  storyTrigger?.focus();
+});
+// Reveal individual elements only after the opening screen has finished.
+(() => {
+  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  document.querySelectorAll(".reveal").forEach(el => el.classList.add("is-visible"));
+  if (reducedMotion.matches) return;
+  const groups = [
+    [".nav-wrap", "down", 0],
+    [".hello", "down", 60],
+    [".hero h1", "down", 140],
+    [".hero-caption", "up", 240],
+    [".hero-portrait", "portrait", 180],
+    [".hero-proof > div", "up", 340],
+    [".hero-approach", "up", 420],
+    [".hero-actions", "up", 500],
+    [".scroll-note", "up", 560],
+    ["main > section:not(.hero) > .eyebrow, .section-title, .section-heading, .timeline-heading, .connect-heading", "up", 0],
+    [".about-person", "portrait", 80],
+    [".about-copy > *, .principles > div", "up", 80],
+    [".experiment-card", "up", 60],
+    [".milestone, .stroque-thread", "up", 60],
+    [".project-portrait", "portrait", 80],
+    [".project-intro-copy > *", "up", 80],
+    [".email-main, .social-grid > a, .resume-row, .footer", "up", 60],
+    [".back-home, .projects-page > h1, .projects-lead", "down", 60],
+    [".project-card, .project-footer", "up", 80],
+  ];
+  groups.forEach(([selector, direction, delay]) => {
+    document.querySelectorAll(selector).forEach((el, index) => {
+      if (el.hasAttribute("data-motion") || el.parentElement.closest("[data-motion]")) return;
+      el.dataset.motion = direction;
+      el.style.setProperty("--motion-delay", `${delay + (index % 4) * 85}ms`);
     });
   });
-
-  const sections = ["work", "about", "experience", "contact"]
-    .map((id) => document.getElementById(id))
-    .filter(Boolean);
-
-  if ("IntersectionObserver" in window && sections.length > 0) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const activeHash = `#${entry.target.id}`;
-            document.querySelectorAll(".nav-link").forEach((navItem) => {
-              navItem.classList.toggle(
-                "is-active",
-                navItem.getAttribute("href") === activeHash
-              );
-            });
-          }
-        });
-      },
-      { rootMargin: "-35% 0px -50% 0px", threshold: 0 }
-    );
-
-    sections.forEach((section) => observer.observe(section));
-  }
-
-  /* --------------------------------------------------------------------------
-     3. Entrance Reveal Observer (.reveal-up)
-     -------------------------------------------------------------------------- */
-  const revealItems = document.querySelectorAll(".reveal-up");
-  if ("IntersectionObserver" in window && revealItems.length > 0) {
-    const revealObserver = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
-    );
-
-    revealItems.forEach((item) => revealObserver.observe(item));
-  } else {
-    revealItems.forEach((item) => item.classList.add("is-visible"));
-  }
-
-  /* --------------------------------------------------------------------------
-     4. Hero Top Crimson Orb Toggle (Touch & Keyboard Accessibility)
-     -------------------------------------------------------------------------- */
-  const heroOrbStage = document.getElementById("heroOrbStage");
-  if (heroOrbStage) {
-    heroOrbStage.addEventListener("click", () => {
-      heroOrbStage.classList.toggle("is-expanded");
-    });
-    heroOrbStage.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        heroOrbStage.classList.toggle("is-expanded");
-      }
-    });
-  }
-
-  /* --------------------------------------------------------------------------
-     5. Interactive 3D Flip & Pop-Out Flashcards (Pepperfry & Clario AI)
-     -------------------------------------------------------------------------- */
-  const modalBackdrop = document.getElementById("flashcardModalBackdrop");
-  const popoutCard3D = document.getElementById("popoutCard3D");
-  const popoutFlipBtn = document.getElementById("popoutFlipBtn");
-  const popoutFlipLabel = document.getElementById("popoutFlipLabel");
-  const popoutCloseBtn = document.getElementById("popoutCloseBtn");
-  const popoutImage = document.getElementById("popoutImage");
-  const popoutCategory = document.getElementById("popoutCategory");
-  const popoutTitle = document.getElementById("popoutTitle");
-  const popoutSummary = document.getElementById("popoutSummary");
-  const popoutGrid = document.getElementById("popoutGrid");
-
-  let lastFocusedFlashcard = null;
-  let flipTimer = null;
-
-  function updatePopoutFlipLabel(isFlippedToBack) {
-    if (!popoutFlipLabel) return;
-    popoutFlipLabel.textContent = isFlippedToBack
-      ? "Flip to front photo"
-      : "Turn up flashcard details";
-  }
-
-  function openPopoutFlashcard(projectId, triggerElement) {
-    const project = PROJECTS[projectId];
-    if (!project || !modalBackdrop || !popoutCard3D) return;
-
-    lastFocusedFlashcard = triggerElement || document.activeElement;
-
-    // Also flip the inline flashcard so the user sees the 3D rotation immediately
-    const inlineCard = document.querySelector(`.flashcard-3d[data-flashcard-id="${projectId}"]`);
-    if (inlineCard) {
-      inlineCard.classList.add("is-flipped");
-      inlineCard.setAttribute("aria-expanded", "true");
-    }
-
-    // Populate front & back faces of the popped-out 3D flashcard
-    if (popoutImage) {
-      popoutImage.src = project.image;
-      popoutImage.alt = project.imageAlt;
-    }
-    popoutCategory.textContent = project.category;
-    popoutTitle.textContent = project.title;
-    popoutSummary.textContent = project.summary;
-
-    popoutGrid.innerHTML = project.details
-      .map(
-        (item) => `
-        <div class="popout-detail-item">
-          <p class="popout-detail-label">${item.label}</p>
-          <p class="popout-detail-body">${item.body}</p>
-        </div>
-      `
-      )
-      .join("");
-
-    // Start the popped-out card on the front photo face, then animate the 3D flip!
-    popoutCard3D.classList.remove("is-flipped");
-    updatePopoutFlipLabel(false);
-
-    modalBackdrop.classList.add("is-open");
-    modalBackdrop.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-
-    if (flipTimer) clearTimeout(flipTimer);
-    flipTimer = setTimeout(() => {
-      popoutCard3D.classList.add("is-flipped");
-      updatePopoutFlipLabel(true);
-    }, 110);
-
-    if (popoutCloseBtn) {
-      popoutCloseBtn.focus();
-    }
-  }
-
-  function togglePopoutCardFlip() {
-    if (!popoutCard3D) return;
-    const isNowFlipped = popoutCard3D.classList.toggle("is-flipped");
-    updatePopoutFlipLabel(isNowFlipped);
-  }
-
-  function closePopoutFlashcard() {
-    if (!modalBackdrop) return;
-    if (flipTimer) clearTimeout(flipTimer);
-
-    modalBackdrop.classList.remove("is-open");
-    modalBackdrop.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-
-    // Reset inline flashcards back to front photo face smoothly when modal closes
-    document.querySelectorAll(".flashcard-3d.is-flipped").forEach((card) => {
-      card.classList.remove("is-flipped");
-      card.setAttribute("aria-expanded", "false");
-    });
-
-    if (lastFocusedFlashcard && typeof lastFocusedFlashcard.focus === "function") {
-      lastFocusedFlashcard.focus();
-    }
-  }
-
-  // Bind click & keyboard events on the 3D flashcards
-  document.querySelectorAll(".flashcard-3d[data-flashcard-id]").forEach((flashcard) => {
-    const projectId = flashcard.getAttribute("data-flashcard-id");
-
-    flashcard.addEventListener("click", () => {
-      openPopoutFlashcard(projectId, flashcard);
-    });
-
-    flashcard.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        openPopoutFlashcard(projectId, flashcard);
-      }
-    });
-  });
-
-  // Bind click on the left-column circular action buttons
-  document.querySelectorAll("[data-trigger-flashcard]").forEach((btn) => {
-    const projectId = btn.getAttribute("data-trigger-flashcard");
-    btn.addEventListener("click", () => {
-      openPopoutFlashcard(projectId, btn);
-    });
-  });
-
-  if (popoutFlipBtn) {
-    popoutFlipBtn.addEventListener("click", (event) => {
-      event.stopPropagation();
-      togglePopoutCardFlip();
-    });
-  }
-
-  if (popoutCard3D) {
-    popoutCard3D.addEventListener("click", () => {
-      togglePopoutCardFlip();
-    });
-  }
-
-  if (popoutCloseBtn) {
-    popoutCloseBtn.addEventListener("click", closePopoutFlashcard);
-  }
-
-  if (modalBackdrop) {
-    modalBackdrop.addEventListener("click", (event) => {
-      if (event.target === modalBackdrop) {
-        closePopoutFlashcard();
-      }
-    });
-  }
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && modalBackdrop && modalBackdrop.classList.contains("is-open")) {
-      closePopoutFlashcard();
-    }
-  });
-
-  /* --------------------------------------------------------------------------
-     6. Interactive HTML5 Canvas Halftone/Pixel Portrait Reveal (#portraitCanvas)
-        Matches dharmeshnayak.com's blockSize/revealRadius/ease/raggedness effect
-     -------------------------------------------------------------------------- */
-  const portraitCard = document.getElementById("aboutPortraitCard");
-  const portraitCanvas = document.getElementById("portraitCanvas");
-  const portraitSource = document.getElementById("aboutPortraitSource");
-
-  if (portraitCard && portraitCanvas && portraitSource) {
-    const ctx = portraitCanvas.getContext("2d");
-    const offscreen = document.createElement("canvas");
-    const offCtx = offscreen.getContext("2d", { willReadFrequently: true });
-
-    const BLOCK_SIZE = 5;
-    const REVEAL_RADIUS = 155;
-    const EASE_IN = 0.22;
-    const EASE_OUT = 0.035;
-    const RAGGEDNESS = 0.36;
-
-    let width = 0;
-    let height = 0;
-    let cols = 0;
-    let rows = 0;
-    let cellWeights = null;
-    let cellJitter = null;
-    let cellLums = null;
-    let pointerX = -9999;
-    let pointerY = -9999;
-    let isPointerInside = false;
-    let rafId = null;
-    let imageReady = false;
-
-    function buildGrid() {
-      const rect = portraitCard.getBoundingClientRect();
-      width = Math.max(1, Math.round(rect.width));
-      height = Math.max(1, Math.round(rect.height));
-
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      portraitCanvas.width = width * dpr;
-      portraitCanvas.height = height * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-      offscreen.width = width;
-      offscreen.height = height;
-
-      // Draw cover-fitted source portrait onto offscreen canvas
-      const imgW = portraitSource.naturalWidth || 768;
-      const imgH = portraitSource.naturalHeight || 1024;
-      const scale = Math.max(width / imgW, height / imgH);
-      const drawW = imgW * scale;
-      const drawH = imgH * scale;
-      const offsetX = (width - drawW) * 0.5;
-      const offsetY = (height - drawH) * 0.15;
-
-      offCtx.clearRect(0, 0, width, height);
-      offCtx.drawImage(portraitSource, offsetX, offsetY, drawW, drawH);
-
-      const imgData = offCtx.getImageData(0, 0, width, height).data;
-
-      cols = Math.ceil(width / BLOCK_SIZE);
-      rows = Math.ceil(height / BLOCK_SIZE);
-      const total = cols * rows;
-
-      cellWeights = new Float32Array(total);
-      cellJitter = new Float32Array(total);
-      cellLums = new Uint8Array(total);
-
-      for (let r = 0; r < rows; r++) {
-        const py = Math.min(height - 1, r * BLOCK_SIZE + (BLOCK_SIZE >> 1));
-        for (let c = 0; c < cols; c++) {
-          const px = Math.min(width - 1, c * BLOCK_SIZE + (BLOCK_SIZE >> 1));
-          const idx = (py * width + px) * 4;
-          const red = imgData[idx];
-          const green = imgData[idx + 1];
-          const blue = imgData[idx + 2];
-
-          // Perceived luminance with subtle contrast curve for editorial dark bento feel
-          let lum = Math.round(0.299 * red + 0.587 * green + 0.114 * blue);
-          lum = Math.max(12, Math.min(235, Math.round((lum - 115) * 1.18 + 95)));
-
-          const cellIdx = r * cols + c;
-          cellLums[cellIdx] = lum;
-          // Deterministic organic jitter per cell
-          const seed = Math.sin(c * 12.9898 + r * 78.233) * 43758.5453;
-          cellJitter[cellIdx] = (seed - Math.floor(seed) - 0.5) * 2 * RAGGEDNESS;
-        }
-      }
-
-      renderFrame();
-    }
-
-    function renderFrame() {
-      if (!imageReady || !cellWeights) return;
-
-      let anyActive = false;
-
-      // 1. Base layer: draw the dark monochrome pixelated/halftone portrait
-      ctx.fillStyle = "#101010";
-      ctx.fillRect(0, 0, width, height);
-
-      for (let r = 0; r < rows; r++) {
-        const y = r * BLOCK_SIZE;
-        const cy = y + BLOCK_SIZE * 0.5;
-        for (let c = 0; c < cols; c++) {
-          const x = c * BLOCK_SIZE;
-          const cx = x + BLOCK_SIZE * 0.5;
-          const i = r * cols + c;
-
-          let target = 0;
-          if (isPointerInside) {
-            const dx = cx - pointerX;
-            const dy = cy - pointerY;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            const effectiveRadius = REVEAL_RADIUS * (1 + cellJitter[i]);
-            if (dist < effectiveRadius) {
-              target = Math.min(1, Math.max(0, 1 - Math.pow(dist / effectiveRadius, 2.2)));
-            }
-          }
-
-          const current = cellWeights[i];
-          const next =
-            target > current
-              ? current + (target - current) * EASE_IN
-              : current + (target - current) * EASE_OUT;
-
-          cellWeights[i] = next < 0.004 ? 0 : next;
-          if (cellWeights[i] > 0.004 || isPointerInside) {
-            anyActive = true;
-          }
-
-          // Monochrome halftone dot/block size modulated by luminance
-          const lum = cellLums[i];
-          const shade = Math.round(lum * 0.72);
-          ctx.fillStyle = `rgb(${shade}, ${shade}, ${Math.min(255, shade + 4)})`;
-          ctx.fillRect(x, y, BLOCK_SIZE - 1, BLOCK_SIZE - 1);
-
-          // Overlay full-color source block where revealed by cursor
-          if (cellWeights[i] > 0.01) {
-            ctx.save();
-            ctx.globalAlpha = Math.min(1, cellWeights[i]);
-            ctx.drawImage(
-              offscreen,
-              x,
-              y,
-              BLOCK_SIZE,
-              BLOCK_SIZE,
-              x,
-              y,
-              BLOCK_SIZE,
-              BLOCK_SIZE
-            );
-            ctx.restore();
-          }
-        }
-      }
-
-      if (anyActive) {
-        rafId = requestAnimationFrame(renderFrame);
-      } else {
-        rafId = null;
-      }
-    }
-
-    function startLoop() {
-      if (!rafId) {
-        rafId = requestAnimationFrame(renderFrame);
-      }
-    }
-
-    function updatePointer(clientX, clientY) {
-      const rect = portraitCard.getBoundingClientRect();
-      pointerX = clientX - rect.left;
-      pointerY = clientY - rect.top;
-      isPointerInside = true;
-      startLoop();
-    }
-
-    portraitCard.addEventListener("mousemove", (event) => {
-      updatePointer(event.clientX, event.clientY);
-    });
-
-    portraitCard.addEventListener("mouseleave", () => {
-      isPointerInside = false;
-      startLoop();
-    });
-
-    portraitCard.addEventListener(
-      "touchmove",
-      (event) => {
-        if (event.touches && event.touches[0]) {
-          updatePointer(event.touches[0].clientX, event.touches[0].clientY);
-        }
-      },
-      { passive: true }
-    );
-
-    portraitCard.addEventListener("touchend", () => {
-      isPointerInside = false;
-      startLoop();
-    });
-
-    function initPortraitCanvas() {
-      imageReady = true;
-      buildGrid();
-    }
-
-    if (portraitSource.complete && portraitSource.naturalWidth > 0) {
-      initPortraitCanvas();
-    } else {
-      portraitSource.addEventListener("load", initPortraitCanvas);
-    }
-
-    window.addEventListener("resize", () => {
-      if (imageReady) {
-        buildGrid();
-      }
-    });
-  }
-
-  /* --------------------------------------------------------------------------
-     7. Personal Gallery — Photos Slide Switcher
-     -------------------------------------------------------------------------- */
-  const photoSlideButtons = document.querySelectorAll("[data-photo-slide-btn]");
-  const photoSlides = document.querySelectorAll("[data-photo-slide]");
-
-  if (photoSlideButtons.length > 0 && photoSlides.length > 0) {
-    photoSlideButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const targetIndex = btn.getAttribute("data-photo-slide-btn");
-
-        photoSlideButtons.forEach((b) => {
-          const isMatch = b.getAttribute("data-photo-slide-btn") === targetIndex;
-          b.classList.toggle("is-active", isMatch);
-          b.setAttribute("aria-selected", isMatch ? "true" : "false");
-        });
-
-        photoSlides.forEach((slide) => {
-          const isMatch = slide.getAttribute("data-photo-slide") === targetIndex;
-          slide.classList.toggle("is-active", isMatch);
-        });
+  let started = false;
+  function startMotion() {
+    if (started) return;
+    started = true;
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("motion-visible");
+        observer.unobserve(entry.target);
       });
-    });
+    }, { threshold: 0.08, rootMargin: "0px 0px -20px 0px" });
+    document.querySelectorAll("[data-motion]").forEach(el => observer.observe(el));
   }
+  if (document.documentElement.classList.contains("intro-pending")) {
+    window.addEventListener("portfolio-intro-complete", startMotion, { once: true });
+  } else startMotion();
 })();
