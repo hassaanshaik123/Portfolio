@@ -141,6 +141,8 @@ em {
   padding: 10px 22px;
 }
 .nav-wrap {
+  position: relative;
+  z-index: 20;
   width: min(1380px, calc(100% - 64px));
   margin: 24px auto 0;
 }
@@ -566,7 +568,8 @@ em {
   bottom: auto;
 }
 .stroque-thread {
-  background: #fff0e9;
+  background: #ffbc8f;
+  color: #202020;
   border-radius: 22px;
   padding: 22px 28px;
   display: flex;
@@ -579,14 +582,16 @@ em {
 .stroque-thread strong {
   display: block;
   font-size: 22px;
+  font-weight: 700;
 }
 .stroque-thread span {
   font-size: 14px;
-  color: var(--muted);
+  color: inherit;
 }
 .stroque-thread p {
   margin: 0;
   font-size: 16px;
+  font-weight: 500;
 }
 .project-intro-panel {
   grid-template-columns: 1fr 1fr;
@@ -1695,12 +1700,24 @@ dialog section p {
 }
 
 .about-portrait {
-  border-radius: 0 0 50% 50%;
+  aspect-ratio: 1 / 1.15;
+  border-radius: 0;
+  /* Keep the head free while clipping the lower portrait to the circle. */
+  mask-image: linear-gradient(#000 0 0), radial-gradient(circle closest-side, #000 99.8%, transparent 100%);
+  mask-size: 100% 57%, 100% 86.9565%;
+  mask-position: top, bottom;
+  mask-repeat: no-repeat;
 }
 
 .about-portrait .portrait-circle {
-  height: 85%;
-  aspect-ratio: auto;
+  height: auto;
+  aspect-ratio: 1;
+}
+
+.about-portrait img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .project-intro-panel.without-portrait {
@@ -1754,7 +1771,6 @@ dialog {
 .story-metrics {
   background: var(--gray);
 }
-.stroque-thread,
 .social-grid a:hover {
   background: var(--soft-accent);
 }
