@@ -64,6 +64,7 @@ const projects = [
   {
     id: "soundbuddy",
     name: "SoundBuddy",
+    url: "https://soundbuddy.tech",
     category: "Mac audio app",
     preview:
       "Built a Mac audio app for product managers and then expanded to normal users.",
@@ -200,7 +201,7 @@ document.addEventListener("click", (event) => {
     (item) => item.id === button.dataset.story,
   );
   storyTrigger = button;
-  storyContent.innerHTML = `<header class="story-header">${x.image ? `<img src="${x.image}" alt="${x.name} logo">` : ""}<div><h2 id="story-title">${x.name}</h2><p>${x.role || x.category}</p>${x.date ? `<p class="story-date">${x.date}</p>` : ""}</div></header><div class="story-columns"><section><h3>${x.originTitle}</h3><p>${x.origin}</p></section><section><h3>What I did</h3><p>${x.work}</p></section></div>${x.metrics ? `<div class="story-metrics">${x.metrics.map(([n, t]) => `<div><strong>${n}</strong><span>${t}</span></div>`).join("")}</div>` : ""}<section class="story-ending"><h3>${x.endTitle}</h3><p>${x.end}</p></section><button class="back-story" type="button">Back to ${x.image ? "experiments" : "projects"}</button>`;
+  storyContent.innerHTML = `<header class="story-header">${x.image ? `<img src="${x.image}" alt="${x.name} logo">` : ""}<div><h2 id="story-title">${x.name}</h2><p>${x.role || x.category}</p>${x.url ? `<a class="button small" href="${x.url}" target="_blank" rel="noopener noreferrer">Visit ${x.name} ↗</a>` : ""}${x.date ? `<p class="story-date">${x.date}</p>` : ""}</div></header><div class="story-columns"><section><h3>${x.originTitle}</h3><p>${x.origin}</p></section><section><h3>What I did</h3><p>${x.work}</p></section></div>${x.metrics ? `<div class="story-metrics">${x.metrics.map(([n, t]) => `<div><strong>${n}</strong><span>${t}</span></div>`).join("")}</div>` : ""}<section class="story-ending"><h3>${x.endTitle}</h3><p>${x.end}</p></section><button class="back-story" type="button">Back to ${x.image ? "experiments" : "projects"}</button>`;
   dialog.showModal();
   dialog.scrollTop = 0;
   document.body.classList.add("dialog-open");
