@@ -104,7 +104,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
       attribute="data-theme"
       defaultTheme="system"
       enableSystem
-      disableTransitionOnChange
       storageKey="portfolio-theme"
     >
       <MotionConfig reducedMotion="user">
