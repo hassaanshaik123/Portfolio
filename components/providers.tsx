@@ -31,7 +31,7 @@ function OpeningSequence({ onComplete }: { onComplete: () => void }) {
     document.documentElement.style.overflow = "hidden";
     const start = performance.now();
     const timer = window.setInterval(() => {
-      const value = Math.min(100, Math.floor((performance.now() - start) / 55));
+      const value = Math.min(100, Math.floor((performance.now() - start) / 22));
       setProgress(value);
       if (value >= 100) {
         window.clearInterval(timer);

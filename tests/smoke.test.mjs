@@ -7,8 +7,11 @@ test("homepage delivers the approved content as server-rendered HTML", async () 
   const response = await fetch(`${base}/`);
   assert.equal(response.status, 200);
   const html = await response.text();
-  for (const text of ["Sales &amp; Business Developer", "Listen to the Problem", "Stroque Consulting", "hassaan-about-black-original.png", "Download résumé"])
+  for (const text of ["Sales &amp; Business Developer", "Listen to the Problem", "Stroque Consulting", "hassaan-about-black-original.png", "Resume"])
     assert.ok(html.includes(text), `Missing homepage content: ${text}`);
+  const resumeLink = html.match(/<a\b[^>]*href="\/assets\/Muhammad-Hassaan-Resume\.pdf"[^>]*>Resume<\/a>/)?.[0];
+  assert.ok(resumeLink, "Resume should link directly to the PDF");
+  assert.ok(!/\bdownload(?:=|\s|>)/.test(resumeLink), "Resume should open rather than force a download");
   assert.ok(!html.includes('src="js/main.js'), "Legacy DOM scripts must not be loaded");
 });
 

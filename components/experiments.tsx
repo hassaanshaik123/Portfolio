@@ -22,15 +22,12 @@ export function Experiments() {
               sizes="(max-width: 700px) 85vw, 30vw"
             />
             <p>{story.preview}</p>
+            <div className="story-link" aria-hidden="true">
+              <span>The story</span>
+              <span className="circle">↗</span>
+            </div>
             <StoryDialog story={story}>
-              <button className="story-link" type="button">
-                <span>
-                  The story<span className="sr-only"> of {story.name}</span>
-                </span>
-                <span className="circle" aria-hidden="true">
-                  ↗
-                </span>
-              </button>
+              <button className="experiment-open" type="button" aria-label={`Read the story of ${story.name}`} />
             </StoryDialog>
           </TiltCard>
         </Reveal>

@@ -30,6 +30,7 @@ export function Navbar() {
   const lastScroll = useRef(0);
   const travel = useRef(0);
   const [collapsed, setCollapsed] = useState(false);
+  const [controlsHidden, setControlsHidden] = useState(false);
   const reduced = useReducedMotion();
   const { scrollY } = useScroll();
   const progress = useMotionValue(0);
@@ -40,19 +41,24 @@ export function Navbar() {
     if (Math.sign(delta) !== Math.sign(travel.current)) travel.current = 0;
     travel.current += delta;
     if (Math.abs(travel.current) >= 6) {
+      if (delta > 0) setControlsHidden(true);
       progress.set(delta > 0 ? 1 : 0);
       travel.current = 0;
     }
   });
-  const eased = useSpring(progress, { stiffness: 210, damping: 30, restDelta: 0.001 });
+  const eased = useSpring(progress, { stiffness: 840, damping: 60, restDelta: 0.001 });
   const collapse = reduced ? progress : eased;
-  const width = useTransform(collapse, value => `calc(${100 * (1 - value)}% + ${84 * value}px)`);
-  const height = useTransform(collapse, [0, 1], [64, 44]);
+  const width = useTransform(collapse, value => `calc(${100 * (1 - value)}% + ${59 * value}px)`);
+  const height = useTransform(collapse, [0, 1], [64, 22]);
   const paddingInline = useTransform(collapse, [0, 1], [24, 6]);
   const opacity = useTransform(collapse, [0, 1], [1, 0.6]);
-  useMotionValueEvent(collapse, "change", value => setCollapsed(value > 0.4));
+  useMotionValueEvent(collapse, "change", value => {
+    setCollapsed(value > 0.4);
+    if (value < 0.005 && progress.get() === 0) setControlsHidden(false);
+  });
   useEffect(() => {
     progress.set(0);
+    setControlsHidden(false);
     lastScroll.current = window.scrollY;
     travel.current = 0;
   }, [pathname, progress]);
@@ -96,9 +102,12 @@ export function Navbar() {
             <span className="notch-dots" aria-hidden="true"><i /><i /><i /></span>
           </button>
         ) : (
-          <Link className="brand" href="/" aria-label="Hassaan home">
-            <span className="monogram">H</span><span className="brand-name">Hassaan</span>
-          </Link>
+          <div className="brand">
+            <span className="monogram" aria-hidden="true">H</span>
+            <Link className="brand-name" href={`${home}#home`} aria-label="Hassaan home">
+              Hassaan
+            </Link>
+          </div>
         )}
         <div className="nav-links desktop-navigation">
           {links.map(([label, id]) => (
@@ -121,7 +130,7 @@ export function Navbar() {
           </Button>
           {themeToggle}
         </div>
-        <div className="mobile-nav-actions">
+        <div className={`mobile-nav-actions${controlsHidden ? " controls-hidden" : ""}`} inert={controlsHidden ? true : undefined} aria-hidden={controlsHidden ? true : undefined}>
           {themeToggle}
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>

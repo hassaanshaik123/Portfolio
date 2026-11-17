@@ -309,13 +309,6 @@ export default function HomePage() {
                 </svg>
               </span>Instagram <span>↗</span>
             </a>
-            <a
-              href="https://github.com/hassaanshaik123"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="social-icon">⌘</span>GitHub <span>↗</span>
-            </a>
             <a href="mailto:hassaanshaik.work@gmail.com">
               <span className="social-icon">✉</span>Email <span>↗</span>
             </a>
@@ -324,9 +317,8 @@ export default function HomePage() {
             <a
               className="button"
               href="/assets/Muhammad-Hassaan-Resume.pdf"
-              download
             >
-              Download résumé ↓
+              Resume
             </a>
             <p>Sales &amp; Business Development</p>
           </div>
