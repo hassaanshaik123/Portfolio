@@ -1,2 +1,8 @@
 preview.html
 .DS_Store
+
+node_modules/
+.next/
+.vercel/
+*.tsbuildinfo
+next-env.d.ts
