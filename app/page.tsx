@@ -1,8 +1,9 @@
+import { ProjectShortcuts } from "@/components/project-shortcuts";
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/motion";
 import { Experiments } from "@/components/experiments";
-import { TimelinePath } from "@/components/timeline-path";
+import { JourneyTimeline } from "@/components/journey-timeline";
 
 export default function HomePage() {
   return (
@@ -153,70 +154,7 @@ export default function HomePage() {
         </Reveal>
         </div>
       </section>
-      <section className="timeline container section-space" id="timeline">
-        <p className="eyebrow">My timeline</p>
-        <Reveal className="timeline-heading" as="div" direction="up" delay={0}>
-          <Reveal className="section-title" as="h2" direction="up" delay={0}>
-            How I got <em>here.</em>
-          </Reveal>
-          <p>Newest first</p>
-        </Reveal>
-        <div className="journey">
-          <TimelinePath />
-          <div className="journey-thread" aria-hidden="true"></div>
-          <Reveal className="milestone" as="article" direction="up" delay={0.1}>
-            <span className="milestone-dot"></span>
-            <span className="date-pill">2026 to present</span>
-            <h3>Masters’ Union</h3>
-            <p>
-              I joined the MBA to get closer to how businesses are built.
-              Winning Startup Weekend gave me a chance to put an idea in front
-              of people and see how they responded.
-            </p>
-          </Reveal>
-          <Reveal className="milestone" as="article" direction="up" delay={0.1}>
-            <span className="milestone-dot"></span>
-            <span className="date-pill">Aug 2024 to Apr 2026</span>
-            <h3>Hustlers’ Edge</h3>
-            <p>
-              I saw students looking for work without the skills employers
-              wanted. I started a community to help them learn those skills and
-              find their first paying clients.
-            </p>
-          </Reveal>
-          <Reveal className="milestone" as="article" direction="up" delay={0.1}>
-            <span className="milestone-dot"></span>
-            <span className="date-pill">2022 to 2025</span>
-            <h3>University of Delhi</h3>
-            <p>
-              Alongside my degree, I led the college entrepreneurship cell. I
-              worked with student founders and helped three ventures access ₹6
-              lakh in funding.
-            </p>
-          </Reveal>
-          <Reveal className="milestone" as="article" direction="up" delay={0.1}>
-            <span className="milestone-dot"></span>
-            <span className="date-pill">Feb 2023 to Apr 2024</span>
-            <h3>iDigitalpreneur</h3>
-            <strong className="entry-sales">My first step into sales</strong>
-            <p>
-              This was where I first learned to sell. I spoke with students
-              about their goals, worked through their concerns and followed up
-              until they were ready to decide.
-            </p>
-          </Reveal>
-        </div>
-        <Reveal className="stroque-thread" as="div" direction="up" delay={0.1}>
-          <div>
-            <strong>Stroque Consulting</strong>
-            <span>Nov 2022 to present</span>
-          </div>
-          <p>
-            I kept working with clients at Stroque while studying, selling and
-            building the community.
-          </p>
-        </Reveal>
-      </section>
+      <JourneyTimeline />
       <section className="projects-intro container section-space" id="projects">
         <p className="eyebrow">My projects</p>
         <div className="project-intro-panel">
@@ -252,17 +190,7 @@ export default function HomePage() {
               them to potential customers. These projects are where I’m learning
               what people want, how to reach them and what makes them buy.
             </p>
-            <div className="intro-metrics">
-              <div>
-                <strong>4+</strong>
-                <span>Business projects</span>
-              </div>
-              <div>
-                <span>Customers in</span>
-                <strong>3+</strong>
-                <span>Countries</span>
-              </div>
-            </div>
+            <ProjectShortcuts />
             <Link className="button" href="/projects">
               Go through the projects ↗
             </Link>
