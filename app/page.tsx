@@ -181,9 +181,7 @@ export default function HomePage() {
           >
             <p className="eyebrow muted">Built while learning</p>
             <h2>
-              Ideas I wanted
-              <br />
-              to <em>try for real.</em>
+              Ideas I wanted to <em>try for real.</em>
             </h2>
             <p>
               At Masters’ Union, I’ve had the space to build things and take

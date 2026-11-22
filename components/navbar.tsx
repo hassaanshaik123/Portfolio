@@ -21,6 +21,7 @@ const links = [
   ["About", "about"],
   ["Projects", "projects"],
   ["Timeline", "timeline"],
+  ["Connect", "connect"],
 ] as const;
 export function Navbar() {
   const pathname = usePathname();
@@ -124,9 +125,9 @@ export function Navbar() {
             </Link>
           ))}
           <Button asChild className="button small">
-            <Link href={`${home}#connect`}>
-              Connect <ArrowUpRight className="size-4" />
-            </Link>
+            <a href="/assets/Muhammad-Hassaan-Resume.pdf">
+              Resume <ArrowUpRight className="size-4" />
+            </a>
           </Button>
           {themeToggle}
         </div>
@@ -163,9 +164,9 @@ export function Navbar() {
                   </Link>
                 ))}
                 <Button asChild className="button mt-4">
-                  <Link href={`${home}#connect`} onClick={() => closeAndNavigate("connect")}>
-                    Let’s connect <ArrowUpRight className="size-4" />
-                  </Link>
+                  <a href="/assets/Muhammad-Hassaan-Resume.pdf" onClick={() => setOpen(false)}>
+                    Resume <ArrowUpRight className="size-4" />
+                  </a>
                 </Button>
               </div>
             </SheetContent>
