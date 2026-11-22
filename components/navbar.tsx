@@ -17,8 +17,8 @@ import {
 import { Reveal } from "@/components/motion";
 
 const links = [
-  ["About", "about"],
   ["Experiments", "experiments"],
+  ["About", "about"],
   ["Projects", "projects"],
   ["Timeline", "timeline"],
 ] as const;

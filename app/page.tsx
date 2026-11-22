@@ -70,16 +70,30 @@ export default function HomePage() {
             </Link>
           </Reveal>
         </div>
-        <Link className="scroll-hint" href="#about">
+        <Link className="scroll-hint" href="#experiments">
           Scroll to explore ↓
         </Link>
+      </section>
+      <section
+        className="experiments dark-panel section-space"
+        id="experiments"
+      >
+        <Reveal className="section-heading" as="div" direction="up" delay={0}>
+          <div>
+            <p className="eyebrow">Learning by doing</p>
+            <h2>
+              My <em>Experiments</em>
+            </h2>
+          </div>
+          <p>A few ideas I took into the real world.</p>
+        </Reveal>
+        <Experiments />
       </section>
       <section className="about container section-space" id="about">
         <p className="eyebrow">A little about me</p>
         <Reveal className="section-title" as="h2" direction="up" delay={0}>
           Curious about <em>people.</em>
-          <br />
-          Driven to <em>build.</em>
+          {" "}Driven to <em>build.</em>
         </Reveal>
         <div className="about-panel">
           <Reveal className="about-person" as="div" direction="up" delay={0.05}>
@@ -120,7 +134,6 @@ export default function HomePage() {
               </div>
             </div>
           </Reveal>
-        </div>
         <Reveal className="principles" as="div" direction="up" delay={0.1}>
           <div>
             <span>01</span>
@@ -138,21 +151,7 @@ export default function HomePage() {
             <p>Stay involved beyond the first conversation.</p>
           </div>
         </Reveal>
-      </section>
-      <section
-        className="experiments dark-panel section-space"
-        id="experiments"
-      >
-        <Reveal className="section-heading" as="div" direction="up" delay={0}>
-          <div>
-            <p className="eyebrow">Learning by doing</p>
-            <h2>
-              My <em>Experiments</em>
-            </h2>
-          </div>
-          <p>A few ideas I took into the real world.</p>
-        </Reveal>
-        <Experiments />
+        </div>
       </section>
       <section className="timeline container section-space" id="timeline">
         <p className="eyebrow">My timeline</p>

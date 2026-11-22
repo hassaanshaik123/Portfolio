@@ -2272,6 +2272,13 @@ body::before {
 @media (min-width: 701px) {
   .experiment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+@media (min-width: 1100px) {
+  .experiment-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+  .experiment-grid .experiment-card { padding: 20px; }
+  .experiment-grid .experiment-card h3 { font-size: 22px; }
+  .experiment-grid .experiment-card .date { min-height: 42px; margin-bottom: 16px; }
+  .experiment-grid .experiment-card > p:not(.date) { font-size: 15px; }
+}
 .experiment-card .experiment-art {
   height: 175px;
   min-height: 175px;
@@ -2293,3 +2300,38 @@ body::before {
   object-fit: cover;
   object-position: center 48%;
 }
+
+/* Pointer-driven transforms must not inherit delayed CSS hover transitions. */
+.tilt-card {
+  transition-property: box-shadow, background-color, color, border-color;
+}
+.tilt-card:hover { transform: none; }
+
+.about > .eyebrow,
+.about > .section-title { text-align: center; }
+@media (min-width: 701px) {
+  .about > .section-title {
+    font-size: clamp(25px, 4vw, 52px);
+    white-space: nowrap;
+  }
+}
+
+.about-panel { row-gap: 28px; }
+.about-panel > .principles {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding-top: 22px;
+  border-top: 1px solid color-mix(in srgb, var(--muted) 25%, transparent);
+  gap: 24px;
+}
+.about-panel > .principles span { font-size: 17px; }
+.about-panel > .principles h3 { font-size: 20px; margin: 3px 0 5px; }
+.about-panel > .principles p { font-size: 14px; line-height: 1.45; margin: 0; }
+
+@media (min-width: 1001px) {
+  .about-panel > .principles {
+    padding-left: max(0px, calc(20% - 177px));
+  }
+}
+
+.about-panel > .principles { text-align: center; padding-left: 0; }
