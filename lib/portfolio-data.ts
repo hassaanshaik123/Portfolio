@@ -16,6 +16,23 @@ export interface Story {
   url?: string;
 }
 
+const soundBuddy: Story = {
+    id: "soundbuddy",
+    name: "SoundBuddy",
+    image: "/assets/soundbuddy.jpg",
+    url: "https://soundbuddy.tech",
+    category: "Mac audio app",
+    preview:
+      "Built a Mac audio app for product managers and then expanded to normal users.",
+    role: "Product Growth & Sales Contributor",
+    originTitle: "The starting point",
+    origin:
+      "SoundBuddy began as a Mac audio app for product managers. We explored shared listening as a way to make it useful to a wider group of Mac users.",
+    work: "I helped identify shared listening as a growth opportunity and took the update to potential customers through warm-network outreach and automated Reddit messages.",
+    endTitle: "My contribution",
+    end: "My work focused on finding new uses for the product, reaching potential customers and contributing to early sales.",
+  };
+
 export const experiments: Story[] = [
   {
     id: "stroque",
@@ -37,6 +54,7 @@ export const experiments: Story[] = [
     endTitle: "What comes next",
     end: "At Masters’ Union, I’m developing software to test and automate parts of the manual process I used with hiring teams.",
   },
+  soundBuddy,
   {
     id: "hustlers",
     name: "Hustlers’ Edge Community",
@@ -80,21 +98,7 @@ export const experiments: Story[] = [
 ];
 
 export const projects: Story[] = [
-  {
-    id: "soundbuddy",
-    name: "SoundBuddy",
-    url: "https://soundbuddy.tech",
-    category: "Mac audio app",
-    preview:
-      "Built a Mac audio app for product managers and then expanded to normal users.",
-    role: "Product Growth & Sales Contributor",
-    originTitle: "The starting point",
-    origin:
-      "SoundBuddy began as a Mac audio app for product managers. We explored shared listening as a way to make it useful to a wider group of Mac users.",
-    work: "I helped identify shared listening as a growth opportunity and took the update to potential customers through warm-network outreach and automated Reddit messages.",
-    endTitle: "My contribution",
-    end: "My work focused on finding new uses for the product, reaching potential customers and contributing to early sales.",
-  },
+  soundBuddy,
   {
     id: "clario",
     name: "Clario AI",

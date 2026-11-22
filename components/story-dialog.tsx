@@ -16,8 +16,10 @@ import type { Story } from "@/lib/portfolio-data";
 export function StoryDialog({
   story,
   children,
+  returnTo,
 }: {
   story: Story;
+  returnTo?: "experiments" | "projects";
   children: React.ReactNode;
 }) {
   return (
@@ -82,7 +84,7 @@ export function StoryDialog({
         </section>
         <DialogClose asChild>
           <Button variant="ghost" className="back-story justify-self-start">
-            Back to {story.image ? "experiments" : "projects"}
+            Back to {returnTo || (story.image ? "experiments" : "projects")}
           </Button>
         </DialogClose>
       </DialogContent>

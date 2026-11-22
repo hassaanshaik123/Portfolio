@@ -446,7 +446,7 @@ em {
   border-radius: 20px;
   margin-bottom: 18px;
 }
-.experiment-card:nth-child(3) img {
+.experiment-idp img {
   object-fit: contain;
   background: #000;
 }
@@ -2005,7 +2005,7 @@ dialog {
     transform: none !important;
   }
 }
-.experiment-grid > :nth-child(3) .experiment-card img {
+.experiment-grid .experiment-idp img {
   object-fit: contain;
   background: #000;
 }
@@ -2267,4 +2267,29 @@ body::before {
   flex-shrink: 0;
   width: 44px;
   height: 44px;
+}
+
+@media (min-width: 701px) {
+  .experiment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.experiment-card .experiment-art {
+  height: 175px;
+  min-height: 175px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+  font-size: 36px;
+}
+@media (max-width: 1000px) {
+  .experiment-card .experiment-art { height: 140px; min-height: 140px; }
+}
+
+.experiment-soundbuddy img {
+  object-fit: cover;
+  object-position: center 48%;
+}
+.project-art .project-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 48%;
 }

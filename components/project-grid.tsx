@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { projects } from "@/lib/portfolio-data";
 import { Reveal } from "@/components/motion";
 import { StoryDialog } from "@/components/story-dialog";
@@ -12,7 +13,9 @@ export function ProjectGrid() {
               className={`project-art ${story.id}`}
               aria-label={`${story.name} artwork`}
             >
-              <span>{story.name}</span>
+              {story.image ? (
+                <Image src={story.image} alt={`${story.name} cover`} width={500} height={300} sizes="(max-width: 700px) 85vw, 45vw" className="project-cover" />
+              ) : <span>{story.name}</span>}
             </div>
             <div className="project-copy">
               <p className="eyebrow">{story.category}</p>
@@ -22,7 +25,7 @@ export function ProjectGrid() {
                 <small>
                   {story.role ? `My role: ${story.role}` : story.note}
                 </small>
-                <StoryDialog story={story}>
+                <StoryDialog story={story} returnTo="projects">
                   <button
                     type="button"
                     className="circle"
